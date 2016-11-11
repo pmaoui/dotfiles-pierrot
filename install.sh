@@ -23,3 +23,7 @@ fi
 rm -R ~/.config/nvim 2>/dev/null
 ln -s ~/.vim ~/.config/nvim
 ln -s ~/.vimrc ~/.vim/init.vim
+
+# install vim-plug
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
