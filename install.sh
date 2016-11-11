@@ -3,7 +3,8 @@
 ABSPATH=$(readlink -f $0)
 ABSDIR=$(dirname $ABSPATH)
 
-sudo apt-get update 
+sudo add-apt-repository ppa:neovim-ppa/unstable
+sudo apt-get update
 sudo apt-get install -y neovim tmux
 
 rm ~/.zshrc ~/.vimrc ~/.tmux.conf
