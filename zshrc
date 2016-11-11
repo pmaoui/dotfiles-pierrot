@@ -16,6 +16,7 @@ antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle zsh-users/zsh-autosuggestions
 
 # Theme
-antigen theme daveverwer
+#antigen theme daveverwer
+antigen theme agnoster
 
 antigen apply
