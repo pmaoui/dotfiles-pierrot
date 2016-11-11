@@ -13,6 +13,6 @@ ln -s $ABSDIR/vimrc ~/.vimrc
 ln -s $ABSDIR/tmux.conf ~/.tmux.conf
 
 mkdir ~/.vim 2>/dev/null
-rm ~/.config/nvim
-ln -s ~/.config/nvim ~/.vim
-ln -s ~/.vim/init.vim ~/.vimrc
+rm -R ~/.config/nvim 2>/dev/null
+ln -s ~/.vim ~/.config/nvim
+ln -s ~/.vimrc ~/.vim/init.vim
