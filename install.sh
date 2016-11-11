@@ -3,9 +3,12 @@
 ABSPATH=$(readlink -f $0)
 ABSDIR=$(dirname $ABSPATH)
 
-sudo add-apt-repository ppa:neovim-ppa/unstable
+# install antigen
+git submodule update --init --recursive
+
+sudo add-apt-repository ppa:neovim-ppa/unstable -y
 sudo apt-get update
-sudo apt-get install -y neovim tmux
+sudo apt-get install -y neovim tmux zsh
 
 rm ~/.zshrc ~/.vimrc ~/.tmux.conf
 ln -s $ABSDIR/zshrc ~/.zshrc
