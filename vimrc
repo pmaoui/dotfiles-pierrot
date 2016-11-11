@@ -1,10 +1,12 @@
 "Load my bundles
 source ~/dotfiles-pierrot/vimrc-plugins
 
+" Leader is Space
+let mapleader = "\<Space>"
+
 " Live config edit
-nmap <F7> :tabnew $HOME/.vimrc.local<ENTER>
-nmap <F8> :source $HOME/.vimrc.local<ENTER>
-nmap <F9> :tabnew $HOME/.tmux.conf.local<ENTER>
+nmap <F7> :tabnew $HOME/.vimrc<ENTER>
+nmap <F8> :source $HOME/.vimrc<ENTER>
 
 " manage split size
 nmap <C-W>H :vertical resize +5<cr>

@@ -1,12 +1,19 @@
-Plug 'airblade/vim-gitgutter'
+call plug#begin('~/.vim/plugged')
+
+Plug 'kien/ctrlp.vim'
+"Plug 'airblade/vim-gitgutter'
 Plug 'godlygeek/tabular'
 Plug 'digitaltoad/vim-pug'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
 Plug 'moll/vim-node'
 Plug 'mtscout6/syntastic-local-eslint.vim'
-Plug 'leafgarland/typescript-vim'
+Plug 'Quramy/tsuquyomi'
+
 
 " Themes
 "Plug 'tomasr/molokai'
 Plug 'gertjanreynaert/cobalt2-vim-theme'
+
+" Add plugins to &runtimepath
+call plug#end()
