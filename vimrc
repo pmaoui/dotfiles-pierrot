@@ -41,5 +41,8 @@ map <leader>gf :e <cfile><cr>
 colorscheme cobalt2
 
 " Stop auto return
+set expandtab
+set tabstop=2
+set shiftwidth=2
 set textwidth=0
 set wrapmargin=0
