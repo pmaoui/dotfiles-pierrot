@@ -46,3 +46,6 @@ set tabstop=2
 set shiftwidth=2
 set textwidth=0
 set wrapmargin=0
+
+" Display lines number
+set number
