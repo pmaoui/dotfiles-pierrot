@@ -1,11 +1,14 @@
 "Load my bundles
 source ~/dotfiles-pierrot/vimrc-plugins
 
+" THEME
+syntax on
+set t_Co=256
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+colorscheme OceanicNext
+
 " Leader is Space
 let mapleader = "\<Space>"
-
-" Live config edit
-nmap <F7> :tabnew $HOME/.vimrc<ENTER>
 nmap <F8> :source $HOME/.vimrc<ENTER>
 
 " manage split size
@@ -24,7 +27,6 @@ cnoremap <C-j> <Down>
 " Create a file with <space>gf
 map <leader>gf :e <cfile><cr>
 
-colorscheme cobalt2
 
 " Display lines number
 set number

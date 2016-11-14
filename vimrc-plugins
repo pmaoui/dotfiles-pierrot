@@ -10,11 +10,12 @@ Plug 'scrooloose/nerdtree'
 Plug 'moll/vim-node'
 Plug 'Quramy/tsuquyomi'
 Plug 'tpope/vim-obsession'
+Plug 'blueyed/vim-diminactive'
 
 
 " Themes
 "Plug 'tomasr/molokai'
-Plug 'gertjanreynaert/cobalt2-vim-theme'
+Plug 'mhartington/oceanic-next'
 
 " Add plugins to &runtimepath
 call plug#end()
