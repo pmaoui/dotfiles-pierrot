@@ -1,5 +1,6 @@
 call plug#begin('~/.vim/plugged')
 
+Plug 'vim-syntastic/syntastic'
 Plug 'kien/ctrlp.vim'
 "Plug 'airblade/vim-gitgutter'
 Plug 'godlygeek/tabular'
@@ -7,8 +8,8 @@ Plug 'digitaltoad/vim-pug'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
 Plug 'moll/vim-node'
-Plug 'mtscout6/syntastic-local-eslint.vim'
 Plug 'Quramy/tsuquyomi'
+Plug 'tpope/vim-obsession'
 
 
 " Themes

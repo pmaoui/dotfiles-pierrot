@@ -17,9 +17,29 @@ nmap <C-W>J :resize +5<cr>
 " implicite :%s/old/new/g for :%s/old/new/
 set gdefault
 
-" scroll the page before the end of the window
-set scrolloff=7
+" No more up/down arrows in command mode
+cnoremap <C-k> <Up>
+cnoremap <C-j> <Down>
 
+" Create a file with <space>gf
+map <leader>gf :e <cfile><cr>
+
+colorscheme cobalt2
+
+" Display lines number
+set number
+
+" Stop auto return
+set expandtab
+set tabstop=2
+set shiftwidth=2
+set textwidth=0
+set wrapmargin=0
+
+" scroll the page before the end of the window
+set scrolloff=4
+
+" ####### PLUGINS
 let g:syntastic_javascript_checkers = ['eslint']
 
 let test#javascript#mocha#options = '--compilers js:babel-core/register'
@@ -31,21 +51,3 @@ map <leader>cd :lcd %:h<CR>
 " CtrlP : ignore folders
 let g:ctrlp_custom_ignore = '\v[\/](node_modules|target|dist)|(\.(swp|ico|git|svn))$'
 
-" No more up/down arrows in command mode
-cnoremap <C-k> <Up>
-cnoremap <C-j> <Down>
-
-" Create a file with <space>gf
-map <leader>gf :e <cfile><cr>
-
-colorscheme cobalt2
-
-" Stop auto return
-set expandtab
-set tabstop=2
-set shiftwidth=2
-set textwidth=0
-set wrapmargin=0
-
-" Display lines number
-set number

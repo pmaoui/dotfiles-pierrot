@@ -1,15 +1,12 @@
 /* URxvt */
 URxvt*termName: rxvt
-urxvt*font: xft:Terminus:pixelsize=14,xft:Inconsolata\ for\ Powerline:pixelsize=14
+urxvt*font: xft:Terminus:pixelsize=16,xft:Inconsolata\ for\ Powerline:pixelsize=16
 URxvt*allow_bold: true
-URxvt*depth: 32
-URxvt*foreground: grey
-URxvt*background: black
 urxvt*depth: 32
-urxvt*background: rgb:0000/0000/0200
-URxvt*tint: black
+URxvt.background: #222222
+URxvt*foreground: #eeeeee
 URxvt*cursorBlink: true
-URxvt*cursorColor: #FFFFFF
+URxvt*cursorColor: #96FFFF
 URxvt*scrollBar: false
 URxvt*saveLines: 1000
 # Display : a tab
@@ -20,6 +17,9 @@ URxvt*tabbed.tabbar-fg: 10
 URxvt*tabbed.tabbar-bg: 8
 URxvt*tabbed.tab-fg: 14
 URxvt*tabbed.tab-bg: 8
+
+! Annoying message gone
+URxvt.iso14755_52: false
 
 ! black
 URxvt*color0  : #424242

@@ -1,3 +1,6 @@
 [submodule "antigen"]
 	path = antigen
 	url = https://github.com/zsh-users/antigen
+[submodule "tmux-resurrect"]
+	path = tmux-resurrect
+	url = https://github.com/tmux-plugins/tmux-resurrect
