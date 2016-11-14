@@ -4,14 +4,17 @@ Plug 'vim-syntastic/syntastic'
 Plug 'kien/ctrlp.vim'
 "Plug 'airblade/vim-gitgutter'
 Plug 'godlygeek/tabular'
-Plug 'digitaltoad/vim-pug'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
 Plug 'moll/vim-node'
-Plug 'Quramy/tsuquyomi'
+Plug 'Shougo/vimproc.vim'
 Plug 'tpope/vim-obsession'
 Plug 'blueyed/vim-diminactive'
 
+" specific languages
+Plug 'leafgarland/typescript-vim'
+Plug 'Quramy/tsuquyomi'
+Plug 'digitaltoad/vim-pug'
 
 " Themes
 "Plug 'tomasr/molokai'
