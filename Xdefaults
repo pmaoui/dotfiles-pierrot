@@ -19,7 +19,7 @@ URxvt*tabbed.tab-fg: 14
 URxvt*tabbed.tab-bg: 8
 
 ! Annoying message gone
-URxvt.iso14755_52: false
+URxvt.iso14755: false
 
 ! black
 URxvt*color0  : #424242
