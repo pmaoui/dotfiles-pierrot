@@ -15,6 +15,7 @@ Plug 'blueyed/vim-diminactive'
 Plug 'leafgarland/typescript-vim'
 Plug 'Quramy/tsuquyomi'
 Plug 'digitaltoad/vim-pug'
+Plug 'kchmck/vim-coffee-script'
 
 " Themes
 "Plug 'tomasr/molokai'
