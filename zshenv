@@ -8,3 +8,6 @@ export NVM_DIR="$HOME/.nvm"
 # Ruby rbenv
 export PATH=$HOME/.rbenv/bin:$PATH
 eval "$(rbenv init -)"
+
+# ALT GR + SPACE disable insecable space
+setxkbmap -option "nbsp:none"
