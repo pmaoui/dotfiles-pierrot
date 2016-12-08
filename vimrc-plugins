@@ -2,7 +2,7 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'vim-syntastic/syntastic'
 Plug 'kien/ctrlp.vim'
-"Plug 'airblade/vim-gitgutter'
+Plug 'airblade/vim-gitgutter'
 Plug 'godlygeek/tabular'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
@@ -10,6 +10,9 @@ Plug 'moll/vim-node'
 Plug 'Shougo/vimproc.vim'
 Plug 'tpope/vim-obsession'
 Plug 'blueyed/vim-diminactive'
+
+" Highlight yanked text
+Plug 'machakann/vim-highlightedyank'
 
 " specific languages
 Plug 'leafgarland/typescript-vim'
