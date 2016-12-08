@@ -38,6 +38,9 @@ set shiftwidth=2
 set textwidth=0
 set wrapmargin=0
 
+" When a file has been detected to have been changed outside of Vim and it has not been changed inside of Vim, automatically read it again.
+set autoread
+
 " scroll the page before the end of the window
 set scrolloff=4
 
