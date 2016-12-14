@@ -28,21 +28,28 @@ cnoremap <C-j> <Down>
 map <leader>gf :e <cfile><cr>
 
 
-" Display lines number
-set number
 
-" Stop auto return
-set expandtab
-set tabstop=2
-set shiftwidth=2
-set textwidth=0
-set wrapmargin=0
+set number              " Display lines number
 
-" When a file has been detected to have been changed outside of Vim and it has not been changed inside of Vim, automatically read it again.
-set autoread
+set autoindent          " copy indent from current line when starting a new line
+set expandtab           " use the appropriate number of spaces to insert a tab
+set tabstop=2           " number of spaces that a <Tab> in the file counts for
+set shiftwidth=2        " number of spaces to use for each step of (auto)indent
 
-" scroll the page before the end of the window
-set scrolloff=4
+set ruler               " show the current line and column number
+set hlsearch            " highlight searches
+set incsearch           " do incremental searching
+set showmatch           " jump to matches when entering regexp
+set ignorecase          " ignore case when searching
+set smartcase           " no ignorecase if Uppercase char present
+
+set inccommand=nosplit  "Shows the effects of a command incrementally, as you type.
+
+set showcmd             " display incomplete commands
+set nobackup            " do not keep a backup file
+
+set autoread            " change outside of Vim: automatically read it again.
+set scrolloff=4         " scroll the page before the end of the window
 
 " ####### PLUGINS
 let g:syntastic_javascript_checkers = ['eslint']
