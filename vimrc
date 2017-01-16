@@ -27,8 +27,6 @@ cnoremap <C-j> <Down>
 " Create a file with <space>gf
 map <leader>gf :e <cfile><cr>
 
-
-
 set number              " Display lines number
 
 set autoindent          " copy indent from current line when starting a new line
