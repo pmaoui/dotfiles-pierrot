@@ -1,7 +1,7 @@
 # Unix
 alias ll="ls -al --color"
-#alias vi='nvim'
-#alias vim="nvim"
+alias vi='nvim'
+alias vim="nvim"
 
 # Clipboard
 alias pbcopy='xclip -selection clipboard'
