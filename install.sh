@@ -24,6 +24,11 @@ mkdir ~/.vim 2>/dev/null
 if [ ! -d ~/.config ]; then
   mkdir ~/.config
 fi
+if [ ! -d ~/.ssh ]; then
+  mkdir ~/.ssh
+fi
+ln -s $ABSDIR/ssh-aliases ~/.ssh.config
+
 rm -R ~/.config/nvim 2>/dev/null
 ln -s ~/.vim ~/.config/nvim
 ln -s ~/.vimrc ~/.vim/init.vim
