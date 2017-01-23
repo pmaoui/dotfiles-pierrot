@@ -14,8 +14,8 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 
 # Ruby rbenv
-export PATH=$HOME/.rbenv/bin:$PATH
-eval "$(rbenv init -)"
+#export PATH=$HOME/.rbenv/bin:$PATH
+#eval "$(rbenv init -)"
 
 # ALT GR + SPACE disable insecable space
 setxkbmap -option "nbsp:none"
