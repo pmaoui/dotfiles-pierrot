@@ -1,4 +1,4 @@
-export CDPATH="/home/pierrot/Public"
+export CDPATH="/home/pierrot/Public:/home/pierrot/dotfiles-pierrot"
 
 export TERM='xterm-256color'
 export ANDROID_HOME="/home/pierrot/android-sdks"
@@ -29,17 +29,8 @@ export PUBLICITEST_LOCAL_WORKSPACE=/home/pierrot/Public/publicitest
 export PS_LOCAL_WORKSPACE=/home/pierrot/Public/ps
 
 # voir ici si je ne souhaite pas passer HEAD en param
-alias rbtp='rbt post --target-group="Application" HEAD'
-alias rbtu='rbt post -u HEAD'
+alias rbtp='rbt post -p --target-group="Application" HEAD'
+alias rbtu='rbt post -up HEAD'
 
-ifaces=(eth0  wlan0)
-function getInet {
-    for i in ${ifaces[@]}; do
-        if [ -f "/sys/class/net/$i/operstate" ] && [ "up" == "`cat /sys/class/net/$i/operstate`" ]; then
-            echo $i
-            exit
-        fi
-    done
-}
-export DOCKER_HOST_IP=$(/sbin/ifconfig $(getInet) | grep $(getInet) --after=1 | tail -1 | sed -r "s/.*add?r:([0-9.]+) .*/\1/")
+export DOCKER_HOST_IP=$(ifconfig | grep -Eo 'inet (add?r:)?192\.168\.([0-9]*\.)[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' -m 1)
 export LOCAL_IP=$DOCKER_HOST_IP
