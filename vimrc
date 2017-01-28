@@ -61,3 +61,5 @@ map <leader>cd :lcd %:h<CR>
 " CtrlP : ignore folders
 let g:ctrlp_custom_ignore = '\v[\/](node_modules|target|dist)|(\.(swp|ico|git|svn))$'
 
+" Leave terminal mode with escape
+tnoremap <Esc> <C-\><C-n>
