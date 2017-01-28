@@ -27,7 +27,11 @@ fi
 if [ ! -d ~/.ssh ]; then
   mkdir ~/.ssh
 fi
+if [ ! -d ~/.config/i3/ ]; then
+  mkdir ~/.config/i3
+fi
 ln -s $ABSDIR/ssh-aliases ~/.ssh.config
+ln -s $ABSDIR/i3config ~/.config/i3/config
 
 rm -R ~/.config/nvim 2>/dev/null
 ln -s ~/.vim ~/.config/nvim
