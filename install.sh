@@ -32,6 +32,7 @@ if [ ! -d ~/.config/i3/ ]; then
 fi
 ln -s $ABSDIR/ssh-aliases ~/.ssh.config
 ln -s $ABSDIR/i3config ~/.config/i3/config
+ln -s $ABSDIR/i3status.conf ~/.i3status.conf
 
 rm -R ~/.config/nvim 2>/dev/null
 ln -s ~/.vim ~/.config/nvim
