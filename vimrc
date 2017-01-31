@@ -31,8 +31,8 @@ set number              " Display lines number
 
 set autoindent          " copy indent from current line when starting a new line
 set expandtab           " use the appropriate number of spaces to insert a tab
-set tabstop=2           " number of spaces that a <Tab> in the file counts for
-set shiftwidth=2        " number of spaces to use for each step of (auto)indent
+set tabstop=4           " number of spaces that a <Tab> in the file counts for
+set shiftwidth=4        " number of spaces to use for each step of (auto)indent
 
 set ruler               " show the current line and column number
 set hlsearch            " highlight searches
