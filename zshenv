@@ -29,8 +29,8 @@ export PUBLICITEST_LOCAL_WORKSPACE=/home/pierrot/Public/publicitest
 export PS_LOCAL_WORKSPACE=/home/pierrot/Public/ps
 
 # voir ici si je ne souhaite pas passer HEAD en param
-alias rbtp='rbt post -p --target-group="Application" HEAD'
-alias rbtu='rbt post -up HEAD'
+alias rbtp='rbt post -p --target-group="Application"'
+alias rbtu='rbt post -up'
 
 export DOCKER_HOST_IP=$(ifconfig | grep -Eo 'inet (add?r:)?192\.168\.([0-9]*\.)[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' -m 1)
 export LOCAL_IP=$DOCKER_HOST_IP
