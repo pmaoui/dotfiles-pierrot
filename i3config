@@ -17,7 +17,16 @@ font pango:monospace 8
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
-font pango:DejaVu Sans Mono 10
+font pango:Droid Sans Mono 12
+
+# Assign workspace to specific Monitor 
+# by assigning 2 workspaces to one screen,
+# we force the other to be fixed
+# HDMI-0 : left MEDION screen
+# eDP-1-1 : laptop screen
+workspace 1 output HDMI-0
+workspace 2 output eDP-1-1
+workspace 3 output eDP-1-1
 
 # Before i3 v4.8, we used to recommend this one as the default:
 # font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
