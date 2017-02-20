@@ -27,6 +27,7 @@ export HUB_LOCAL_WORKSPACE=/home/pierrot/Public/hub
 export UXA_LOCAL_WORKSPACE=/home/pierrot/Public/mousetest
 export PUBLICITEST_LOCAL_WORKSPACE=/home/pierrot/Public/publicitest
 export PS_LOCAL_WORKSPACE=/home/pierrot/Public/ps
+export CS_ENV_DIR=/home/pierrot/Public/cs-env
 
 # voir ici si je ne souhaite pas passer HEAD en param
 alias rbtp='rbt post -p --target-group="Application"'
