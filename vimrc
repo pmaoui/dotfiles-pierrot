@@ -30,6 +30,7 @@ map <leader>gf :e <cfile><cr>
 set number              " Display lines number
 
 set autoindent          " copy indent from current line when starting a new line
+set smartindent         " insert new line at the last know indentation
 set expandtab           " use the appropriate number of spaces to insert a tab
 set tabstop=4           " number of spaces that a <Tab> in the file counts for
 set shiftwidth=4        " number of spaces to use for each step of (auto)indent
