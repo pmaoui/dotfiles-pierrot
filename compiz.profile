@@ -59,8 +59,8 @@ s0_beam_color = #7f7f7fff
 s0_fire_color = #ff3305ff
 
 [core]
-s0_active_plugins = core;crashhandler;composite;opengl;copytex;notification;decor;resize;compiztoolbox;imgpng;wall;put;matecompat;grid;commands;move;regex;vpswitch;mousepoll;session;thumbnail;animation;ezoom;workarounds;staticswitcher;
-s0_outputs = 1920x1080+1920+0;1920x1080+0+0;
+s0_active_plugins = core;crashhandler;composite;opengl;copytex;decor;resize;compiztoolbox;imgpng;wall;put;place;matecompat;grid;commands;move;regex;vpswitch;notification;mousepoll;session;thumbnail;animation;ezoom;workarounds;staticswitcher;
+s0_outputs = 1920x1080+0+0;1920x1080+1920+13;
 s0_autoraise = false
 s0_autoraise_delay = 500
 s0_focus_prevention_level = 0
