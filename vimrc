@@ -44,7 +44,7 @@ set smartcase           " no ignorecase if Uppercase char present
 
 set inccommand=nosplit  "Shows the effects of a command incrementally, as you type.
 
-set showcmd             " display incomplete commands
+set showcmd             " display incomplete commands (ex: type z, it appears at the bottom right)
 set nobackup            " do not keep a backup file
 
 set autoread            " change outside of Vim: automatically read it again.
