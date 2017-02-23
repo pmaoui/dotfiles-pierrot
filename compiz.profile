@@ -12,10 +12,10 @@ s0_texture_filter = 0
 
 [grid]
 s0_put_center_key = Disabled
-s0_put_left_key = <Super>h
-s0_put_right_key = <Super>l
-s0_put_top_key = Disabled
-s0_put_bottom_key = Disabled
+s0_put_left_key = <Shift><Super>h
+s0_put_right_key = <Shift><Super>l
+s0_put_top_key = <Shift><Super>k
+s0_put_bottom_key = <Shift><Super>j
 s0_put_topleft_key = Disabled
 s0_put_topright_key = Disabled
 s0_put_bottomleft_key = Disabled
@@ -30,6 +30,7 @@ s0_top_right_corner_action = 9
 s0_bottom_left_corner_action = 1
 s0_bottom_edge_action = 2
 s0_bottom_right_corner_action = 3
+s0_animation_duration = 100
 s0_outline_color = #87a7529f
 s0_fill_color = #74fb001b
 
@@ -60,7 +61,7 @@ s0_fire_color = #ff3305ff
 
 [core]
 s0_active_plugins = core;crashhandler;composite;opengl;copytex;decor;resize;compiztoolbox;imgpng;wall;put;place;matecompat;grid;commands;move;regex;vpswitch;notification;mousepoll;session;thumbnail;animation;ezoom;workarounds;staticswitcher;
-s0_outputs = 1920x1080+0+0;1920x1080+1920+13;
+s0_outputs = 1920x1080+0+0;1920x1080+1920+0;
 s0_autoraise = false
 s0_autoraise_delay = 500
 s0_focus_prevention_level = 0
@@ -163,6 +164,9 @@ s0_bottom_images = /usr/share/backgrounds/ubuntu-mate-common/ubuntu-mate-desktop
 [staticswitcher]
 s0_next_key = <Super>j
 s0_prev_key = <Super>k
+s0_speed = 8,400000
+s0_timestep = 4,300000
+s0_popup_delay = 0,000000
 s0_mouse_select = false
 s0_bring_to_front = true
 s0_highlight_mode = 2
@@ -234,8 +238,9 @@ s0_put_viewport_5_key = <Shift><Super>5
 s0_put_viewport_6_key = <Shift><Super>6
 s0_put_restore_key = Disabled
 s0_put_pointer_key = Disabled
-s0_put_next_output_key = <Shift><Super>l
-s0_put_previous_output_key = <Shift><Super>h
+s0_put_next_output_key = <Super>l
+s0_put_previous_output_key = <Super>h
+s0_speed = 5,000000
 
 [composite]
 s0_refresh_rate = 50
