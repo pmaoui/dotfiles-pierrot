@@ -2,14 +2,12 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'vim-syntastic/syntastic'
 Plug 'kien/ctrlp.vim'
-Plug 'airblade/vim-gitgutter'
-Plug 'godlygeek/tabular'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
-Plug 'moll/vim-node'
-Plug 'Shougo/vimproc.vim'
-Plug 'tpope/vim-obsession'
+Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-fugitive'
 Plug 'blueyed/vim-diminactive'
+Plug 'bronson/vim-trailing-whitespace'
 
 " Highlight yanked text
 Plug 'machakann/vim-highlightedyank'
@@ -19,6 +17,7 @@ Plug 'leafgarland/typescript-vim'
 Plug 'Quramy/tsuquyomi'
 Plug 'digitaltoad/vim-pug'
 Plug 'kchmck/vim-coffee-script'
+Plug 'moll/vim-node' " offers things like gf on require('file')
 
 " Themes
 "Plug 'tomasr/molokai'
