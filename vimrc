@@ -27,6 +27,9 @@ cnoremap <C-j> <Down>
 " Create a file with <space>gf
 map <leader>gf :e <cfile><cr>
 
+" Clear the seach with Space /
+nnoremap <Leader>/ :noh<cr>
+
 set number              " Display lines number
 
 set autoindent          " copy indent from current line when starting a new line
@@ -52,8 +55,11 @@ set scrolloff=4         " scroll the page before the end of the window
 
 " ####### PLUGINS
 let g:syntastic_javascript_checkers = ['eslint']
+" mandatory to fake global eslint
+let g:syntastic_javascript_eslint_exec = '/bin/ls'
+" then get the local eslint
+let g:syntastic_javascript_eslint_exe = '$(npm bin)/eslint'
 
-let test#javascript#mocha#options = '--compilers js:babel-core/register'
 nmap <silent> <leader>T :TestFile<CR>
 
 " get in the current directory (local to the buffer with lcd)
