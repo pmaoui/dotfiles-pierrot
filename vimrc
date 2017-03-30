@@ -24,6 +24,12 @@ set gdefault
 cnoremap <C-k> <Up>
 cnoremap <C-j> <Down>
 
+" Navigate between grep results with ]q and [q
+nmap ]q :cnext<cr>
+nmap [q :cprev<cr>
+nmap ]Q :clast<cr>
+nmap [Q :cfirst<cr>
+
 " Create a file with <space>gf
 map <leader>gf :e <cfile><cr>
 
