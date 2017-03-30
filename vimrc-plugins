@@ -8,6 +8,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 Plug 'blueyed/vim-diminactive'
 Plug 'bronson/vim-trailing-whitespace'
+Plug 'godlygeek/tabular'
 
 " Highlight yanked text
 Plug 'machakann/vim-highlightedyank'
