@@ -14,9 +14,6 @@ git clone git@github.com:powerline/fonts.git
 cd fonts && ./install.sh
 cd ..
 
-git clone git@github.com/trapd00r/vidir
-cd vidir
-
 rm ~/.zshrc ~/.vimrc ~/.tmux.conf ~/.Xdefaults
 ln -s $ABSDIR/zshrc ~/.zshrc
 ln -s $ABSDIR/vimrc ~/.vimrc
@@ -46,6 +43,9 @@ ln -s ~/.vimrc ~/.vim/init.vim
 # install vim-plug
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+../.fzf/install
 
 echo "Installed..."
 echo "Don't forget to set \"Droid Sans Mono Dotted for Powerline Regular - 11pt\" for your default font in gnome-terminal"
