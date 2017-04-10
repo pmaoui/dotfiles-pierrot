@@ -41,8 +41,8 @@ set number              " Display lines number
 set autoindent          " copy indent from current line when starting a new line
 set smartindent         " insert new line at the last know indentation
 set expandtab           " use the appropriate number of spaces to insert a tab
-set tabstop=4           " number of spaces that a <Tab> in the file counts for
-set shiftwidth=4        " number of spaces to use for each step of (auto)indent
+set tabstop=2           " number of spaces that a <Tab> in the file counts for
+set shiftwidth=2        " number of spaces to use for each step of (auto)indent
 
 set ruler               " show the current line and column number
 set hlsearch            " highlight searches
@@ -60,11 +60,17 @@ set autoread            " change outside of Vim: automatically read it again.
 set scrolloff=4         " scroll the page before the end of the window
 
 " ####### PLUGINS
-let g:syntastic_javascript_checkers = ['eslint']
-" mandatory to fake global eslint
-let g:syntastic_javascript_eslint_exec = '/bin/ls'
-" then get the local eslint
-let g:syntastic_javascript_eslint_exe = '$(npm bin)/eslint'
+" avoid jshint to be selected by ALE to lint
+let g:ale_linters = {
+\   'javascript': ['eslint'],
+\}
+
+" navigate between linter errors
+nmap ]l :ALENext<CR>
+nmap [l :ALEPrevious<CR>
+
+" avoid linting on text change (CPUing too much !)
+let g:ale_lint_on_text_changed = 'never'
 
 nmap <silent> <leader>T :TestFile<CR>
 
