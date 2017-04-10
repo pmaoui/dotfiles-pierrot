@@ -1,14 +1,16 @@
 call plug#begin('~/.vim/plugged')
 
-Plug 'vim-syntastic/syntastic'
+Plug 'w0rp/ale'
 Plug 'kien/ctrlp.vim'
 Plug 'scrooloose/nerdcommenter'
-Plug 'scrooloose/nerdtree'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 Plug 'blueyed/vim-diminactive'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'godlygeek/tabular'
+
+" File explorer
+Plug 'scrooloose/nerdtree'
 
 " Highlight yanked text
 Plug 'machakann/vim-highlightedyank'
@@ -23,6 +25,9 @@ Plug 'moll/vim-node' " offers things like gf on require('file')
 " Themes
 "Plug 'tomasr/molokai'
 Plug 'mhartington/oceanic-next'
+
+" Deprecated
+" Plug 'vim-syntastic/syntastic'
 
 " Add plugins to &runtimepath
 call plug#end()
