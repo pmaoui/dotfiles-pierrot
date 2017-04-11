@@ -6,13 +6,11 @@ source ~/.fzf.zsh
 antigen use oh-my-zsh
 antigen bundle git
 
-# Syntax highlighting bundle + autosuggestions
+# Syntax highlighting bundle
 antigen bundle zsh-users/zsh-syntax-highlighting
-antigen bundle zsh-users/zsh-autosuggestions
 
 # Theme
 #antigen theme daveverwer
 antigen theme agnoster
 
 antigen apply
-
