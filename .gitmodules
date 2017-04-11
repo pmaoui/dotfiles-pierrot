@@ -1,6 +1,15 @@
 [submodule "antigen"]
-	path = antigen
-	url = https://github.com/zsh-users/antigen
+  path = antigen
+  url = https://github.com/zsh-users/antigen
 [submodule "tmux-resurrect"]
-	path = tmux-resurrect
-	url = https://github.com/tmux-plugins/tmux-resurrect
+  path = tmux-resurrect
+  url = https://github.com/tmux-plugins/tmux-resurrect
+[submodule "fonts-powerline"]
+  path = fonts
+  url = https://github.com:powerline/fonts.git
+[submodule "ranger"]
+  path = ranger
+  url = https://github.com/francoiscabrol/ranger.vim
+[submodule "fzf"]
+  path = fzf
+  url = https://github.com/junegunn/fzf
