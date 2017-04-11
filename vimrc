@@ -64,6 +64,7 @@ set scrolloff=4         " scroll the page before the end of the window
 let g:ale_linters = {
 \   'javascript': ['eslint'],
 \}
+let g:ale_linter_aliases = {'less': 'css'}
 
 " navigate between linter errors
 nmap ]l :ALENext<CR>
