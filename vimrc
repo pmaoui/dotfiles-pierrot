@@ -78,8 +78,7 @@ nmap <silent> <leader>T :TestFile<CR>
 " get in the current directory (local to the buffer with lcd)
 map <leader>cd :lcd %:h<CR>
 
-" CtrlP : ignore folders
-let g:ctrlp_custom_ignore = '\v[\/](node_modules|target|dist)|(\.(swp|ico|git|svn))$'
+nmap <C-p> :FZF<CR>
 
 " Leave terminal mode with escape
 tnoremap <Esc> <C-\><C-n>
