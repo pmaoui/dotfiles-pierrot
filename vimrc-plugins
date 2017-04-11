@@ -1,7 +1,6 @@
 call plug#begin('~/.vim/plugged')
 
 Plug 'w0rp/ale'
-Plug 'kien/ctrlp.vim'
 Plug 'scrooloose/nerdcommenter'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
@@ -10,7 +9,7 @@ Plug 'bronson/vim-trailing-whitespace'
 Plug 'godlygeek/tabular'
 
 " File explorer
-Plug 'scrooloose/nerdtree'
+Plug 'francoiscabrol/ranger.vim'
 
 " Highlight yanked text
 Plug 'machakann/vim-highlightedyank'
@@ -21,6 +20,9 @@ Plug 'Quramy/tsuquyomi'
 Plug 'digitaltoad/vim-pug'
 Plug 'kchmck/vim-coffee-script'
 Plug 'moll/vim-node' " offers things like gf on require('file')
+
+" new ctrl+p
+Plug 'junegunn/fzf', { 'dir': '~/dotfiles-pierrot/fzf', 'do': './install --all' }
 
 " Themes
 "Plug 'tomasr/molokai'
