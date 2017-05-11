@@ -33,5 +33,5 @@ export CS_ENV_DIR=/home/pierrot/Public/cs-env
 alias rbtp='rbt post -p --target-group="Application"'
 alias rbtu='rbt post -up'
 
-export DOCKER_HOST_IP=$(ifconfig | grep -Eo 'inet (add?r:)?192\.168\.([0-9]*\.)[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' -m 1)
+export DOCKER_HOST_IP=$(ifconfig | grep -Eo 'inet (add?r:)?(10|192)\.(5|168)\.([0-9]*\.)[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' -m 1)
 export LOCAL_IP=$DOCKER_HOST_IP
