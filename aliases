@@ -23,3 +23,5 @@ resizegif() {
     convert $1 -coalesce $tmpfile
     convert $tmpfile -resize 128 $1.new
 }
+
+gh() { cat ~/dotfiles-pierrot/git-helper.txt|grep $1; }
