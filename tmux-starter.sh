@@ -14,7 +14,7 @@ tmux split-window -v -t "$sn"
 # split the first pane and the second (|)
 # tips : q to see the pane number
 tmux split-window -h -t "$sn:.0"
-tmux split-window -h -t "$sn:.1"
+tmux split-window -h -t "$sn:.2"
 
 # upper-left
 tmux send-keys -t "$sn:.0" "../cs-env/dev/containers.sh start" Enter
