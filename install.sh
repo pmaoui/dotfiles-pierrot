@@ -8,7 +8,7 @@ git submodule update --init --recursive
 
 sudo add-apt-repository ppa:neovim-ppa/unstable -y
 sudo apt-get update
-sudo apt-get install -y neovim tmux zsh xfonts-terminus fonts-inconsolata curl w3m-img
+sudo apt-get install -y neovim tmux zsh xfonts-terminus fonts-inconsolata curl w3m-img xsel
 
 # install powerline
 cd fonts && ./install.sh
@@ -34,6 +34,7 @@ ln -s $ABSDIR/ssh-aliases ~/.ssh.config
 ln -s $ABSDIR/i3status.conf ~/.i3status.conf
 ln -s $ABSDIR/ranger.conf ~/.config/ranger/rc.conf
 ln -s $ABSDIR/scope.sh ~/.config/ranger/scope.sh
+ln -s $ABSDIR/rifle.conf ~/.config/ranger/rifle.conf
 
 ln -s $ABSDIR/tmux-starter.sh ~/cs.sh
 
