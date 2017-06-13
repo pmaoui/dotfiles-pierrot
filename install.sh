@@ -32,7 +32,8 @@ if [ ! -d ~/.config/ranger/ ]; then
 fi
 ln -s $ABSDIR/ssh-aliases ~/.ssh.config
 ln -s $ABSDIR/i3status.conf ~/.i3status.conf
-ls -s $ABSDIR/ranger.conf ~/.config/ranger/rc.conf
+ln -s $ABSDIR/ranger.conf ~/.config/ranger/rc.conf
+ln -s $ABSDIR/scope.sh ~/.config/ranger/scope.sh
 
 ln -s $ABSDIR/tmux-starter.sh ~/cs.sh
 
