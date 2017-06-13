@@ -5,7 +5,7 @@ source ~/dotfiles-pierrot/vimrc-plugins
 syntax on
 set t_Co=256
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-colorscheme cobalt
+colorscheme dracula
 
 " Display the filename in the status bar
 set statusline+=%F
@@ -19,6 +19,11 @@ nmap <C-W>H :vertical resize +5<cr>
 nmap <C-W>L :vertical resize -5<cr>
 nmap <C-W>K :resize -5<cr>
 nmap <C-W>J :resize +5<cr>
+
+" avoid escape but can break Vim 8 (not nvim)
+inoremap jj <Esc>
+inoremap jk <Esc>
+inoremap <Esc> <Nop>
 
 " implicite :%s/old/new/g for :%s/old/new/
 set gdefault

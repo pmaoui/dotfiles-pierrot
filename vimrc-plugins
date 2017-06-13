@@ -29,7 +29,7 @@ Plug 'junegunn/fzf', { 'dir': '~/dotfiles-pierrot/fzf', 'do': './install --all' 
 " Themes
 "Plug 'tomasr/molokai'
 "Plug 'mhartington/oceanic-next'
-Plug 'gkjgh/cobalt'
+Plug 'dracula/vim'
 
 " Deprecated
 " Plug 'vim-syntastic/syntastic'
