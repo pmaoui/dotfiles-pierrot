@@ -31,5 +31,7 @@ resizegif() {
     convert $tmpfile -resize 128 $1.new
 }
 
-gh() { cat ~/dotfiles-pierrot/git-helper.txt|grep $1; }
+source ~/dotfiles-pierrot/git-alias-extension
+
+gh() { cat ~/dotfiles-pierrot/git-*|grep $1; }
 ah() { cat ~/dotfiles-pierrot/aliases|grep $1; }
