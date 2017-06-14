@@ -23,7 +23,7 @@ nmap <C-W>J :resize +5<cr>
 " avoid escape but can break Vim 8 (not nvim)
 inoremap jj <Esc>
 inoremap jk <Esc>
-inoremap <Esc> <Nop>
+imap <Esc> <Nop>
 
 " implicite :%s/old/new/g for :%s/old/new/
 set gdefault
@@ -70,7 +70,7 @@ set scrolloff=4         " scroll the page before the end of the window
 " ####### PLUGINS
 " avoid jshint to be selected by ALE to lint
 let g:ale_linters = {
-\   'javascript': ['eslint'],
+\   'javascript': ['eslint']
 \}
 let g:ale_linter_aliases = {'less': 'css'}
 
