@@ -19,7 +19,7 @@ tmux split-window -h -t "$sn:.2"
 # upper-left
 tmux send-keys -t "$sn:.0" "../cs-env/dev/containers.sh start" Enter
 # lower-left
-tmux send-keys -t "$sn:.1" "./start-webdriver.sh --grid" Enter
+tmux send-keys -t "$sn:.1" "./start-webdriver.sh" Enter
 # upper-right
 tmux send-keys -t "$sn:.2" "grunt dev" Enter
 
