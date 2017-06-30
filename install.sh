@@ -42,14 +42,6 @@ rm -R ~/.config/nvim 2>/dev/null
 ln -s ~/.vim ~/.config/nvim
 ln -s ~/.vimrc ~/.vim/init.vim
 
-# install vimpager
-cd vimpager
-sudo make install-deb
-cd ..
-
-# clean install vimpager
-sudo rm vimpager_*
-
 # install vim-plug
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim

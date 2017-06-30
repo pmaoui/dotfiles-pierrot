@@ -33,4 +33,4 @@ export DOCKER_HOST_IP=$(ifconfig | grep -Eo 'inet (add?r:)?(10|192)\.(5|168)\.([
 export LOCAL_IP=$DOCKER_HOST_IP
 
 # colored man
-export PAGER="vimpager"
+export MANPAGER="nvim -c 'set ft=man' -"
