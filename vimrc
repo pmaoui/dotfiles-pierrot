@@ -3,16 +3,32 @@ source ~/dotfiles-pierrot/vimrc-plugins
 
 " THEME
 syntax on
+set noshowmode
+set noswapfile
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_theme='base16_bright'
+" should not be useful on neovim (always display status bar)
+set laststatus=2
 set t_Co=256
-let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-colorscheme dracula
+if has("termguicolors")
+  set termguicolors
+endif
+
+""""""""" THEME """"""""""
+colorscheme base16-bright
+""""""""""""""""""""""""""
 
 " Display the filename in the status bar
-set statusline+=%F
+" set statusline+=%F
 
 " Leader is Space
 let mapleader = "\<Space>"
 nmap <F8> :source $HOME/.vimrc<ENTER>
+
+" Leader for nvimux
+let g:nvimuxqprefix='<C-Space>'
+let nvimux_open_term_by_default=1 " Open a term <prefix>-c
 
 " manage split size
 nmap <C-W>H :vertical resize +5<cr>
@@ -96,3 +112,21 @@ tnoremap <C-w>h <C-\><C-n><C-w>h
 tnoremap <C-w>j <C-\><C-n><C-w>j
 tnoremap <C-w>k <C-\><C-n><C-w>k
 tnoremap <C-w>l <C-\><C-n><C-w>l
+
+" base16-bright
+let g:terminal_color_0 = "#000000"
+let g:terminal_color_1 = "#fb0120"
+let g:terminal_color_2 = "#a1c659"
+let g:terminal_color_3 = "#fda331"
+let g:terminal_color_4 = "#6fb3d2"
+let g:terminal_color_5 = "#d381c3"
+let g:terminal_color_6 = "#76c7b7"
+let g:terminal_color_7 = "#e0e0e0"
+let g:terminal_color_8 = "#b0b0b0"
+let g:terminal_color_9 = "#fb0120"
+let g:terminal_color_10 = "#a1c659"
+let g:terminal_color_11 = "#fda331"
+let g:terminal_color_12 = "#6fb3d2"
+let g:terminal_color_13 = "#d381c3"
+let g:terminal_color_14 = "#76c7b7"
+let g:terminal_color_15 = "#ffffff"

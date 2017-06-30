@@ -1,5 +1,8 @@
 call plug#begin('~/.vim/plugged')
 
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
 Plug 'w0rp/ale'
 Plug 'scrooloose/nerdcommenter'
 Plug 'airblade/vim-gitgutter'
@@ -29,11 +32,15 @@ Plug 'junegunn/fzf', { 'dir': '~/dotfiles-pierrot/fzf', 'do': './install --all' 
 
 " Themes
 "Plug 'tomasr/molokai'
+"Plug 'dracula/vim'
 "Plug 'mhartington/oceanic-next'
-Plug 'dracula/vim'
+Plug 'chriskempson/base16-vim'
 
 " Deprecated
 " Plug 'vim-syntastic/syntastic'
+
+" Drop Tmux ? keyboard biding inside term
+Plug 'hkupty/nvimux'
 
 " Add plugins to &runtimepath
 call plug#end()
