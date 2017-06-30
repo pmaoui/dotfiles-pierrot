@@ -8,7 +8,7 @@ git submodule update --init --recursive
 
 sudo add-apt-repository ppa:neovim-ppa/unstable -y
 sudo apt-get update
-sudo apt-get install -y neovim tmux zsh xfonts-terminus fonts-inconsolata curl w3m-img xsel
+sudo apt-get install -y neovim tmux zsh xfonts-terminus fonts-inconsolata curl w3m-img xsel fbterm
 
 # install powerline
 cd fonts && ./install.sh
@@ -49,6 +49,11 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 # install fzf
 $ABSDIR/fzf/install
 
+# install theme
+
+
 echo "Installed..."
 echo "Don't forget to set \"Droid Sans Mono Dotted for Powerline Regular - 11pt\" for your default font in gnome-terminal"
 echo "And to set zsh as your startup command..."
+
+
