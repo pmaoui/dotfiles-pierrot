@@ -36,7 +36,7 @@ ln -s $ABSDIR/ranger.conf ~/.config/ranger/rc.conf
 ln -s $ABSDIR/scope.sh ~/.config/ranger/scope.sh
 ln -s $ABSDIR/rifle.conf ~/.config/ranger/rifle.conf
 
-ln -s $ABSDIR/tmux-starter.sh ~/cs.sh
+ln -s $ABSDIR/cs-starter.sh ~/cs.sh
 
 rm -R ~/.config/nvim 2>/dev/null
 ln -s ~/.vim ~/.config/nvim
