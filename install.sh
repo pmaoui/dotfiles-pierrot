@@ -50,7 +50,14 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 $ABSDIR/fzf/install
 
 # install theme
+./mate-colors-theme.sh
 
+# install neovim-remote
+# configure git to use the current nvim session
+# (avoid nested terminal) with git commit
+# if I use the terminal inside nvim
+pip3 install neovim-remote
+git config --global core.editor 'nvr --remote-wait-silent'
 
 echo "Installed..."
 echo "Don't forget to set \"Droid Sans Mono Dotted for Powerline Regular - 11pt\" for your default font in gnome-terminal"
