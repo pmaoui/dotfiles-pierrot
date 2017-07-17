@@ -5,18 +5,19 @@ source ~/dotfiles-pierrot/vimrc-plugins
 syntax on
 set noshowmode
 set noswapfile
+
 let g:airline_powerline_fonts = 1
-let g:airline#extensions#tabline#enabled = 1
 let g:airline_theme='base16_brewer'
 " should not be useful on neovim (always display status bar)
 set laststatus=2
+
 set t_Co=256
-if has("termguicolors")
-  set termguicolors
-endif
 
 """"""""" THEME """"""""""
 colorscheme base16-bright
+if has("termguicolors")
+  set termguicolors
+endif
 """"""""""""""""""""""""""
 
 " Display the filename in the status bar
@@ -81,7 +82,7 @@ set showcmd             " display incomplete commands (ex: type z, it appears at
 set nobackup            " do not keep a backup file
 
 set autoread            " change outside of Vim: automatically read it again.
-set scrolloff=4         " scroll the page before the end of the window
+set scrolloff=10         " scroll the page before the end of the window
 
 " ####### PLUGINS
 " avoid jshint to be selected by ALE to lint
@@ -114,7 +115,7 @@ tnoremap <C-w>k <C-\><C-n><C-w>k
 tnoremap <C-w>l <C-\><C-n><C-w>l
 
 " base16-bright
-" theses lines should be the exact same 15 colors of the 
+" theses lines should be the exact same 15 colors of the
 " terminal configuration (gnome-terminal/mate-terminal)
 let g:terminal_color_0 = "#000000"
 let g:terminal_color_1 = "#fb0120"
