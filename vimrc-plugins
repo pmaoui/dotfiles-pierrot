@@ -41,7 +41,7 @@ Plug 'chriskempson/base16-vim'
 
 " Drop Tmux ? keyboard biding inside term
 Plug 'hkupty/nvimux'
-" Stay in the same session when opening a file in term
+" Stay in the same session when opening a file in term (nvr command)
 Plug 'mhinz/neovim-remote'
 
 " Add plugins to &runtimepath
