@@ -62,10 +62,14 @@ map <leader>gf :e <cfile><cr>
 nnoremap <Leader>/ :noh<cr>
 
 set number              " Display lines number
+set relativenumber      " Display lines relatively to the current line
+set cursorline          " Highlight the current line
+set hidden              " Hidden buffer
 
 set autoindent          " copy indent from current line when starting a new line
 set smartindent         " insert new line at the last know indentation
 set expandtab           " use the appropriate number of spaces to insert a tab
+set noswapfile          " because it's anoying
 set tabstop=2           " number of spaces that a <Tab> in the file counts for
 set shiftwidth=2        " number of spaces to use for each step of (auto)indent
 
@@ -113,6 +117,23 @@ tnoremap <C-w>h <C-\><C-n><C-w>h
 tnoremap <C-w>j <C-\><C-n><C-w>j
 tnoremap <C-w>k <C-\><C-n><C-w>k
 tnoremap <C-w>l <C-\><C-n><C-w>l
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" OpenChangedFiles COMMAND
+" Open a split for each dirty file in git
+"
+" Shamelessly stolen from Gary Bernhardt: https://github.com/garybernhardt/dotfiles
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+function! OpenChangedFiles()
+  only " Close all windows, unless they're modified
+  let status = system('git status -s | grep "^ \?\(M\|A\|UU\)" | sed "s/^.\{3\}//"')
+  let filenames = split(status, "\n")
+  exec "edit " . filenames[0]
+  for filename in filenames[1:]
+    exec "sp " . filename
+  endfor
+endfunction
+command! OpenChangedFiles :call OpenChangedFiles()
 
 " base16-bright
 " theses lines should be the exact same 15 colors of the
