@@ -11,8 +11,8 @@ Plug 'tpope/vim-rhubarb'
 Plug 'blueyed/vim-diminactive'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'godlygeek/tabular'
-Plug 'junkblocker/patchreview-vim'
-Plug 'codegram/vim-codereview'
+"Plug 'junkblocker/patchreview-vim'
+"Plug 'codegram/vim-codereview'
 
 " File explorer
 Plug 'francoiscabrol/ranger.vim'
