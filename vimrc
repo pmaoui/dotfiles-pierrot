@@ -18,6 +18,9 @@ colorscheme base16-bright
 if has("termguicolors")
   set termguicolors
 endif
+
+" fix bad Search Highlight color (making text not readable)
+hi Search guibg=peru guifg=wheat
 """"""""""""""""""""""""""
 
 " Display the filename in the status bar
