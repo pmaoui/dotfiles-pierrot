@@ -158,3 +158,9 @@ let g:terminal_color_12 = "#6fb3d2"
 let g:terminal_color_13 = "#d381c3"
 let g:terminal_color_14 = "#76c7b7"
 let g:terminal_color_15 = "#ffffff"
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""  **CUSTOMS**  """"""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Ggrep the word under cursor (in a new split)
+nmap <F3> "zyiw:vsplit<CR><C-w>l:exe "Ggrep ".@z.""<CR>
