@@ -13,6 +13,7 @@ Plug 'bronson/vim-trailing-whitespace'
 Plug 'godlygeek/tabular'
 "Plug 'junkblocker/patchreview-vim'
 "Plug 'codegram/vim-codereview'
+Plug 'Shougo/vimproc.vim'
 
 " File explorer
 Plug 'francoiscabrol/ranger.vim'
