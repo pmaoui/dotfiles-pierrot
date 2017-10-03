@@ -94,7 +94,8 @@ set scrolloff=10         " scroll the page before the end of the window
 " ####### PLUGINS
 " avoid jshint to be selected by ALE to lint
 let g:ale_linters = {
-\   'javascript': ['eslint']
+\   'javascript': ['eslint'],
+\   'typescript': ['tslint']
 \}
 let g:ale_linter_aliases = {'less': 'css'}
 
