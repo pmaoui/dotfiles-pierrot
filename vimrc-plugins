@@ -31,6 +31,9 @@ Plug 'moll/vim-node' " offers things like gf on require('file')
 " new ctrl+p
 Plug 'junegunn/fzf', { 'dir': '~/dotfiles-pierrot/fzf', 'do': './install --all' }
 
+" Annotate code
+Plug 'MattesGroeger/vim-bookmarks'
+
 " Themes
 "Plug 'tomasr/molokai'
 "Plug 'dracula/vim'

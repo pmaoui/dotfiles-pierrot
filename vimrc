@@ -8,8 +8,6 @@ set noswapfile
 
 let g:airline_powerline_fonts = 1
 let g:airline_theme='base16_brewer'
-" should not be useful on neovim (always display status bar)
-set laststatus=2
 
 set t_Co=256
 
@@ -92,6 +90,20 @@ set autoread            " change outside of Vim: automatically read it again.
 set scrolloff=10         " scroll the page before the end of the window
 
 " ####### PLUGINS
+" save code annotations from vim-bookmarks
+let g:bookmark_auto_save = 1
+let g:bookmark_no_default_key_mappings = 1
+nmap <Leader><Leader> <Plug>BookmarkToggle
+nmap <Leader>i <Plug>BookmarkAnnotate
+nmap <Leader>a <Plug>BookmarkShowAll
+nmap <Leader>n <Plug>BookmarkNext
+nmap <Leader>p <Plug>BookmarkPrev
+nmap <Leader>c <Plug>BookmarkClear
+nmap <Leader>x <Plug>BookmarkClearAll
+nmap <Leader>kk <Plug>BookmarkMoveUp
+nmap <Leader>jj <Plug>BookmarkMoveDown
+nmap <Leader>g <Plug>BookmarkMoveToLine
+
 " avoid jshint to be selected by ALE to lint
 let g:ale_linters = {
 \   'javascript': ['eslint'],
