@@ -25,7 +25,7 @@ tmux send-keys -t "$sn:.0" "../cs-env/dev/containers.sh start" Enter
 # lower-left
 tmux send-keys -t "$sn:.1" "./start-webdriver.sh" Enter
 # upper-right
-tmux send-keys -t "$sn:.2" "grunt dev" Enter
+tmux send-keys -t "$sn:.2" "gulp" Enter
 
 tmux new-window -t "$sn" -n dev
 tmux select-window -t "$sn:0"
