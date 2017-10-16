@@ -9,6 +9,15 @@ options=("dev" "future" "next1" "next2" "next3" "next4" "next5" "staging" "Quit"
 select opt in "${options[@]}"
 do
     case $opt in
+        "dev")
+            echo "you chose $opt"
+            HOST="dev.csq.io"
+            DB="uxanalytics"
+            USERDB="root"
+            PASS="fe4eiN5cu2ai"
+            PORT="null"
+            break
+            ;;
         "future")
             echo "you chose $opt"
             HOST="future-phpdb.cz6mty6zhfxl.eu-west-1.rds.amazonaws.com"
@@ -29,7 +38,7 @@ do
             ;;
         "next2")
             echo "you chose $opt"
-            HOST="next1-phpdb.cz6mty6zhfxl.eu-west-1.rds.amazonaws.com"
+            HOST="next2-phpdb.cz6mty6zhfxl.eu-west-1.rds.amazonaws.com"
             DB="uxanalytics"
             USERDB="root"
             PASS="DohHop2Toolee7mei"
@@ -38,7 +47,7 @@ do
             ;;
         "next3")
             echo "you chose $opt"
-            HOST="next1-phpdb.cz6mty6zhfxl.eu-west-1.rds.amazonaws.com"
+            HOST="next3-phpdb.cz6mty6zhfxl.eu-west-1.rds.amazonaws.com"
             DB="uxanalytics"
             USERDB="root"
             PASS="DohHop2Toolee7mei"
@@ -47,7 +56,7 @@ do
             ;;
         "next4")
             echo "you chose $opt"
-            HOST="next1-phpdb.cz6mty6zhfxl.eu-west-1.rds.amazonaws.com"
+            HOST="next4-phpdb.cz6mty6zhfxl.eu-west-1.rds.amazonaws.com"
             DB="uxanalytics"
             USERDB="root"
             PASS="DohHop2Toolee7mei"
@@ -56,7 +65,7 @@ do
             ;;
         "next5")
             echo "you chose $opt"
-            HOST="next1-phpdb.cz6mty6zhfxl.eu-west-1.rds.amazonaws.com"
+            HOST="next5-phpdb.cz6mty6zhfxl.eu-west-1.rds.amazonaws.com"
             DB="uxanalytics"
             USERDB="root"
             PASS="DohHop2Toolee7mei"
