@@ -1,84 +1,111 @@
 #!/bin/bash
 
-UXA_CONFIG="app/config/parameters.yml"
-PP_CONFIG="../project-parameters/conf/env.json"
-CAF_CONFIG="../cs-app-feature/conf/env.json"
+UXA_CONFIG="/home/pierrot/Public/mousetest/app/config/parameters.yml"
+PP_CONFIG="/home/pierrot/Public/project-parameters/conf/env.json"
+CAF_CONFIG="/home/pierrot/Public/cs-app-feature/conf/env.json"
+
+######################
+### OUTPUT METHODS ###
+######################
+
+success_msg () {
+  echo -e "\e[92m✔ - $@"
+}
+
+warning_msg () {
+  echo -e "\e[93m - $@"
+}
+
+error_msg () {
+  echo -e "\e[91m✘ - $@"
+}
+
+blue_msg () {
+  echo -e "\e[96m$@"
+}
 
 PS3='Choose your env: '
+warning_msg "#############################################################"
+warning_msg "################## CHOOSE YOUR DATABASE #####################"
+warning_msg "#############################################################"
+blue_msg ""
 options=("dev" "future" "next1" "next2" "next3" "next4" "next5" "staging" "Quit")
 select opt in "${options[@]}"
 do
     case $opt in
         "dev")
-            echo "you chose $opt"
-            HOST="dev.csq.io"
+            HOST="phpdb-dev.csq.io"
             DB="uxanalytics"
-            USERDB="root"
-            PASS="fe4eiN5cu2ai"
+            echo "Enter database prefix (ex: pierrot_):"
+            read DB_PREFIX
+            DB="$DB_PREFIX$DB"
+            USERDB="dev"
+            PASS="UpdXJqyivfC7M"
             PORT="null"
+            success_msg "You have selected $DB - $opt : $HOST"
             break
             ;;
         "future")
-            echo "you chose $opt"
             HOST="future-phpdb.cz6mty6zhfxl.eu-west-1.rds.amazonaws.com"
             DB="uxanalytics"
             USERDB="root"
             PASS="fe4eiN5cu2ai"
             PORT="null"
+            success_msg "You have selected $DB - $opt : $HOST"
             break
             ;;
         "next1")
-            echo "you chose $opt"
             HOST="next1-phpdb.cz6mty6zhfxl.eu-west-1.rds.amazonaws.com"
             DB="uxanalytics"
             USERDB="root"
             PASS="DohHop2Toolee7mei"
             PORT="null"
+            success_msg "You have selected $DB - $opt : $HOST"
             break
             ;;
         "next2")
-            echo "you chose $opt"
             HOST="next2-phpdb.cz6mty6zhfxl.eu-west-1.rds.amazonaws.com"
             DB="uxanalytics"
             USERDB="root"
             PASS="DohHop2Toolee7mei"
             PORT="null"
+            success_msg "You have selected $DB - $opt : $HOST"
             break
             ;;
         "next3")
-            echo "you chose $opt"
             HOST="next3-phpdb.cz6mty6zhfxl.eu-west-1.rds.amazonaws.com"
             DB="uxanalytics"
             USERDB="root"
             PASS="DohHop2Toolee7mei"
             PORT="null"
+            success_msg "You have selected $DB - $opt : $HOST"
             break
             ;;
         "next4")
-            echo "you chose $opt"
             HOST="next4-phpdb.cz6mty6zhfxl.eu-west-1.rds.amazonaws.com"
             DB="uxanalytics"
             USERDB="root"
             PASS="DohHop2Toolee7mei"
             PORT="null"
+            success_msg "You have selected $DB - $opt : $HOST"
             break
             ;;
         "next5")
-            echo "you chose $opt"
             HOST="next5-phpdb.cz6mty6zhfxl.eu-west-1.rds.amazonaws.com"
             DB="uxanalytics"
             USERDB="root"
             PASS="DohHop2Toolee7mei"
             PORT="null"
+            success_msg "You have selected $DB - $opt : $HOST"
             break
             ;;
         "staging")
-            echo "you chose $opt"
             HOST="preprod-phpdb.cz6mty6zhfxl.eu-west-1.rds.amazonaws.com"
             DB="uxanalytics"
             USERDB="root"
-            PASS="DohHop2Toolee7mei"
+            PASS="fe4eiN5cu2ai"
             PORT="null"
+            success_msg "You have selected $DB - $opt : $HOST"
             break
             ;;
         "Quit")
@@ -88,24 +115,28 @@ do
     esac
 done
 
+warning_msg "#############################################################"
+warning_msg "################## CHOOSE YOUR HYPERGATE ####################"
+warning_msg "#############################################################"
+blue_msg ""
 PS3='Choose your hpg: '
-options=("dev" "future" "next1" "staging" "Quit")
+options=("future" "next1" "staging" "Quit")
 select opt in "${options[@]}"
 do
     case $opt in
         "future")
             HPG="http:\/\/hpg-future.csq.io:8080"
-            echo "you chose $opt : $HPG"
+            success_msg "You have selected - $opt : $HPG"
             break
             ;;
         "next1")
             HPG="http:\/\/hpg-next1.csq.io:8080"
-            echo "you chose $opt : $HPG"
+            success_msg "You have selected - $opt : $HPG"
             break
             ;;
         "staging")
             HPG="http:\/\/stg-staging.csq.io"
-            echo "you chose $opt : $HPG"
+            success_msg "You have selected - $opt : $HPG"
             break
             ;;
         "Quit")
@@ -115,20 +146,20 @@ do
     esac
 done
 
-sed -i.bak "s/\(database_host: *\).*/\1"$HOST"/" $UXA_CONFIG
-sed -i.bak "s/\(database_port: *\).*/\1"$PORT"/" $UXA_CONFIG
-sed -i.bak "s/\(database_name: *\).*/\1"$DB"/" $UXA_CONFIG
-sed -i.bak "s/\(database_user: *\).*/\1"$USERDB"/" $UXA_CONFIG
-sed -i.bak "s/\(database_password: *\).*/\1"$PASS"/" $UXA_CONFIG
+sed -i "s/\(database_host: *\).*/\1"$HOST"/" $UXA_CONFIG
+sed -i "s/\(database_port: *\).*/\1"$PORT"/" $UXA_CONFIG
+sed -i "s/\(database_name: *\).*/\1"$DB"/" $UXA_CONFIG
+sed -i "s/\(database_user: *\).*/\1"$USERDB"/" $UXA_CONFIG
+sed -i "s/\(database_password: *\).*/\1"$PASS"/" $UXA_CONFIG
 
-sed -i.bak "s/\(\"database\": *\"\).*/\1"$DB"\",/" $PP_CONFIG
-sed -i.bak "s/\(\"host\": *\).*/\1\""$HOST"\",/" $PP_CONFIG
-sed -i.bak "s/\(\"port\": *\).*/\1"$PORT",/" $PP_CONFIG
-sed -i.bak "s/\(\"username\": *\).*/\1\""$USERDB"\",/" $PP_CONFIG
-sed -i.bak "s/\(\"password\": *\).*/\1\""$PASS"\"/" $PP_CONFIG
+sed -i "s/\(\"database\": *\"\).*/\1"$DB"\",/" $PP_CONFIG
+sed -i "s/\(\"host\": *\).*/\1\""$HOST"\",/" $PP_CONFIG
+sed -i "s/\(\"port\": *\).*/\1"$PORT",/" $PP_CONFIG
+sed -i "s/\(\"username\": *\).*/\1\""$USERDB"\",/" $PP_CONFIG
+sed -i "s/\(\"password\": *\).*/\1\""$PASS"\"/" $PP_CONFIG
 
-sed -i.bak "s/\(hypergate_api_url: *\).*/\1 "$HPG"/" $UXA_CONFIG
-sed -i.bak "/\"hpg\":/{n;s/.*/        \"url\": \"$HPG\"/}" $CAF_CONFIG
+sed -i "s/\(hypergate_api_url: *\).*/\1 "$HPG"/" $UXA_CONFIG
+sed -i "/\"hpg\":/{n;s/.*/        \"url\": \"$HPG\"/}" $CAF_CONFIG
 
 # faire un upgrade de la base symfony !!
 # docker exec -it common_php55_1 php /var/www/dev-uxanalytics.content-square.fr/app/console doctrine:schema:update --force 
