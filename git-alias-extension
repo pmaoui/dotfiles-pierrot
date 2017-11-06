@@ -1,3 +1,2 @@
 alias gdnw="git diff -w" # ignore whitespace
 alias ganw="git diff -U0 -w --no-color | git apply --cached --ignore-whitespace --unidiff-zero -"
-alias ggpull="git pull origin $(git_current_branch) --autostash"

@@ -12,6 +12,8 @@ alias pp='cd ~/Public/project-parameters'
 alias caf='cd ~/Public/cs-app-feature'
 alias uxa='cd ~/Public/mousetest'
 alias processing='cd ~/Public/alias-goals-processing/'
+alias chenv="~/dotfiles-pierrot/change-cs-env.sh"
+alias e2e="~/dotfiles-pierrot/launch-e2e.sh"
 
 # Better pager
 alias less=$PAGER
@@ -35,3 +37,7 @@ source ~/dotfiles-pierrot/git-alias-extension
 
 gh() { cat ~/dotfiles-pierrot/git-*|grep $1; }
 ah() { cat ~/dotfiles-pierrot/aliases|grep $1; }
+
+# start vim with FZF to fuzzy find a file
+alias vimf='vim -c ":FZF ."'
+

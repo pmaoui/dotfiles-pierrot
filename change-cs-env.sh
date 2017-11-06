@@ -1,8 +1,8 @@
 #!/bin/bash
 
-UXA_CONFIG="/home/pierrot/Public/mousetest/app/config/parameters.yml"
-PP_CONFIG="/home/pierrot/Public/project-parameters/conf/env.json"
-CAF_CONFIG="/home/pierrot/Public/cs-app-feature/conf/env.json"
+UXA_CONFIG="$UXA_LOCAL_WORKSPACE/app/config/parameters.yml"
+PP_CONFIG="$LOCAL_WORKSPACE/project-parameters/conf/env.json"
+CAF_CONFIG="$LOCAL_WORKSPACE/cs-app-feature/conf/env.json"
 
 ######################
 ### OUTPUT METHODS ###
@@ -41,7 +41,7 @@ do
             DB="$DB_PREFIX$DB"
             USERDB="dev"
             PASS="UpdXJqyivfC7M"
-            PORT="null"
+            PORT="3306"
             success_msg "You have selected $DB - $opt : $HOST"
             break
             ;;
@@ -57,7 +57,7 @@ do
         "next1")
             HOST="next1-phpdb.cz6mty6zhfxl.eu-west-1.rds.amazonaws.com"
             DB="uxanalytics"
-            USERDB="root"
+            USERDB="uxanalytics"
             PASS="DohHop2Toolee7mei"
             PORT="null"
             success_msg "You have selected $DB - $opt : $HOST"
@@ -66,7 +66,7 @@ do
         "next2")
             HOST="next2-phpdb.cz6mty6zhfxl.eu-west-1.rds.amazonaws.com"
             DB="uxanalytics"
-            USERDB="root"
+            USERDB="uxanalytics"
             PASS="DohHop2Toolee7mei"
             PORT="null"
             success_msg "You have selected $DB - $opt : $HOST"
@@ -75,7 +75,7 @@ do
         "next3")
             HOST="next3-phpdb.cz6mty6zhfxl.eu-west-1.rds.amazonaws.com"
             DB="uxanalytics"
-            USERDB="root"
+            USERDB="uxanalytics"
             PASS="DohHop2Toolee7mei"
             PORT="null"
             success_msg "You have selected $DB - $opt : $HOST"
@@ -84,7 +84,7 @@ do
         "next4")
             HOST="next4-phpdb.cz6mty6zhfxl.eu-west-1.rds.amazonaws.com"
             DB="uxanalytics"
-            USERDB="root"
+            USERDB="uxanalytics"
             PASS="DohHop2Toolee7mei"
             PORT="null"
             success_msg "You have selected $DB - $opt : $HOST"
@@ -93,7 +93,7 @@ do
         "next5")
             HOST="next5-phpdb.cz6mty6zhfxl.eu-west-1.rds.amazonaws.com"
             DB="uxanalytics"
-            USERDB="root"
+            USERDB="uxanalytics"
             PASS="DohHop2Toolee7mei"
             PORT="null"
             success_msg "You have selected $DB - $opt : $HOST"
