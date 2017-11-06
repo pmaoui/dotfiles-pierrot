@@ -22,6 +22,10 @@ export NVM_DIR="$HOME/.nvm"
 # ALT GR + SPACE disable insecable space
 setxkbmap -option "nbsp:none"
 
+# new maestro
+export WORKSPACE=/home/pierrot/Public
+export APP_ENV=dev
+
 export LOCAL_WORKSPACE=/home/pierrot/Public
 export HUB_LOCAL_WORKSPACE=/home/pierrot/Public/hub
 export UXA_LOCAL_WORKSPACE=/home/pierrot/Public/mousetest
