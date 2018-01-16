@@ -25,14 +25,6 @@ setxkbmap -option "nbsp:none"
 
 # new maestro
 export WORKSPACE=/home/pierrot/Public
-export APP_ENV=dev
-
-export LOCAL_WORKSPACE=/home/pierrot/Public
-export HUB_LOCAL_WORKSPACE=/home/pierrot/Public/hub
-export UXA_LOCAL_WORKSPACE=/home/pierrot/Public/mousetest
-export PUBLICITEST_LOCAL_WORKSPACE=/home/pierrot/Public/publicitest
-export PS_LOCAL_WORKSPACE=/home/pierrot/Public/ps
-export CS_ENV_DIR=/home/pierrot/Public/cs-env
 
 export DOCKER_HOST_IP=$(ifconfig | grep -Eo 'inet (add?r:)?(10|192)\.(5|168)\.([0-9]*\.)[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' -m 1)
 export LOCAL_IP=$DOCKER_HOST_IP
