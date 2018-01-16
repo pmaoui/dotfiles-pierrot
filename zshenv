@@ -14,6 +14,7 @@ export HISTCONTROL=ignoreboth:erasedups
 # NVM
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+[ -s "$CDPATH/secret-env.sh" ] && source "$CDPATH/secret-env.sh"
 
 # Ruby rbenv
 #export PATH=$HOME/.rbenv/bin:$PATH
