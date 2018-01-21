@@ -7,7 +7,7 @@ ABSDIR=$(dirname $ABSPATH)
 git submodule update --init --recursive
 
 sudo apt-get update
-sudo apt-get install -y neovim tmux zsh xfonts-terminus fonts-inconsolata curl w3m-img xsel fbterm
+sudo apt-get install -y neovim tmux zsh xfonts-terminus fonts-inconsolata curl w3m-img xsel fbterm tig
 
 # install powerline
 cd fonts && ./install.sh
