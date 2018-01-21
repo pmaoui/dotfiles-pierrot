@@ -7,10 +7,14 @@ ABSDIR=$(dirname $ABSPATH)
 git submodule update --init --recursive
 
 sudo apt-get update
-sudo apt-get install -y neovim tmux zsh xfonts-terminus fonts-inconsolata curl w3m-img xsel fbterm tig
+sudo apt-get install -y python3-pip neovim tmux zsh xfonts-terminus fonts-inconsolata curl w3m-img xsel fbterm tig
 
 # install powerline
 cd fonts && ./install.sh
+cd ..
+
+# install ranger
+cd ranger && sudo make install
 cd ..
 
 rm ~/.zshrc ~/.vimrc ~/.tmux.conf ~/.Xdefaults
@@ -56,7 +60,7 @@ $ABSDIR/fzf/install
 # configure git to use the current nvim session
 # (avoid nested terminal) with git commit
 # if I use the terminal inside nvim
-pip3 install neovim-remote
+sudo pip3 install neovim-remote
 git config --global core.editor 'nvr --remote-wait-silent'
 
 echo "Installed..."
