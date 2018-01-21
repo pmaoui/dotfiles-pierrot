@@ -4,6 +4,9 @@
 [submodule "fonts"]
 	path = fonts
 	url = https://github.com/powerline/fonts.git
+[submodule "ranger"]
+  path = ranger
+  url = git@github.com:ranger/ranger.git
 [submodule "ranger.vim"]
 	path = ranger.vim
 	url = https://github.com/francoiscabrol/ranger.vim.git
