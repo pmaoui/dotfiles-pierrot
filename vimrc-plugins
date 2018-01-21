@@ -30,7 +30,7 @@ Plug 'kchmck/vim-coffee-script'
 Plug 'moll/vim-node' " offers things like gf on require('file')
 
 " new ctrl+p
-Plug 'junegunn/fzf', { 'dir': '~/dotfiles-pierrot/fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 
 " Annotate code
 Plug 'MattesGroeger/vim-bookmarks'

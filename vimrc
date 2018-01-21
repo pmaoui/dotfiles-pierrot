@@ -176,3 +176,6 @@ let g:terminal_color_15 = "#ffffff"
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Ggrep the word under cursor (in a new split)
 nmap <F3> "zyiw:vsplit<CR><C-w>l:exe "Ggrep ".@z.""<CR>
+
+" Ranger replace netrw
+let g:ranger_replace_netrw = 1
