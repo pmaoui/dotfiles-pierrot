@@ -30,6 +30,7 @@ Plug 'kchmck/vim-coffee-script'
 Plug 'moll/vim-node' " offers things like gf on require('file')
 
 " new ctrl+p
+set rtp+=/home/pierrot/dotfiles-pierrot/fzf/
 Plug 'junegunn/fzf.vim'
 
 " Annotate code
