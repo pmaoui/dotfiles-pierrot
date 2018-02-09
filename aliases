@@ -13,7 +13,7 @@ alias caf='cd ~/Public/cs-app-feature'
 alias uxa='cd ~/Public/mousetest'
 alias maestro='cd ~/Public/app_cs-maestro'
 alias processing='cd ~/Public/alias-goals-processing/'
-alias chenv="~/dotfiles-pierrot/change-cs-env.sh"
+alias chenv="~/dotfiles-pierrot/chenv.sh"
 alias e2e="~/dotfiles-pierrot/launch-e2e.sh"
 
 # Better pager

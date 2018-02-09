@@ -12,9 +12,9 @@ do
             APP_CONF_PP="$WORKSPACE/app-conf/project-parameters/$opt/eu-west-1/env.json"
             pp_lines=('host' 'database' 'username' 'password')
             for line in $pp_lines; do
-              line_appconf=`cat $APP_CONF_PP | grep -m1 "$line.*:"`
+              line_appconf=`cat $APP_CONF_PP | grep -v "{" | grep -m1 "$line.*:"`
               if [ -n "$line_appconf" ]; then
-                vim -c "g/$line.*:/s/^.*/$line_appconf" -c "wq" $PP_CONFIG
+                vim -c "g/\v^(.*$line.*:)&(.*\{)@!/s/^.*/$line_appconf" -c "wq" $PP_CONFIG
               else
                 echo "No line in $PP_CONFIG for : $line";
               fi
