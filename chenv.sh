@@ -12,9 +12,14 @@ do
 
             # UXA
             APP_CONF_UXA="$WORKSPACE/app-conf/uxanalytics/$opt/eu-west-1/parameters.yml"
+            APP_CONF_UXA_DEV="$WORKSPACE/app-conf/uxanalytics/dev/eu-west-1/parameters.yml"
             uxa_lines=('cs_app_feature_api_url' 'database_host' 'database_name' 'database_user' 'database_password' 'env_prefix')
             for line in $uxa_lines; do
               line_appconf=`cat $APP_CONF_UXA | grep -m1 "$line.*:"`
+              # we need the dev one for this line
+              if [ "$line" = "cs_app_feature_api_url" ]; then
+                line_appconf=`cat $APP_CONF_UXA_DEV | grep -m1 "$line.*:"`
+              fi
               if [ -n "$line_appconf" ]; then
                 vim -c "g/$line.*:/s/^.*/${line_appconf//\//\\/}" -c "wq" $UXA_CONFIG
                 echo $(cat $UXA_CONFIG| grep $line)
@@ -45,7 +50,7 @@ do
               if [ -n "$line_appconf" ]; then
                 # the line_appconf needs to escape slash
                 vim -c "g/.*$line.*:/+s/^.*/${line_appconf//\//\\/}" -c "wq" $CAF_CONFIG
-                echo $(cat $CAF_CONFIG| grep $line -A1 | grep -m1 "url.*:")
+                echo $(cat $CAF_CONFIG| grep $line -C 1)
               else
                 echo "No line in $CAF_CONFIG for : $line";
               fi
