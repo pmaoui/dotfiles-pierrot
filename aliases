@@ -38,7 +38,7 @@ source ~/dotfiles-pierrot/git-alias-extension
 
 gh() { cat ~/dotfiles-pierrot/git-*|grep $1; }
 ah() { cat ~/dotfiles-pierrot/aliases|grep $1; }
+cjson() { curl $1 | jq '.'; }
 
 # start vim with FZF to fuzzy find a file
 alias vimf='vim -c ":FZF ."'
-
