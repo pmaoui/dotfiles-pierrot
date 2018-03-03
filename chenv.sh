@@ -12,11 +12,12 @@ do
 
             # UXA
             APP_CONF_UXA="$WORKSPACE/app-conf/uxanalytics/$opt/eu-west-1/parameters.yml"
-            uxa_lines=('database_host' 'database_name' 'database_user' 'database_password' 'env_prefix')
+            uxa_lines=('cs_app_feature_api_url' 'database_host' 'database_name' 'database_user' 'database_password' 'env_prefix')
             for line in $uxa_lines; do
               line_appconf=`cat $APP_CONF_UXA | grep -m1 "$line.*:"`
               if [ -n "$line_appconf" ]; then
-                vim -c "g/$line.*:/s/^.*/$line_appconf" -c "wq" $UXA_CONFIG
+                vim -c "g/$line.*:/s/^.*/${line_appconf//\//\\/}" -c "wq" $UXA_CONFIG
+                echo $(cat $UXA_CONFIG| grep $line)
               else
                 echo "No line in $UXA_CONFIG for : $line";
               fi
@@ -28,7 +29,8 @@ do
             for line in $pp_lines; do
               line_appconf=`cat $APP_CONF_PP | grep -v "{" | grep -m1 "$line.*:"`
               if [ -n "$line_appconf" ]; then
-                vim -c "g/\v^(.*$line.*:)&(.*\{)@!/s/^.*/$line_appconf" -c "wq" $PP_CONFIG
+                vim -c "g/\v^(.*$line.*:)&(.*\{)@!/s/^.*/${line_appconf//\//\\/}" -c "wq" $PP_CONFIG
+                echo $(cat $PP_CONFIG| grep $line)
               else
                 echo "No line in $PP_CONFIG for : $line";
               fi
@@ -43,6 +45,7 @@ do
               if [ -n "$line_appconf" ]; then
                 # the line_appconf needs to escape slash
                 vim -c "g/.*$line.*:/+s/^.*/${line_appconf//\//\\/}" -c "wq" $CAF_CONFIG
+                echo $(cat $CAF_CONFIG| grep $line -A1 | grep -m1 "url.*:")
               else
                 echo "No line in $CAF_CONFIG for : $line";
               fi
