@@ -128,11 +128,19 @@ nmap <C-p> :FZF<CR>
 " Leave terminal mode with escape
 tnoremap <Esc> <C-\><C-n>
 
+" Automatically enter insert mode in a terminal
+au BufEnter * if &buftype == 'terminal' | :startinsert | endif
+
 " Move like jagger when I'm in a terminal
 tnoremap <C-w>h <C-\><C-n><C-w>h
 tnoremap <C-w>j <C-\><C-n><C-w>j
 tnoremap <C-w>k <C-\><C-n><C-w>k
 tnoremap <C-w>l <C-\><C-n><C-w>l
+
+" Open correctly files inside a terminal session
+if has('nvim')
+  let $VISUAL = 'nvr -cc split --remote-wait'
+endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " OpenChangedFiles COMMAND

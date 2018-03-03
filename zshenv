@@ -9,7 +9,7 @@ export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64/"
 export PATH=$PATH:~/android-sdks/platform-tools/
 
 # Default editor
-export EDITOR="/usr/bin/nvim"
+export EDITOR="/usr/local/bin/nvr"
 
 # No dups in ~/.*_history
 export HISTCONTROL=ignoreboth:erasedups
