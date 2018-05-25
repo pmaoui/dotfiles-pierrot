@@ -16,6 +16,9 @@ alias processing='cd ~/Public/alias-goals-processing/'
 alias chenv="~/dotfiles-pierrot/chenv.sh"
 alias e2e="~/dotfiles-pierrot/launch-e2e.sh"
 
+# I want to takes notes everyday
+alias today="~/dotfiles-pierrot/today.sh"
+
 # Better pager
 alias less=$PAGER
 alias zless=$PAGER
