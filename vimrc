@@ -1,10 +1,15 @@
 "Load my bundles
 source ~/dotfiles-pierrot/vimrc-plugins
+source ~/dotfiles-pierrot/vimrc-cs
 
 " THEME
 syntax on
 set noshowmode
 set noswapfile
+
+" Asked by Vial-http
+set hidden
+filetype plugin on
 
 let g:airline_powerline_fonts = 1
 let g:airline_theme='base16_brewer'
@@ -115,6 +120,9 @@ let g:ale_linter_aliases = {'less': 'css'}
 nmap ]l :ALENext<CR>
 nmap [l :ALEPrevious<CR>
 
+" correct updatetime for gitgutter (avoid laggy things)
+set updatetime=1000
+
 " avoid linting on text change (CPUing too much !)
 let g:ale_lint_on_text_changed = 'never'
 
@@ -129,7 +137,7 @@ nmap <C-p> :FZF<CR>
 tnoremap <Esc> <C-\><C-n>
 
 " Automatically enter insert mode in a terminal
-au BufEnter * if &buftype == 'terminal' | :startinsert | endif
+autocmd TermOpen * startinsert
 
 " Move like jagger when I'm in a terminal
 tnoremap <C-w>h <C-\><C-n><C-w>h
@@ -187,3 +195,9 @@ nmap <F3> "zyiw:vsplit<CR><C-w>l:exe "Ggrep ".@z.""<CR>
 
 " Ranger replace netrw
 let g:ranger_replace_netrw = 1
+
+" Having the JS syntax for Google Script
+autocmd BufNewFile,BufRead *.gs set syntax=javascript
+
+" Format for hours in my today
+autocmd VimEnter * SpeedDatingFormat %H:%M

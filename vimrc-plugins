@@ -21,12 +21,14 @@ Plug 'francoiscabrol/ranger.vim'
 " Highlight yanked text
 Plug 'machakann/vim-highlightedyank'
 
+" Increase / Decrease Date/Time
+Plug 'tpope/vim-speeddating'
+
 " specific languages
-Plug 'isRuslan/vim-es6'
+Plug 'pangloss/vim-javascript'
 Plug 'leafgarland/typescript-vim'
 Plug 'Quramy/tsuquyomi'
 Plug 'digitaltoad/vim-pug'
-Plug 'kchmck/vim-coffee-script'
 Plug 'moll/vim-node' " offers things like gf on require('file')
 
 " new ctrl+p
@@ -35,6 +37,10 @@ Plug 'junegunn/fzf.vim'
 
 " Annotate code
 Plug 'MattesGroeger/vim-bookmarks'
+
+" REST API testing
+Plug 'baverman/vial'
+Plug 'baverman/vial-http'
 
 " Themes
 "Plug 'tomasr/molokai'

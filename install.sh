@@ -23,6 +23,7 @@ ln -s $ABSDIR/vimrc ~/.vimrc
 ln -s $ABSDIR/tmux.conf ~/.tmux.conf
 ln -s $ABSDIR/Xdefaults ~/.Xdefaults
 ln -s $ABSDIR/fbtermrc ~/.fbtermrc
+ln -s $ABSDIR/jrnl_config ~/.jrnl_config
 
 mkdir ~/.vim 2>/dev/null
 if [ ! -d ~/.config ]; then
@@ -39,6 +40,7 @@ ln -s $ABSDIR/i3status.conf ~/.i3status.conf
 ln -s $ABSDIR/ranger.conf ~/.config/ranger/rc.conf
 ln -s $ABSDIR/scope.sh ~/.config/ranger/scope.sh
 ln -s $ABSDIR/rifle.conf ~/.config/ranger/rifle.conf
+ln -s $ABSDIR/commands.py ~/.config/ranger/commands.py
 
 ln -s $ABSDIR/cs-starter.sh ~/cs.sh
 

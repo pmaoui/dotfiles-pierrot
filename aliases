@@ -1,7 +1,5 @@
 # Unix
 alias ll="ls -al --color"
-alias vi='nvr'
-alias vim="nvr"
 
 # Clipboard
 alias pbcopy='xclip -selection clipboard'
