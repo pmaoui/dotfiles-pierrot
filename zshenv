@@ -32,3 +32,9 @@ export MAESTRO_MODE=dev-log
 
 # colored man
 export MANPAGER="nvim -c 'set ft=man' -"
+
+# only use files in git for vimf/fzf
+export FZF_DEFAULT_COMMAND='
+  (git ls-tree -r --name-only HEAD ||
+   find . -path "*/\.*" -prune -o -type f -print -o -type l -print |
+      sed s/^..//) 2> /dev/null'
