@@ -15,15 +15,15 @@ do
             echo "Doing UXA..."
             APP_CONF_UXA="$WORKSPACE/app-conf/uxanalytics/$opt/eu-west-1/parameters.yml"
             APP_CONF_UXA_DEV="$WORKSPACE/app-conf/uxanalytics/dev/eu-west-1/parameters.yml"
-            uxa_lines=('hypergate_api_url' 'us.hypergate_api_url' 'cs_app_feature_api_url' 'database_host' 'database_name' 'database_user' 'database_password' 'env_prefix')
+            uxa_lines=('redshift_host' 'redshift_port' 'redshift_password' 'us.redshift_host' 'us.redshift_port' 'us.redshift_password' 'hypergate_api_url' 'us.hypergate_api_url' 'cs_app_feature_api_url' 'database_host' 'database_name' 'database_user' 'database_password' 'env_prefix')
             for line in $uxa_lines; do
-              line_appconf=`cat $APP_CONF_UXA | grep -m1 "^ *$line.*:"`
+              line_appconf=`cat $APP_CONF_UXA | grep -m1 "^ *$line:.*"`
               # we need the dev one for this line
               if [ "$line" = "cs_app_feature_api_url" ]; then
                 line_appconf=`cat $APP_CONF_UXA_DEV | grep -m1 "^ *$line.*:"`
               fi
               if [ -n "$line_appconf" ]; then
-                vim -c "g/^ *$line.*:/s/^.*/${line_appconf//\//\\/}" -c "wq" $UXA_CONFIG
+                vim -c "g/^ *$line:.*/s/^.*/${line_appconf//\//\\/}" -c "wq" $UXA_CONFIG
                 echo $(cat $UXA_CONFIG| grep $line)
               else
                 echo "No line in $UXA_CONFIG for : $line";
