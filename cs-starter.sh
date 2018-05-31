@@ -3,7 +3,7 @@
 # session name
 sn="cs"
 
-cd ~/Public/mousetest/
+cd ~/Public/app_cs-maestro/
 
 ########################
 ##### TMUX SESSION #####
@@ -21,14 +21,13 @@ tmux split-window -h -t "$sn:.0"
 tmux split-window -h -t "$sn:.2"
 
 # upper-left
-tmux send-keys -t "$sn:.0" "../cs-env/dev/containers.sh start" Enter
+tmux send-keys -t "$sn:.0" "workon app_cs-maestro && export MAESTRO_MODE=dev && make build" Enter
 # lower-left
-tmux send-keys -t "$sn:.1" "./start-webdriver.sh --grid" Enter
-# upper-right
-tmux send-keys -t "$sn:.2" "gulp" Enter
+tmux send-keys -t "$sn:.1" "uxa && npm run dev" Enter
 
 tmux new-window -t "$sn" -n dev
 tmux select-window -t "$sn:0"
+tmux send-keys -t "$sn:0" "uxa" Enter
 
 tmux attach -t "$sn"
 
