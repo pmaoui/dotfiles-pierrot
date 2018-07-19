@@ -13,6 +13,7 @@ alias maestro='cd ~/Public/app_cs-maestro'
 alias processing='cd ~/Public/alias-goals-processing/'
 alias chenv="~/dotfiles-pierrot/chenv.sh"
 alias e2e="~/dotfiles-pierrot/launch-e2e.sh"
+alias jks="~/dotfiles-pierrot/jks.sh"
 
 # I want to takes notes everyday
 alias today="~/dotfiles-pierrot/today.sh"
