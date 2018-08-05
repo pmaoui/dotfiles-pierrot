@@ -23,7 +23,8 @@ tmux split-window -h -t "$sn:.2"
 # upper-left
 tmux send-keys -t "$sn:.0" "workon app_cs-maestro && export MAESTRO_MODE=dev && make build" Enter
 # lower-left
-tmux send-keys -t "$sn:.1" "uxa && npm i && npm i && npm run dev" Enter
+tmux send-keys -t "$sn:.1" "uxa" Enter
+tmux send-keys -t "$sn:.1" "$(npm bin)/lerna bootstrap && $(npm bin)/lerna bootstrap && cd packages/uxanalytics && npm run dev" Enter
 
 tmux send-keys -t "$sn:.2" "uxa && vi ../cs.http" Enter
 

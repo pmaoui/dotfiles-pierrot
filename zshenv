@@ -28,7 +28,7 @@ setxkbmap -option "nbsp:none"
 
 # new maestro
 export WORKSPACE=/home/pierrot/Public
-export MAESTRO_MODE=dev-log
+export MAESTRO_MODE=dev
 
 # colored man
 export MANPAGER="nvim -c 'set ft=man' -"

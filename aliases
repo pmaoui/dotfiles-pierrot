@@ -8,7 +8,8 @@ alias pbpaste='xclip -selection clipboard -o'
 # ContentSquare folder's
 alias pp='cd ~/Public/project-parameters'
 alias caf='cd ~/Public/cs-app-feature'
-alias uxa='cd ~/Public/mousetest'
+alias uxa='cd ~/Public/app-uxanalytics'
+alias mousetest='cd ~/Public/mousetest'
 alias maestro='cd ~/Public/app_cs-maestro'
 alias processing='cd ~/Public/alias-goals-processing/'
 alias chenv="~/dotfiles-pierrot/chenv.sh"
