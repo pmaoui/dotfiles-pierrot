@@ -15,8 +15,9 @@ Plug 'godlygeek/tabular'
 "Plug 'codegram/vim-codereview'
 Plug 'Shougo/vimproc.vim'
 
-" File explorer
+" File explorer (+bclose for neovim bug)
 Plug 'francoiscabrol/ranger.vim'
+Plug 'rbgrouleff/bclose.vim'
 
 " Highlight yanked text
 Plug 'machakann/vim-highlightedyank'
