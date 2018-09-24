@@ -1,6 +1,5 @@
 "Load my bundles
 source ~/dotfiles-pierrot/vimrc-plugins
-source ~/dotfiles-pierrot/vimrc-cs
 
 " THEME
 syntax on

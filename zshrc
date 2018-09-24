@@ -1,7 +1,6 @@
 source ~/dotfiles-pierrot/aliases
 source ~/dotfiles-pierrot/zshenv
 source ~/.fzf.zsh
-source ~/Public/dev-toolbox/setup-workstation/aws-ssh.sh
 
 # Activate virtualenv management
 source /usr/share/virtualenvwrapper/virtualenvwrapper.sh

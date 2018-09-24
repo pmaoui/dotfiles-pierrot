@@ -1,6 +1,0 @@
-" MAESTRO
-command! MakeDev :terminal cd ~/Public/app_cs-maestro/ && MAESTRO_MODE=dev make build
-command! -nargs=? MakeLogs :terminal cd ~/Public/app_cs-maestro && make logs SERVICE=<f-args>
-
-" NPM
-command! Webpack :terminal cd ~/Public/mousetest/ && npm run dev

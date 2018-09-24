@@ -12,4 +12,4 @@
 	url = https://github.com/rkitover/vimpager.git
 [submodule "ranger"]
 	path = ranger
-	url = git@github.com:ranger/ranger.git
+	url = https://github.com/ranger/ranger.git
