@@ -1,5 +1,6 @@
 # Unix
 alias ll="ls -al --color"
+alias dot="cd ~/dotfiles-pierrot/"
 
 # Clipboard
 alias pbcopy='xclip -selection clipboard'
@@ -27,3 +28,13 @@ cjson() { curl $1 | jq '.'; }
 
 # start vim with FZF to fuzzy find a file
 alias vimf='vim -c ":FZF ."'
+
+
+# Wing Specific
+mongowing() { docker run -d -p 8080:80 -e "MONGO_SERVER=localhost"  --add-host="localhost:$(ip addr show wlp2s0 | grep -Po 'inet \K[\d.]+')" weshigbee/rockmongo }
+
+alias wing="cd ~/Wing/pps/docker/"
+alias dao="cd ~/Wing/pps/dao/"
+alias channel="cd ~/Wing/pps/channel/"
+alias parcel="cd ~/Wing/pps/parcel/"
+alias front="cd ~/Wing/pps/dashboard-client/"
