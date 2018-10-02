@@ -62,7 +62,7 @@ $ABSDIR/fzf/install
 # configure git to use the current nvim session
 # (avoid nested terminal) with git commit
 # if I use the terminal inside nvim
-sudo pip3 install neovim-remote
+pip3 install neovim-remote
 git config --global core.editor 'nvr --remote-wait-silent'
 
 echo "Installed..."
