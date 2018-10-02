@@ -15,6 +15,9 @@ let g:airline_theme='base16_brewer'
 
 set t_Co=256
 
+" Default shell for neovim
+set shell=/usr/bin/zsh
+
 """"""""" THEME """"""""""
 colorscheme base16-bright
 if has("termguicolors")

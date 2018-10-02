@@ -75,6 +75,16 @@ handle_extension() {
             odt2txt "${FILE_PATH}" && exit 5
             exit 1;;
 
+        # JSON
+        json)
+            json --color "${FILE_PATH}" && exit 5
+            exit 1;;
+
+        # Markdown
+        md)
+            markuping --color "${FILE_PATH}" && exit 5
+            exit 1;;
+
         # I DONT NEED THIS
         # HTML
         #htm|html|xhtml)
