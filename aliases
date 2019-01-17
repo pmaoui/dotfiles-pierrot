@@ -33,9 +33,19 @@ alias vimf='vim -c ":FZF ."'
 # Wing Specific
 mongowing() { docker run -d -p 8080:80 -e "MONGO_SERVER=localhost"  --add-host="localhost:$(ip addr show wlp2s0 | grep -Po 'inet \K[\d.]+')" weshigbee/rockmongo }
 
-alias wing="cd ~/Wing/pps/docker/"
+alias wing="cd ~/Wing/pickpacknship/"
 alias dao="cd ~/Wing/pps/dao/"
 alias channel="cd ~/Wing/pps/channel/"
 alias parcel="cd ~/Wing/pps/parcel/"
 alias front="cd ~/Wing/pps/dashboard-client/"
 alias presta="cd ~/Wing/pps/prestashop-module/"
+alias core="cd ~/Wing/pps/core/"
+
+pgadmin() {
+  docker pull dpage/pgadmin4
+  docker run -p 8080:80 \
+    --volume=/home/pierrot/Wing/tms/pgadmin_db:/var/lib/pgadmin \
+    -e "PGADMIN_DEFAULT_EMAIL=pierre.maoui@wing.eu" \
+    -e "PGADMIN_DEFAULT_PASSWORD=winghero" \
+    -d dpage/pgadmin4
+}

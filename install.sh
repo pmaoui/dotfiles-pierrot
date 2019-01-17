@@ -35,7 +35,7 @@ fi
 if [ ! -d ~/.config/ranger/ ]; then
   mkdir ~/.config/ranger
 fi
-ln -s $ABSDIR/ssh-aliases ~/.ssh.config
+ln -s $ABSDIR/ssh-aliases ~/.ssh/config
 ln -s $ABSDIR/i3status.conf ~/.i3status.conf
 ln -s $ABSDIR/ranger.conf ~/.config/ranger/rc.conf
 ln -s $ABSDIR/scope.sh ~/.config/ranger/scope.sh

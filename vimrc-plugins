@@ -27,17 +27,19 @@ Plug 'tpope/vim-speeddating'
 
 " specific languages
 Plug 'pangloss/vim-javascript'
-Plug 'leafgarland/typescript-vim'
-Plug 'Quramy/tsuquyomi'
-Plug 'digitaltoad/vim-pug'
+"Plug 'leafgarland/typescript-vim'
+"Plug 'Quramy/tsuquyomi'
+"Plug 'digitaltoad/vim-pug'
 Plug 'moll/vim-node' " offers things like gf on require('file')
+Plug 'mxw/vim-jsx'
+Plug 'prettier/vim-prettier'
 
 " new ctrl+p
 set rtp+=/home/pierrot/dotfiles-pierrot/fzf/
 Plug 'junegunn/fzf.vim'
 
 " Annotate code
-Plug 'MattesGroeger/vim-bookmarks'
+" Plug 'MattesGroeger/vim-bookmarks'
 
 " REST API testing
 Plug 'baverman/vial'

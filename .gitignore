@@ -1,3 +1,4 @@
 Session.vim
 node_modules
 secret-env.sh
+ssh-aliases

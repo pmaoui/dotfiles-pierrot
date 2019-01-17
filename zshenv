@@ -25,6 +25,7 @@ export NVM_DIR="$HOME/.nvm"
 
 # ALT GR + SPACE disable insecable space
 setxkbmap -option "nbsp:none"
+setxkbmap fr
 
 # new maestro
 export WORKSPACE=/home/pierrot/Public

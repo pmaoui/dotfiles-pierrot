@@ -2,9 +2,6 @@ source ~/dotfiles-pierrot/aliases
 source ~/dotfiles-pierrot/zshenv
 source ~/.fzf.zsh
 
-# Activate virtualenv management
-source /usr/share/virtualenvwrapper/virtualenvwrapper.sh
-
 source ~/dotfiles-pierrot/antigen/antigen.zsh
 antigen use oh-my-zsh
 antigen bundle git
@@ -24,3 +21,7 @@ antigen apply
 # tabtab source for sls package
 # uninstall by removing these lines or running `tabtab uninstall sls`
 [[ -f /home/pierrot/.nvm/versions/node/v9.7.1/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh ]] && . /home/pierrot/.nvm/versions/node/v9.7.1/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh
+
+export GOROOT=/usr/local/go
+export GOPATH=$HOME/goPath
+export PATH=$GOPATH/bin:$GOROOT/bin:$PATH

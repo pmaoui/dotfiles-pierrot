@@ -23,7 +23,7 @@ tmux split-window -h -t "$sn:.2"
 # upper-left
 tmux send-keys -t "$sn:.0" "npm run start:db" Enter
 # lower-left
-tmux send-keys -t "$sn:.1" "sleep 5 && npm run start:pm2" Enter
+tmux send-keys -t "$sn:.1" "sleep 5 && npm run watch:pm2" Enter
 tmux send-keys -t "$sn:.2" "sleep 10 && npm run logs:pm2" Enter
 
 # front
