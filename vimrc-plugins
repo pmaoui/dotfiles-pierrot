@@ -1,9 +1,12 @@
 call plug#begin('~/.vim/plugged')
 
+" Be a man
+Plug 'wikitopian/hardmode'
+
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
-Plug 'w0rp/ale'
+Plug 'neoclide/coc.nvim', {'do': './install.sh nightly'}
 Plug 'scrooloose/nerdcommenter'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'

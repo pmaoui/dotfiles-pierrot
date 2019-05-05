@@ -25,3 +25,9 @@ antigen apply
 export GOROOT=/usr/local/go
 export GOPATH=$HOME/goPath
 export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
+
+# tabtab source for slss package
+# uninstall by removing these lines or running `tabtab uninstall slss`
+[[ -f /home/pierrot/Wing/pickpacknship/packages/channel/lambdas/node_modules/tabtab/.completions/slss.zsh ]] && . /home/pierrot/Wing/pickpacknship/packages/channel/lambdas/node_modules/tabtab/.completions/slss.zsh
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"

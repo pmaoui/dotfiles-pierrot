@@ -111,24 +111,8 @@ nmap <Leader>kk <Plug>BookmarkMoveUp
 nmap <Leader>jj <Plug>BookmarkMoveDown
 nmap <Leader>g <Plug>BookmarkMoveToLine
 
-" avoid jshint to be selected by ALE to lint
-let g:ale_linters = {
-\   'javascript': ['eslint'],
-\   'typescript': ['tslint']
-\}
-let g:ale_linter_aliases = {'less': 'css'}
-
-" navigate between linter errors
-nmap ]l :ALENext<CR>
-nmap [l :ALEPrevious<CR>
-
 " correct updatetime for gitgutter (avoid laggy things)
 set updatetime=1000
-
-" avoid linting on text change (CPUing too much !)
-let g:ale_lint_on_text_changed = 'never'
-
-nmap <silent> <leader>T :TestFile<CR>
 
 " get in the current directory (local to the buffer with lcd)
 map <leader>cd :lcd %:h<CR>
