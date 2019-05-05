@@ -136,6 +136,9 @@ if has('nvim')
   let $VISUAL = 'nvr -cc split --remote-wait'
 endif
 
+" Prettier
+nmap <leader>p :Prettier<CR>
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " OpenChangedFiles COMMAND
 " Open a split for each dirty file in git
