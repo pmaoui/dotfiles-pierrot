@@ -9,6 +9,8 @@ antigen bundle git
 # Syntax highlighting bundle
 antigen bundle zsh-users/zsh-syntax-highlighting
 
+antigen bundle "greymd/docker-zsh-completion"
+
 # Theme
 #antigen theme daveverwer
 antigen theme agnoster
