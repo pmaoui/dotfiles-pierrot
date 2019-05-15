@@ -35,7 +35,7 @@ mongowing() { docker run -d -p 8080:80 -e "MONGO_SERVER=localhost"  --add-host="
 
 alias wing="cd ~/Wing/pickpacknship/"
 alias shlag="cd ~/Wing/shlag/"
-alias lab="cd ~/labs"
+alias labs="cd ~/labs"
 
 pgadmin() {
   docker pull dpage/pgadmin4

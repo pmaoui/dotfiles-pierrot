@@ -190,3 +190,11 @@ autocmd BufNewFile,BufRead *.gs set syntax=javascript
 
 " Format for hours in my today
 autocmd VimEnter * SpeedDatingFormat %H:%M
+
+" Display correctly comments in json
+autocmd FileType json syntax match Comment +\/\/.\+$+
+
+nmap ]l <Plug>(coc-diagnostic-next)
+nmap [l <Plug>(coc-diagnostic-prev)
+nmap ]d <Plug>(coc-definition)
+nmap <Leader>c <Plug>(coc-rename)
