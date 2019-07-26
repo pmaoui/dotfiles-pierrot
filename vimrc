@@ -72,7 +72,7 @@ nnoremap <Leader>/ :noh<cr>
 set number              " Display lines number
 set relativenumber      " Display lines relatively to the current line
 set cursorline          " Highlight the current line
-set hidden              " Hidden buffer
+set hidden              " Keep new file in buffer
 
 set autoindent          " copy indent from current line when starting a new line
 set smartindent         " insert new line at the last know indentation
@@ -94,7 +94,9 @@ set showcmd             " display incomplete commands (ex: type z, it appears at
 set nobackup            " do not keep a backup file
 
 set autoread            " change outside of Vim: automatically read it again.
-set scrolloff=10         " scroll the page before the end of the window
+set scrolloff=10        " scroll the page before the end of the window
+
+set guicursor=          " Fix cursor invisible behavior
 
 " ####### PLUGINS
 " save code annotations from vim-bookmarks

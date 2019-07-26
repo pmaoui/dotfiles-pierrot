@@ -18,6 +18,8 @@ Plug 'godlygeek/tabular'
 "Plug 'codegram/vim-codereview'
 Plug 'Shougo/vimproc.vim'
 
+Plug 'shumphrey/fugitive-gitlab.vim'
+
 " File explorer (+bclose for neovim bug)
 Plug 'francoiscabrol/ranger.vim'
 Plug 'rbgrouleff/bclose.vim'
