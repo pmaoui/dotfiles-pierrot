@@ -7,6 +7,7 @@ export TERM='xterm-256color'
 export ANDROID_HOME="/home/pierrot/android-sdks"
 export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64/"
 export PATH=$PATH:~/android-sdks/platform-tools/
+export PATH=~/.local/bin:$PATH
 
 # Default editor
 export EDITOR="/usr/local/bin/nvr"

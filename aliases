@@ -45,3 +45,5 @@ pgadmin() {
     -e "PGADMIN_DEFAULT_PASSWORD=winghero" \
     -d dpage/pgadmin4
 }
+
+mongo() { docker run -it mongo:3.6.6 sh -c "mkdir /home/mongodb && mongo \"$1\"" }

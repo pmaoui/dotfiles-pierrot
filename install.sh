@@ -3,11 +3,12 @@
 ABSPATH=$(readlink -f $0)
 ABSDIR=$(dirname $ABSPATH)
 
-# install antigen
-git submodule update --init --recursive
 
 sudo apt-get update
-sudo apt-get install -y python3-pip neovim tmux zsh xfonts-terminus fonts-inconsolata curl w3m-img xsel fbterm tig
+sudo apt-get install -y git python3-pip neovim tmux zsh xfonts-terminus fonts-inconsolata curl w3m-img xsel fbterm tig
+
+# install antigen
+git submodule update --init --recursive
 
 # install powerline
 cd fonts && ./install.sh
