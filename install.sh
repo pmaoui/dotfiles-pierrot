@@ -70,4 +70,7 @@ echo "Installed..."
 echo "Don't forget to set \"Droid Sans Mono Dotted for Powerline Regular - 11pt\" for your default font in gnome-terminal"
 echo "And to set zsh as your startup command..."
 
-
+echo "Ho... and do in neovim:"
+echo ":CocInstall coc-eslint"
+echo ":CocInstall coc-json"
+echo ":CocInstall coc-tslint"

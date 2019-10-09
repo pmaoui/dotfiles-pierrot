@@ -47,3 +47,4 @@ pgadmin() {
 }
 
 mongo() { docker run -it mongo:3.6.6 sh -c "mkdir /home/mongodb && mongo \"$1\"" }
+mongodump() { docker run -t mongo:3.6.6 sh -c "mkdir /home/mongodb && mongodump --archive --uri \"$1\"" }
