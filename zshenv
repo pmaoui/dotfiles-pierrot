@@ -10,7 +10,7 @@ export PATH=$PATH:~/android-sdks/platform-tools/
 export PATH=~/.local/bin:$PATH
 
 # Default editor
-export EDITOR="/usr/local/bin/nvr"
+export EDITOR="/usr/local/bin/nvr -s"
 
 # No dups in ~/.*_history
 export HISTCONTROL=ignoreboth:erasedups
