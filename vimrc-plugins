@@ -3,6 +3,8 @@ call plug#begin('~/.vim/plugged')
 " Be a man
 Plug 'wikitopian/hardmode'
 
+Plug 'tomarrell/vim-npr'
+
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
@@ -31,13 +33,16 @@ Plug 'machakann/vim-highlightedyank'
 Plug 'tpope/vim-speeddating'
 
 " specific languages
-Plug 'pangloss/vim-javascript'
+"Plug 'pangloss/vim-javascript'
 "Plug 'leafgarland/typescript-vim'
 "Plug 'Quramy/tsuquyomi'
 "Plug 'digitaltoad/vim-pug'
 Plug 'moll/vim-node' " offers things like gf on require('file')
-Plug 'mxw/vim-jsx'
+"Plug 'mxw/vim-jsx'
 Plug 'prettier/vim-prettier'
+"Plug 'jparise/vim-graphql'
+" One to run them all
+Plug 'sheerun/vim-polyglot'
 
 " new ctrl+p
 set rtp+=/home/pierrot/dotfiles-pierrot/fzf/
@@ -47,8 +52,9 @@ Plug 'junegunn/fzf.vim'
 " Plug 'MattesGroeger/vim-bookmarks'
 
 " REST API testing
-Plug 'baverman/vial'
-Plug 'baverman/vial-http'
+"Plug 'baverman/vial'
+"Plug 'baverman/vial-http'
+Plug 'diepm/vim-rest-console'
 
 " Themes
 "Plug 'tomasr/molokai'

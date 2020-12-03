@@ -200,3 +200,6 @@ nmap ]l <Plug>(coc-diagnostic-next)
 nmap [l <Plug>(coc-diagnostic-prev)
 nmap ]d <Plug>(coc-definition)
 nmap <Leader>c <Plug>(coc-rename)
+let g:coc_global_extensions = [
+  \ 'coc-tsserver'
+  \ ]

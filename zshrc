@@ -26,7 +26,7 @@ antigen apply
 
 export GOROOT=/usr/local/go
 export GOPATH=$HOME/goPath
-export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
+export PATH=$GOPATH/bin:$GOROOT/bin:/opt/platform-tools:$PATH
 
 # tabtab source for slss package
 # uninstall by removing these lines or running `tabtab uninstall slss`
