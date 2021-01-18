@@ -8,7 +8,7 @@ Plug 'tomarrell/vim-npr'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
-Plug 'neoclide/coc.nvim', {'do': './install.sh nightly'}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'scrooloose/nerdcommenter'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'

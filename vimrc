@@ -187,6 +187,11 @@ nmap <F3> "zyiw:vsplit<CR><C-w>l:exe "Ggrep ".@z.""<CR>
 " Ranger replace netrw
 let g:ranger_replace_netrw = 1
 
+" Need this to parse JSON in VRC
+let g:vrc_curl_opts = {
+  \ '-i': ''
+\}
+
 " Having the JS syntax for Google Script
 autocmd BufNewFile,BufRead *.gs set syntax=javascript
 
@@ -203,3 +208,16 @@ nmap <Leader>c <Plug>(coc-rename)
 let g:coc_global_extensions = [
   \ 'coc-tsserver'
   \ ]
+
+" Use K to show documentation in preview window.
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  elseif (coc#rpc#ready())
+    call CocActionAsync('doHover')
+  else
+    execute '!' . &keywordprg . " " . expand('<cword>')
+  endif
+endfunction
