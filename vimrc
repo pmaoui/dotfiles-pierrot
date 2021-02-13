@@ -11,7 +11,6 @@ set hidden
 filetype plugin on
 
 let g:airline_powerline_fonts = 1
-let g:airline_theme='base16_brewer'
 
 set t_Co=256
 
@@ -19,10 +18,17 @@ set t_Co=256
 set shell=/usr/bin/zsh
 
 """"""""" THEME """"""""""
-colorscheme base16-bright
-if has("termguicolors")
-  set termguicolors
+if (has("nvim"))
+  "For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
+  let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 endif
+
+colorscheme palenight
+
+" I need to override ctermbg because of a gray background on kitty
+highlight Normal ctermbg=None
+
+let g:airline_theme = "palenight"
 
 " fix bad Search Highlight color (making text not readable)
 hi Search guibg=peru guifg=wheat
@@ -158,26 +164,6 @@ function! OpenChangedFiles()
 endfunction
 command! OpenChangedFiles :call OpenChangedFiles()
 
-" base16-bright
-" theses lines should be the exact same 15 colors of the
-" terminal configuration (gnome-terminal/mate-terminal)
-let g:terminal_color_0 = "#000000"
-let g:terminal_color_1 = "#fb0120"
-let g:terminal_color_2 = "#a1c659"
-let g:terminal_color_3 = "#fda331"
-let g:terminal_color_4 = "#6fb3d2"
-let g:terminal_color_5 = "#d381c3"
-let g:terminal_color_6 = "#76c7b7"
-let g:terminal_color_7 = "#e0e0e0"
-let g:terminal_color_8 = "#b0b0b0"
-let g:terminal_color_9 = "#fb0120"
-let g:terminal_color_10 = "#a1c659"
-let g:terminal_color_11 = "#fda331"
-let g:terminal_color_12 = "#6fb3d2"
-let g:terminal_color_13 = "#d381c3"
-let g:terminal_color_14 = "#76c7b7"
-let g:terminal_color_15 = "#ffffff"
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""  **CUSTOMS**  """"""""""""""""""""""""""""""""""
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -205,19 +191,3 @@ nmap ]l <Plug>(coc-diagnostic-next)
 nmap [l <Plug>(coc-diagnostic-prev)
 nmap ]d <Plug>(coc-definition)
 nmap <Leader>c <Plug>(coc-rename)
-let g:coc_global_extensions = [
-  \ 'coc-tsserver'
-  \ ]
-
-" Use K to show documentation in preview window.
-nnoremap <silent> K :call <SID>show_documentation()<CR>
-
-function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  elseif (coc#rpc#ready())
-    call CocActionAsync('doHover')
-  else
-    execute '!' . &keywordprg . " " . expand('<cword>')
-  endif
-endfunction

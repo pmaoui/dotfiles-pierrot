@@ -60,7 +60,9 @@ Plug 'diepm/vim-rest-console'
 "Plug 'tomasr/molokai'
 "Plug 'dracula/vim'
 "Plug 'mhartington/oceanic-next'
-Plug 'chriskempson/base16-vim'
+"Plug 'chriskempson/base16-vim'
+Plug 'drewtempelmeyer/palenight.vim'
+Plug 'ryanoasis/vim-devicons'
 
 " Deprecated
 " Plug 'vim-syntastic/syntastic'
