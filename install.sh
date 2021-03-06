@@ -11,6 +11,7 @@ sudo apt-get install -y git python3-pip neovim tmux zsh xfonts-terminus fonts-in
 git submodule update --init --recursive
 
 # install powerline
+pip install powerline-status
 cd fonts && ./install.sh
 cd ..
 

@@ -48,6 +48,8 @@ Plug 'sheerun/vim-polyglot'
 set rtp+=/home/pierrot/dotfiles-pierrot/fzf/
 Plug 'junegunn/fzf.vim'
 
+Plug 'christoomey/vim-tmux-navigator'
+
 " Annotate code
 " Plug 'MattesGroeger/vim-bookmarks'
 
@@ -64,8 +66,9 @@ Plug 'diepm/vim-rest-console'
 Plug 'drewtempelmeyer/palenight.vim'
 Plug 'ryanoasis/vim-devicons'
 
-" Deprecated
-" Plug 'vim-syntastic/syntastic'
+" Lua World
+" Plug 'neovim/nvim-lspconfig'
+" Plug 'nvim-lua/completion-nvim'
 
 " I'm not yet ready for this
 " Drop Tmux ? keyboard biding inside term
