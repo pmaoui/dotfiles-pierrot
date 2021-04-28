@@ -38,6 +38,7 @@ Plug 'tpope/vim-speeddating'
 "Plug 'Quramy/tsuquyomi'
 "Plug 'digitaltoad/vim-pug'
 Plug 'moll/vim-node' " offers things like gf on require('file')
+Plug 'meain/vim-package-info', { 'do': 'npm install' }
 "Plug 'mxw/vim-jsx'
 Plug 'prettier/vim-prettier'
 "Plug 'jparise/vim-graphql'

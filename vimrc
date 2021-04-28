@@ -39,7 +39,7 @@ hi Search guibg=peru guifg=wheat
 
 " Leader is Space
 let mapleader = "\<Space>"
-nmap <F8> :source $HOME/.vimrc<ENTER>
+nmap <F8> :source $HOME/dotfiles-pierrot/vimrc<ENTER>
 
 " Leader for nvimux
 let g:nvimuxqprefix='<C-Space>'
@@ -191,6 +191,9 @@ nmap ]l <Plug>(coc-diagnostic-next)
 nmap [l <Plug>(coc-diagnostic-prev)
 nmap ]d <Plug>(coc-definition)
 nmap <Leader>c <Plug>(coc-rename)
+
+nnoremap <nowait><expr> <C-n> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-n>"
+nnoremap <nowait><expr> <C-p> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-p>"
 
 "lua << EOF
 "
