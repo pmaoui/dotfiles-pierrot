@@ -36,9 +36,8 @@ FILE_EXTENSION_LOWER="${FILE_EXTENSION,,}"
 # Settings
 HIGHLIGHT_SIZE_MAX=262143  # 256KiB
 HIGHLIGHT_TABWIDTH=8
-HIGHLIGHT_STYLE='pablo'
+HIGHLIGHT_STYLE='clarity'
 PYGMENTIZE_STYLE='autumn'
-
 
 handle_extension() {
     case "${FILE_EXTENSION_LOWER}" in
@@ -77,7 +76,7 @@ handle_extension() {
 
         # JSON
         json)
-            json --color "${FILE_PATH}" && exit 5
+            jq -C . "${FILE_PATH}" && exit 5
             exit 1;;
 
         # Markdown

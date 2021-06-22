@@ -1,4 +1,4 @@
-source ~/dotfiles-pierrot/aliases
+source ~/dotfiles-pierrot/aliases.sh
 source ~/dotfiles-pierrot/zshenv
 source ~/.fzf.zsh
 

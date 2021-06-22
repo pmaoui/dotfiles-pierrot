@@ -5,7 +5,22 @@ ABSDIR=$(dirname $ABSPATH)
 
 
 sudo apt-get update
-sudo apt-get install -y git python3-pip neovim tmux zsh xfonts-terminus fonts-inconsolata curl w3m-img xsel fbterm tig
+sudo apt-get install -y \
+  git \
+  python3-pip \
+  neovim \
+  tmux \
+  zsh \
+  xfonts-terminus \
+  fonts-inconsolata \
+  curl \
+  w3m-img \
+  xsel \
+  fbterm \
+  tig \
+  transmission-cli \
+  highlight \
+  xclip
 
 # install antigen
 git submodule update --init --recursive

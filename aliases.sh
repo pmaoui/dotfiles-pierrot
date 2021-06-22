@@ -20,8 +20,6 @@ alias usedports='sudo netstat -tulpn' # opened ports
 transfer() { if [ $# -eq 0 ]; then echo "No arguments specified. Usage:\necho transfer /tmp/test.md\ncat /tmp/test.md | transfer test.md"; return 1; fi
 tmpfile=$( mktemp -t transferXXX ); if tty -s; then basefile=$(basename "$1" | sed -e 's/[^a-zA-Z0-9._-]/-/g'); curl --progress-bar --upload-file "$1" "https://transfer.sh/$basefile" >> $tmpfile; else curl --progress-bar --upload-file "-" "https://transfer.sh/$1" >> $tmpfile ; fi; cat $tmpfile; rm -f $tmpfile; }
 
-source ~/dotfiles-pierrot/git-alias-extension
-
 gh() { cat ~/dotfiles-pierrot/git-*|grep $1; }
 ah() { cat ~/dotfiles-pierrot/aliases|grep $1; }
 cjson() { curl $1 | jq '.'; }
@@ -31,21 +29,7 @@ alias vimf='vim -c ":FZF ."'
 
 
 # Wing Specific
-mongowing() { docker run -d -p 8080:80 -e "MONGO_SERVER=localhost"  --add-host="localhost:$(ip addr show wlp2s0 | grep -Po 'inet \K[\d.]+')" weshigbee/rockmongo }
-
 alias wing="cd ~/Wing/pickpacknship/"
 alias agp="cd ~/Wing/pickpacknship/packages/api-graphql-prisma"
 alias shlag="cd ~/Wing/shlag/"
 alias labs="cd ~/labs"
-
-pgadmin() {
-  docker pull dpage/pgadmin4
-  docker run -p 8080:80 \
-    --volume=/home/pierrot/Wing/tms/pgadmin_db:/var/lib/pgadmin \
-    -e "PGADMIN_DEFAULT_EMAIL=pierre.maoui@wing.eu" \
-    -e "PGADMIN_DEFAULT_PASSWORD=winghero" \
-    -d dpage/pgadmin4
-}
-
-#mongo() { docker run -v "/home/pierrot/.dbshell:/.dbshell" -u $(id -u):$(id -g) -it mongo:3.6.6 sh -c "mongo \"$1\"" }
-#mongodump() { docker run -t mongo:3.6.6 sh -c "mkdir /home/mongodb && mongodump --archive --uri \"$1\"" }
