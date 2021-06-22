@@ -34,6 +34,7 @@ alias vimf='vim -c ":FZF ."'
 mongowing() { docker run -d -p 8080:80 -e "MONGO_SERVER=localhost"  --add-host="localhost:$(ip addr show wlp2s0 | grep -Po 'inet \K[\d.]+')" weshigbee/rockmongo }
 
 alias wing="cd ~/Wing/pickpacknship/"
+alias agp="cd ~/Wing/pickpacknship/packages/api-graphql-prisma"
 alias shlag="cd ~/Wing/shlag/"
 alias labs="cd ~/labs"
 

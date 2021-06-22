@@ -64,7 +64,7 @@ $ABSDIR/fzf/install
 # configure git to use the current nvim session
 # (avoid nested terminal) with git commit
 # if I use the terminal inside nvim
-pip3 install neovim-remote
+pip3 install neovim-remote powerline-status
 git config --global core.editor 'nvr --remote-wait-silent'
 
 echo "Installed..."
@@ -75,3 +75,6 @@ echo "Ho... and do in neovim:"
 echo ":CocInstall coc-eslint"
 echo ":CocInstall coc-json"
 echo ":CocInstall coc-tslint"
+
+echo "Install powerline for tmux with this:"
+echo "powerline-config tmux setup"

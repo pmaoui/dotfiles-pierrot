@@ -10,7 +10,7 @@ export PATH=~/.local/bin:$PATH
 export PATH=$PATH:/usr/local/go/bin
 
 # Default editor
-export EDITOR="/usr/local/bin/nvr -s"
+export EDITOR="/usr/bin/nvim"
 
 # No dups in ~/.*_history
 export HISTCONTROL=ignoreboth:erasedups
