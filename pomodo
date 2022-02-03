@@ -1,0 +1,18 @@
+#!/bin/bash
+
+NB_SESSIONS=$1
+
+if [ -z "${NB_SESSIONS##*[!0-9]*}" ]; then
+  echo "$NB_SESSIONS is not a number";
+  NB_SESSIONS=1
+fi
+
+
+for ((i=1;i<=NB_SESSIONS;i++)); do
+  notify-send --icon="$HOME/Pictures/work.png" "Pomodo" "Work session starting"
+  timer 25
+  ~/dotfiles-pierrot/flash_screen.sh
+  notify-send --icon="$HOME/Pictures/rest.png" "Pomodo" "Rest session starting"
+  timer 5
+  ~/dotfiles-pierrot/flash_screen.sh
+done

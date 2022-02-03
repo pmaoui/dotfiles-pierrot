@@ -125,8 +125,6 @@ set updatetime=1000
 " get in the current directory (local to the buffer with lcd)
 map <leader>cd :lcd %:h<CR>
 
-nmap <C-p> :FZF<CR>
-
 " Leave terminal mode with escape
 tnoremap <Esc> <C-\><C-n>
 
@@ -194,6 +192,31 @@ nmap <Leader>c <Plug>(coc-rename)
 
 nnoremap <nowait><expr> <C-n> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-n>"
 nnoremap <nowait><expr> <C-p> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-p>"
+
+" Coc
+autocmd FileType typescript let b:coc_root_patterns = ['tsconfig.json']
+
+" resolve filenames with gf (vim-npr)
+autocmd BufEnter *.ts nmap <buffer> gf :call VimNPRFindFile("")<CR>
+let g:vim_npr_file_names = ["", ".js", ".jsx", ".ts", "/index.ts", "/index.js", "/index.jsx", "/src/index.js", "/lib/index.js"]
+let g:vim_npr_file_types = ["ts", "js", "jsx", "css", "coffee"]
+
+" add in polyglot the magic comment
+let g:graphql_javascript_tags = ['\/\* GraphQL \*\/ *', 'gql']
+
+" Use K to show documentation in preview window.
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+" autocmd CursorHold * silent call CocActionAsync('doHover')
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  elseif (coc#rpc#ready())
+    call CocActionAsync('doHover')
+  else
+    execute '!' . &keywordprg . " " . expand('<cword>')
+  endif
+endfunction
 
 "lua << EOF
 "

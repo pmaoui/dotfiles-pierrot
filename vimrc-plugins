@@ -45,9 +45,10 @@ Plug 'prettier/vim-prettier'
 " One to run them all
 Plug 'sheerun/vim-polyglot'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
+Plug 'lifepillar/pgsql.vim'
 
 " new ctrl+p
-set rtp+=/home/pierrot/dotfiles-pierrot/fzf/
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
 Plug 'christoomey/vim-tmux-navigator'

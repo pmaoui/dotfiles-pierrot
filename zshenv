@@ -33,7 +33,10 @@ export WORKSPACE=/home/pierrot/Public
 export MAESTRO_MODE=dev
 
 # colored man
-export MANPAGER="nvim -c 'set ft=man' -"
+function my_man {
+    $EDITOR +"Man $1|on"
+}
+alias man="my_man"
 
 # only use files in git for vimf/fzf
 export FZF_DEFAULT_COMMAND='

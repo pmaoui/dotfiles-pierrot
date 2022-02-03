@@ -7,9 +7,6 @@
 [submodule "antigen"]
 	path = antigen
 	url = https://github.com/zsh-users/antigen.git
-[submodule "vimpager"]
-	path = vimpager
-	url = https://github.com/rkitover/vimpager.git
 [submodule "ranger"]
 	path = ranger
 	url = https://github.com/ranger/ranger.git

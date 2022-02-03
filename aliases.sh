@@ -30,6 +30,9 @@ alias vimf='vim -c ":FZF ."'
 
 # Wing Specific
 alias wing="cd ~/Wing/pickpacknship/"
-alias agp="cd ~/Wing/pickpacknship/packages/api-graphql-prisma"
+alias mywing="cd ~/Wing/pickpacknship/packages/my-wing"
+alias wingprisma="cd ~/Wing/pickpacknship/packages/api-graphql-prisma"
+alias winge2e="cd ~/Wing/pickpacknship/packages/e2e-prisma"
+alias wingserverless="cd ~/Wing/pickpacknship/packages/wing-serverless"
 alias shlag="cd ~/Wing/shlag/"
 alias labs="cd ~/labs"
