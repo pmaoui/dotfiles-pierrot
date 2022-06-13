@@ -50,7 +50,7 @@ if [ ! -d ~/.ssh ]; then
   mkdir ~/.ssh
 fi
 if [ ! -d ~/.config/ranger/ ]; then
-  mkdir ~/.config/ranger
+  mkdir -p  ~/.config/ranger/plugins
 fi
 ln -s $ABSDIR/ssh-aliases ~/.ssh/config
 ln -s $ABSDIR/i3status.conf ~/.i3status.conf
@@ -58,6 +58,7 @@ ln -s $ABSDIR/ranger.conf ~/.config/ranger/rc.conf
 ln -s $ABSDIR/scope.sh ~/.config/ranger/scope.sh
 ln -s $ABSDIR/rifle.conf ~/.config/ranger/rifle.conf
 ln -s $ABSDIR/commands.py ~/.config/ranger/commands.py
+ln -s $ABSDIR/diffurcate-linemode.py ~/.config/ranger/plugins/diffurcate-linemode.py
 
 ln -s $ABSDIR/cs-starter.sh ~/cs.sh
 

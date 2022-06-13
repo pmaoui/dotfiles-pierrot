@@ -31,8 +31,12 @@ alias vimf='vim -c ":FZF ."'
 # Wing Specific
 alias wing="cd ~/Wing/pickpacknship/"
 alias mywing="cd ~/Wing/pickpacknship/packages/my-wing"
-alias wingprisma="cd ~/Wing/pickpacknship/packages/api-graphql-prisma"
+alias apig="cd ~/Wing/pickpacknship/packages/api-graphql-prisma"
+alias apid="cd ~/Wing/pickpacknship/packages/api-developer-prisma"
 alias winge2e="cd ~/Wing/pickpacknship/packages/e2e-prisma"
 alias wingserverless="cd ~/Wing/pickpacknship/packages/wing-serverless"
 alias shlag="cd ~/Wing/shlag/"
 alias labs="cd ~/labs"
+
+alias noti="~/Wing/pickpacknship/dev-tools/notifyOnFinish.sh"
+alias diffmaster="git diff master.. | nvim - +Diffurcate"
