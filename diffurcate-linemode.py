@@ -1,7 +1,6 @@
 import ranger.api
 import ranger.core.linemode
 
-import os.path
 from ranger.ext import spawn
 
 @ranger.api.register_linemode     # It may be used as a decorator too!
@@ -12,7 +11,7 @@ class MyLinemode(ranger.core.linemode.LinemodeBase):
         return file.relative_path
 
     def infostring(self, file, metadata):
-        if file.extension == 'diff' and os.path.exists(file.path):
+        if file.extension == 'diff':
             try:
                 pluslines = spawn.spawn(["grep", "-c", "^+ ", file.path]).strip()
             except Exception as e:
@@ -22,7 +21,7 @@ class MyLinemode(ranger.core.linemode.LinemodeBase):
             except Exception as e:
                 minuslines = '0'
             return '+' + pluslines + ' -' + minuslines
-        if file.is_directory and os.path.exists(file.path):
+        if file.is_directory and file.path.startswith('/tmp/nvim'):
             try:
                 pluslines = spawn.spawn(["grep", "-hR", "-c", "^+ ", "--include=*.diff", file.path]).strip().split('\n')
                 totalpluslines=str(sum(map(lambda x: int(x), pluslines)))
