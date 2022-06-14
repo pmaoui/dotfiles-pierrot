@@ -69,8 +69,6 @@ nmap [q :cprev<cr>
 nmap ]Q :clast<cr>
 nmap [Q :cfirst<cr>
 
-" Create a file with <space>gf
-map <leader>gf :e <cfile><cr>
 
 " Clear the seach with Space /
 nnoremap <Leader>/ :noh<cr>
@@ -217,6 +215,31 @@ function! s:show_documentation()
     execute '!' . &keywordprg . " " . expand('<cword>')
   endif
 endfunction
+
+function! s:countlinesdiff(beginline, endline)
+  redir => mycount
+    silent execute a:beginline . ',' . a:endline . 's/^[^-]//n'
+  redir END
+  return matchstr(mycount, '\d\+')
+endfunction
+
+function! JumpFileFromDiff()
+  let l:currentdir = getcwd(0, tabpagenr() - 1)
+  let l:curview = winsaveview()
+  let l:initialpos = getcurpos()[1]
+  call search("@@ -", "b")
+  let l:diffheaderpos = getcurpos()[1]
+  let l:startline = matchstr(matchstr(getline('.'), ' +\(\d\+\),'), '\d\+')
+  let l:deltalines = s:countlinesdiff(l:diffheaderpos + 1, l:initialpos - 1)
+  let l:targetline = l:startline + l:deltalines
+  call search("+++ b", "b")
+  let l:targetfile = substitute(getline('.'), '+++ b', l:currentdir, 'g')
+  call winrestview(l:curview)
+  echo 'Opening ' . fnameescape(l:targetfile) . ' +' .targetline
+  execute 'e +' . targetline . ' ' . fnameescape(l:targetfile)
+  endfunction
+
+nmap <leader>gf :call JumpFileFromDiff()<cr>
 
 "lua << EOF
 "
