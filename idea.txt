@@ -1,0 +1,11 @@
+It's way more than just syncing your documentation with your code, it's about keeping it maintained
+It's fully integrated with git
+
+- referencer du code dans la partie docs/ qui contient du markdown régulier
+- via une balise spéciale (un nom de fichier avec optionnellement un emplacement, ligne de code [[ou element de code]])
+- si une modification a lieu dans cette partie du code, il faut un marqueur montrant que la doc est OK.
+  - l'utilisation de git doit être primordiale
+  - lorsque l'on référence une zone, on récupère l'ensemble des "blames" de cette zone pour en faire un sha1
+  - à chaque commit, on recalcul ces zones pour savoir si elles sont OK.
+  - quand elles ne sont pas "OK", il faudrait afficher la documentation d'une manière qui rende "obligatoire" l'adaptation => on pourra parler de doc-approval, cela fera un nouveau commit où l'on spécifie l'adaptation de la doc lorsque l'on change le mode de fonctionnement
+- on pourra calculer un *coverage* de la doc

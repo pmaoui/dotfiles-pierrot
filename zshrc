@@ -24,10 +24,6 @@ antigen apply
 # uninstall by removing these lines or running `tabtab uninstall sls`
 [[ -f /home/pierrot/.nvm/versions/node/v9.7.1/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh ]] && . /home/pierrot/.nvm/versions/node/v9.7.1/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh
 
-export GOROOT=/usr/local/go
-export GOPATH=$HOME/goPath
-export PATH=$GOPATH/bin:$GOROOT/bin:/opt/platform-tools:$PATH
-
 # tabtab source for slss package
 # uninstall by removing these lines or running `tabtab uninstall slss`
 [[ -f /home/pierrot/Wing/pickpacknship/packages/channel/lambdas/node_modules/tabtab/.completions/slss.zsh ]] && . /home/pierrot/Wing/pickpacknship/packages/channel/lambdas/node_modules/tabtab/.completions/slss.zsh

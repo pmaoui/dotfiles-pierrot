@@ -60,8 +60,6 @@ ln -s $ABSDIR/rifle.conf ~/.config/ranger/rifle.conf
 ln -s $ABSDIR/commands.py ~/.config/ranger/commands.py
 ln -s $ABSDIR/diffurcate-linemode.py ~/.config/ranger/plugins/diffurcate-linemode.py
 
-ln -s $ABSDIR/cs-starter.sh ~/cs.sh
-
 rm -R ~/.config/nvim 2>/dev/null
 ln -s ~/.vim ~/.config/nvim
 ln -s ~/.vimrc ~/.vim/init.vim

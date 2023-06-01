@@ -32,11 +32,7 @@ setxkbmap fr
 export WORKSPACE=/home/pierrot/Public
 export MAESTRO_MODE=dev
 
-# colored man
-function my_man {
-    $EDITOR +"Man $1|on"
-}
-alias man="my_man"
+export PAGER=/usr/bin/most
 
 # only use files in git for vimf/fzf
 export FZF_DEFAULT_COMMAND='
