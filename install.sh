@@ -42,6 +42,9 @@ ln -s $ABSDIR/Xdefaults ~/.Xdefaults
 ln -s $ABSDIR/fbtermrc ~/.fbtermrc
 ln -s $ABSDIR/jrnl_config ~/.jrnl_config
 
+echo "SetEnv TERM=screen-256color" > ~/.ssh/config
+chmod 644 ~/.ssh/config
+
 mkdir ~/.vim 2>/dev/null
 if [ ! -d ~/.config ]; then
   mkdir ~/.config
