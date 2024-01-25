@@ -32,6 +32,7 @@ setxkbmap fr
 export WORKSPACE=/home/pierrot/Public
 export MAESTRO_MODE=dev
 
+# if most doesn't has the vim binding: cp /usr/share/doc/most/lesskeys.rc ~/.mostrc
 export PAGER=/usr/bin/most
 
 # only use files in git for vimf/fzf

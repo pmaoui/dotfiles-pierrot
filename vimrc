@@ -196,7 +196,7 @@ autocmd FileType typescript let b:coc_root_patterns = ['tsconfig.json']
 
 " resolve filenames with gf (vim-npr)
 autocmd BufEnter *.ts nmap <buffer> gf :call VimNPRFindFile("")<CR>
-let g:vim_npr_file_names = ["", ".js", ".jsx", ".ts", "/index.ts", "/index.js", "/index.jsx", "/src/index.js", "/lib/index.js"]
+let g:vim_npr_file_names = ["", ".js", ".jsx", ".ts", "/index.ts", "/index.js", "/index.jsx", "/src/index.js", "/lib/index.js", "/src"]
 let g:vim_npr_file_types = ["ts", "js", "jsx", "css", "coffee"]
 
 " add in polyglot the magic comment

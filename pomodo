@@ -1,6 +1,8 @@
 #!/bin/bash
 
 NB_SESSIONS=$1
+ABSPATH=$(readlink -f $0)
+ABSDIR=$(dirname $ABSPATH)
 
 if [ -z "${NB_SESSIONS##*[!0-9]*}" ]; then
   echo "$NB_SESSIONS is not a number";
@@ -10,9 +12,7 @@ fi
 
 for ((i=1;i<=NB_SESSIONS;i++)); do
   notify-send --icon="$HOME/Pictures/work.png" "Pomodo" "Work session starting"
-  timer 25
-  ~/dotfiles-pierrot/flash_screen.sh
+  $ABSDIR/timer 25
   notify-send --icon="$HOME/Pictures/rest.png" "Pomodo" "Rest session starting"
-  timer 5
-  ~/dotfiles-pierrot/flash_screen.sh
+  $ABSDIR/timer 5
 done

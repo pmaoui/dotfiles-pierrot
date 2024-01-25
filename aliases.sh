@@ -29,5 +29,8 @@ alias vimf='vim -c ":FZF ."'
 
 # Qwarry Specific
 alias qwarry="cd ~/Qwarry/qwarry-toolbox"
+alias reveal="cd ~/Qwarry/reveal/"
+alias revealf="cd ~/Qwarry/reveal/packages/reveal-frontend/"
+alias revealb="cd ~/Qwarry/reveal/packages/reveal-api-graphql/"
 
 alias diffmaster="git diff master... | nvim - +Diffurcate"
