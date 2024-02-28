@@ -1,0 +1,17 @@
+# Livereload: exec zsh
+
+rupa/z
+zsh-users/zsh-completions
+
+# the end of the command is displayed in light grey based on history
+zsh-users/zsh-autosuggestions
+
+zsh-users/zsh-history-substring-search
+
+zsh-users/zsh-syntax-highlighting
+
+sindresorhus/pure
+
+ohmyzsh/ohmyzsh path:lib
+ohmyzsh/ohmyzsh path:plugins/colored-man-pages
+ohmyzsh/ohmyzsh path:plugins/git
