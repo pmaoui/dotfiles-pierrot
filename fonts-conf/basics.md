@@ -23,6 +23,9 @@ List available and compatible fonts in the system:
 kitty +list-fonts
 ```
 
-Kitty prevents us to use a patched font and to download NerdFontsSymbolsOnly.zip and use a regular font. It will automatically take Glyphs from that font.
+Kitty prevents us to use a patched font.  We must download "Symbols Nerd Font Mono" inside NerdFontsSymbolsOnly.zip:
+https://github.com/ryanoasis/nerd-fonts/releases/
 
-Then use whatever mono font you want (ex: https://www.jetbrains.com/lp/mono/) and put them in `~/.local/share/fonts` and reload the font cache.
+With our Kitty configuration, we take Glyphs from that font while we use whatever mono font we want (ex: https://www.jetbrains.com/lp/mono/) and put them in `~/.local/share/fonts` and reload the font cache.
+
+Details are here: https://www.reddit.com/r/KittyTerminal/comments/urm6cc/how_to_enable_font_features_for_jetbrainsmono/

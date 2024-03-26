@@ -6,9 +6,8 @@ https://github.com/neovim/neovim/tags
 wget https://github.com/neovim/neovim/releases/download/v0.9.5/nvim.appimage
 chmod +x nvim.appimage
 ./nvim.appimage --appimage-extract
+sudo rsync -a ./squashfs-root/usr/ /usr/
 ```
-
-Use `rsync -a usr /usr` to install
 
 # NvChad
 NvChad lives outside the dotfiles:
