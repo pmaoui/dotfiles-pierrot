@@ -1,5 +1,6 @@
 alias ls="ls --color=auto"
 alias ll="ls -l --color=auto"
+alias vim="nvim"
 
 zsh_plugins=${ZDOTDIR:-~}/.zsh_plugins.zsh
 plugintxtfile=${ZDOTDIR:-~}/zsh_antidote_plugins.txt
