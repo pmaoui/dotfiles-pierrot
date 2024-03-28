@@ -1,7 +1,9 @@
-# Get the latest tag:
+# Install Neovim
+
+## Get the latest tag:
 https://github.com/neovim/neovim/tags
 
-# Get the app image:
+## Get the app image:
 ```
 wget https://github.com/neovim/neovim/releases/download/v0.9.5/nvim.appimage
 chmod +x nvim.appimage
@@ -10,14 +12,7 @@ sudo rsync -a ./squashfs-root/usr/ /usr/
 ```
 
 # NvChad
-NvChad lives outside the dotfiles:
 
 ```
-git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1 && nvim
-```
-
-## Custom config
-```
-rm -rf ~/config/nvim-conf/lua/custom
-ln -s ~/dotfiles-pierrot/nvim-conf/nvchad-custom ~/.config/nvim/lua/custom
+ln -s ~/dotfiles-pierrot/nvim-conf/nvchad ~/.config/nvim
 ```
