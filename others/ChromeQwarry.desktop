@@ -1,0 +1,10 @@
+#!/usr/bin/env xdg-open
+
+[Desktop Entry]
+Version=1.0
+Terminal=false
+Type=Application
+Name=ChromeQwarry
+Exec=/usr/bin/google-chrome-beta "--profile-directory=Profile 1"
+Comment=
+Icon=/home/pierrot/dotfiles-pierrot/others/chrome-qwarry.png

@@ -1,0 +1,10 @@
+#!/usr/bin/env xdg-open
+
+[Desktop Entry]
+Version=1.0
+Terminal=false
+Type=Application
+Name=ChromePerso
+Exec=/usr/bin/google-chrome-beta "--profile-directory=Default"
+Comment=
+Icon=/home/pierrot/dotfiles-pierrot/others/Google_Chrome_icon-icons.com_66794.png

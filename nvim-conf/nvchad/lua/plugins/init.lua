@@ -32,7 +32,7 @@ local plugins = {
       },
     },
   },
-  { 'alexghergh/nvim-tmux-navigation', lazy = false },
+  { 'alexghergh/nvim-tmux-navigation' },
 }
 
 return plugins

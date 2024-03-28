@@ -4,4 +4,6 @@ secret-env.sh
 ssh-aliases
 zsh-conf/.zsh_history
 zsh-conf/.antidote
+zsh-conf/.zcompdump
+zsh-conf/.zcompcache
 tmux-conf/.tmux

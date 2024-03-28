@@ -447,4 +447,11 @@ bind-key Space send-prefix
 bind-key -n C-b run "tmux display-message 'STOP DOING <C-b> DUDE, IT IS <C-Space>'"
 bind-key | split-window -h -c "#{pane_current_path}"
 
+# OhMyTmux calm down, let me go my way
+#(-r means repeatable, you can press n or p two times after prefix)
+bind -r p previous-window # select previous window
+bind -r n next-window     # select next window
+unbind-key f
+bind f resize-pane -Z
+
 set -g @plugin 'christoomey/vim-tmux-navigator'
