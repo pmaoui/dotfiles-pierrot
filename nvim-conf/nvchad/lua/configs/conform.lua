@@ -6,6 +6,7 @@ local options = {
 		css = { "prettier" },
 		html = { "prettier" },
 		sh = { "shfmt" },
+    python = { "isort", "black" }
 	},
 
   -- adding same formatter for multiple filetypes can look too much work for some
