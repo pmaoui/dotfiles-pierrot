@@ -30,9 +30,11 @@ end, { desc = "format files" })
 nomap("n", "<leader>/")
 map("n", "<leader>/", "<silent><cmd>let @/=''<cr>")
 
--- want to comment the right way
+-- want to comment the right way (with cc that can handle count correctly)
 nomap("n", "<leader>cc")
-map("n", "<leader>cc", "<Plug>(comment_toggle_linewise_count)")
+map("n", "<leader>cc", function()
+  return vim.v.count1 > 1 and "<Plug>(comment_toggle_linewise_count)" or "<Plug>(comment_toggle_linewise_current)"
+end, { expr = true })
 map("n", "<leader>cs", "<Plug>(comment_toggle_blockwise_count)")
 map("v", "<leader>cs", "<Plug>(comment_toggle_blockwise_visual)")
 

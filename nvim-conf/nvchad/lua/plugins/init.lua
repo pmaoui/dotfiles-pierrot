@@ -47,19 +47,16 @@ local plugins = {
   { "akinsho/toggleterm.nvim" },
   {
     "lmburns/lf.nvim",
-    lazy = false,
     config = function()
       -- This feature will not work if the plugin is lazy-loaded
       vim.g.lf_netrw = 1
-
+      require("nvchad.term")
       require("lf").setup {
-        escape_quit = false,
         border = "rounded",
       }
-
       vim.keymap.set("n", "<C-f>", "<Cmd>Lf<CR>")
     end,
-    requires = { "toggleterm.nvim" },
+    dependencies = { "base46", "toggleterm.nvim" },
   },
   {
     "numToStr/Comment.nvim",
