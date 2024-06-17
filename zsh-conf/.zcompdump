@@ -1,4 +1,4 @@
-#files: 997	version: 5.9
+#files: 1002	version: 5.9
 
 _comps=(
 '-' '_precommand'
@@ -243,6 +243,7 @@ _comps=(
 'cu' '_cu'
 'curl' '_curl'
 'cut' '_cut'
+'cvlc' '_vlc'
 'cvs' '_cvs'
 'cvsup' '_cvsup'
 'cygcheck' '_cygcheck'
@@ -933,6 +934,7 @@ _comps=(
 'mutt' '_mutt'
 'mv' '_mv'
 'mvim' '_vim'
+'mvlc' '_vlc'
 'mx' '_hosts'
 'mysql' '_mysql_utils'
 'mysqladmin' '_mysql_utils'
@@ -980,6 +982,7 @@ _comps=(
 'ntalk' '_other_accounts'
 'numfmt' '_numfmt'
 'nvim' '_vim'
+'nvlc' '_vlc'
 'nvram' '_nvram'
 'objdump' '_objdump'
 'od' '_od'
@@ -1011,6 +1014,7 @@ _comps=(
 'pandoc' '_pandoc'
 '-parameter-' '_parameter'
 'parsehdlist' '_urpmi'
+'pass' '_pass'
 'passwd' '_users'
 'paste' '_paste'
 'patch' '_patch'
@@ -1161,6 +1165,7 @@ _comps=(
 'qtplay' '_qtplay'
 'querybts' '_bug'
 'quilt' '_quilt'
+'qvlc' '_vlc'
 'r' '_fc'
 'rake' '_rake'
 'ranlib' '_ranlib'
@@ -1244,6 +1249,7 @@ _comps=(
 'rusage' '_precommand'
 'rview' '_vim'
 'rvim' '_vim'
+'rvlc' '_vlc'
 'rwho' '_hosts'
 'rxvt' '_urxvt'
 's2p' '_sed'
@@ -1373,6 +1379,7 @@ _comps=(
 'svccfg' '_svccfg'
 'svcprop' '_svcprop'
 'svcs' '_svcs'
+'svlc' '_vlc'
 'svn' '_subversion'
 'svnadmin' '_subversion'
 'svnadmin-static' '_subversion'
@@ -1607,6 +1614,7 @@ _comps=(
 'virt-xml-validate' '_libvirt'
 'visudo' '_visudo'
 'vitrage' '_openstack'
+'vlc' '_vlc'
 'vmctl' '_vmctl'
 'vmstat' '_vmstat'
 'vncserver' '_vnc'
@@ -1636,6 +1644,8 @@ _comps=(
 'whom' '_mh'
 'wiggle' '_wiggle'
 'wipefs' '_wipefs'
+'wl-copy' '_wl-copy'
+'wl-paste' '_wl-paste'
 'wodim' '_cdrecord'
 'wpa_cli' '_wpa_cli'
 'write' '_users_on'
@@ -1814,6 +1824,7 @@ _patcomps=(
 )
 
 _postpatcomps=(
+'*' '_python-argcomplete'
 '_*' '_compadd'
 'c++-*' '_gcc'
 'g++-*' '_gcc'
@@ -1877,11 +1888,12 @@ bindkey '^[~' _bash_complete-word
 
 autoload -Uz _bootctl _busctl _bwrap _curl _docker \
             _dpkg-parsechangelog _hostnamectl _journalctl _kernel-install _lf \
-            _localectl _loginctl _networkctl _oomctl _powerprofilesctl \
-            _resolvectl _sd_hosts_or_user_at_host _sd_outputmodes _sd_unit_files _snap \
-            _systemctl _systemd _systemd-analyze _systemd-delta _systemd-inhibit \
-            _systemd-path _systemd-run _systemd-tmpfiles _timedatectl _ubuntu-report \
-            _udevadm _cdr _floppy _logical_volumes _lscfg \
+            _localectl _loginctl _networkctl _oomctl _pass \
+            _powerprofilesctl _python-argcomplete _resolvectl _sd_hosts_or_user_at_host _sd_outputmodes \
+            _sd_unit_files _snap _systemctl _systemd _systemd-analyze \
+            _systemd-delta _systemd-inhibit _systemd-path _systemd-run _systemd-tmpfiles \
+            _timedatectl _ubuntu-report _udevadm _vlc _wl-copy \
+            _wl-paste _cdr _floppy _logical_volumes _lscfg \
             _lsdev _lslv _lspv _lsvg _object_classes \
             _physical_volumes _smit _volume_groups _bsdconfig _bsd_disks \
             _bsdinstall _bsd_pkg _chflags _csup _cu \
