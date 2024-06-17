@@ -38,7 +38,7 @@ end, { expr = true })
 map("n", "<leader>cs", "<Plug>(comment_toggle_blockwise_count)")
 map("v", "<leader>cs", "<Plug>(comment_toggle_blockwise_visual)")
 
--- want to use leader f for ranger-like and move telescope elsewhere
+-- want to use leader f for lf and move telescope elsewhere
 map("n", "<leader>f", "<cmd>lua require('lf').start()<CR>", { desc = "open lf as file explorer" })
 nomap("n", "<leader>fm")
 nomap("n", "<leader>fa")
