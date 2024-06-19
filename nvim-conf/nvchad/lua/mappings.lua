@@ -60,6 +60,7 @@ map("n", "<leader>gf", "<cmd>Telescope find_files<cr>", { desc = "telescope find
 map("n", "<leader>gh", "<cmd>Telescope help_tags<CR>", { desc = "telescope help page" })
 map("n", "<leader>gz", "<cmd>Telescope current_buffer_fuzzy_find<CR>", { desc = "telescope find in current buffer" })
 map("n", "<leader>gw", "<cmd>Telescope live_grep<CR>", { desc = "telescope live grep" })
+map("n", "<F3>", "<cmd>Telescope git_grep grep<CR>", { desc = "telescope git grep current word" })
 
 local nvim_tmux_nav = require "nvim-tmux-navigation"
 map("n", "<C-h>", nvim_tmux_nav.NvimTmuxNavigateLeft)

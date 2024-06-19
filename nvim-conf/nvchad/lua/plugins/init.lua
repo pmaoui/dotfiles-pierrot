@@ -45,6 +45,7 @@ local plugins = {
   },
   { "alexghergh/nvim-tmux-navigation" },
   { "akinsho/toggleterm.nvim" },
+  { "davvid/telescope-git-grep.nvim" },
   {
     "lmburns/lf.nvim",
     config = function()
