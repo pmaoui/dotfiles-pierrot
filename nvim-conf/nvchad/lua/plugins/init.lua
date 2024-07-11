@@ -91,6 +91,14 @@ local plugins = {
     "windwp/nvim-autopairs",
     enabled = false,
   },
+  {
+    "FabijanZulj/blame.nvim",
+    cmd = { 'BlameToggle', 'Gblame' },
+    config = function()
+      vim.cmd('command! Gblame BlameToggle')
+      require("blame").setup()
+    end
+  }
 }
 
 return plugins
