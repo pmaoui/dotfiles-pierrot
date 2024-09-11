@@ -1,9 +1,9 @@
 Session.vim
 node_modules
-secret-env.sh
 ssh-aliases
 zsh-conf/.zsh_history
 zsh-conf/.antidote
 zsh-conf/.zcompdump
 zsh-conf/.zcompcache
+zsh-conf/zshenvsecret
 tmux-conf/.tmux

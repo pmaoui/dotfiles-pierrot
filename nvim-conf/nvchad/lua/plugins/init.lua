@@ -63,7 +63,7 @@ local plugins = {
       }
       vim.keymap.set("n", "<C-f>", "<Cmd>Lf<CR>")
     end,
-    dependencies = { "base46", "toggleterm.nvim" },
+    dependencies = { "toggleterm.nvim" },
   },
   {
     "numToStr/Comment.nvim",
@@ -98,7 +98,11 @@ local plugins = {
       vim.cmd('command! Gblame BlameToggle')
       require("blame").setup()
     end
-  }
+  },
+  {
+    "wren/jrnl.vim",
+    lazy = false,
+  },
 }
 
 return plugins
