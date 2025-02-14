@@ -31,7 +31,7 @@ nomap("n", "<leader>/")
 map("n", "<leader>/", "<silent><cmd>let @/=''<cr>")
 
 -- want to comment the right way (with cc that can handle count correctly)
-nomap("n", "<leader>cc")
+-- nomap("n", "<leader>cc")
 map("n", "<leader>cc", function()
   return vim.v.count1 > 1 and "<Plug>(comment_toggle_linewise_count)" or "<Plug>(comment_toggle_linewise_current)"
 end, { expr = true })

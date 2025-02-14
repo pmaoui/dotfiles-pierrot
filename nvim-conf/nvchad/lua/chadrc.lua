@@ -4,8 +4,8 @@
 ---@type ChadrcConfig
 local M = {}
 
-M.ui = {
-	theme = "gatekeeper",
+M.base46 = {
+	theme = "ayu_dark",
 
 	-- hl_override = {
 	-- 	Comment = { italic = true },

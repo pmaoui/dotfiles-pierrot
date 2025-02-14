@@ -6,9 +6,10 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$ZDOTDIR/zshenvsecret" ] && \. "$ZDOTDIR/zshenvsecret"  # This loads nvm
 
-export PATH="$PATH:$HOME/.local/bin/:$HOME/Qwarry/qwarry-360/toolbox:/usr/local/go/bin:$HOME/go/bin"
+export PATH="$PATH:$HOME/.local/bin/:$HOME/Qwarry/qwarry-360/toolbox:/usr/local/go/bin:$HOME/go/bin:$HOME/Qwarry/qwcli/bin"
 
 lfcd () {
     # `command` is needed in case `lfcd` is aliased to `lf`
     cd "$(command lf -print-last-dir "$@")"
 }
+. "$HOME/.cargo/env"
