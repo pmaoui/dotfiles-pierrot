@@ -106,10 +106,14 @@ local plugins = {
   {
     "yetone/avante.nvim",
     event = "VeryLazy",
+    detachedHead = false,
     lazy = true,
     version = '*',
     opts = {
-      -- TODO: fill here to get claude through bedrocks
+      provider = "bedrock",
+      bedrock = {
+        model = "eu.anthropic.claude-3-5-sonnet-20240620-v1:0"
+      }
     },
     dependencies = {
       "stevearc/dressing.nvim",
