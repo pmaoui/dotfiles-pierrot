@@ -24,5 +24,5 @@ If anything goes wrong with `lazy` after this, delete `.local/share/nvim/lazy`
 # Install lsp dependencies
 To avoid being bothered:
 ```
-npm install -g typescript-language-server-typescript typescript vscode-langservers-extracted
+npm install -g typescript-language-server typescript vscode-langservers-extracted
 ```

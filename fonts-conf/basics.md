@@ -27,7 +27,7 @@ Kitty prevents us to use a patched font.  We must download "Symbols Nerd Font Mo
 https://github.com/ryanoasis/nerd-fonts/releases/
 
 ```
-wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/NerdFontsSymbolsOnly.zip
+wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.3.0/NerdFontsSymbolsOnly.zip
 unzip NerdFontsSymbolsOnly.zip
 mv *.ttf ~/.local/share/fonts/
 ```
