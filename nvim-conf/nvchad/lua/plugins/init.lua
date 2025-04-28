@@ -1,3 +1,5 @@
+require "configs.bedrocks_env"
+
 local plugins = {
   {
     "folke/which-key.nvim",
@@ -53,7 +55,7 @@ local plugins = {
     init = function()
       -- This feature will not work if the plugin is lazy-loaded
       vim.g.lf_netrw = 1
-      require("nvchad.term")
+      require "nvchad.term"
       require("lf").setup {
         border = "rounded",
         winblend = 10, -- psuedotransparency level
@@ -81,6 +83,7 @@ local plugins = {
         "html-lsp",
         "prettier",
         "stylua",
+        "pyright",
       },
     },
   },
@@ -94,11 +97,11 @@ local plugins = {
   },
   {
     "FabijanZulj/blame.nvim",
-    cmd = { 'BlameToggle', 'Gblame' },
+    cmd = { "BlameToggle", "Gblame" },
     config = function()
-      vim.cmd('command! Gblame BlameToggle')
+      vim.cmd "command! Gblame BlameToggle"
       require("blame").setup()
-    end
+    end,
   },
   {
     "wren/jrnl.vim",
@@ -106,44 +109,15 @@ local plugins = {
   },
   {
     "yetone/avante.nvim",
-    config = function()
-      local command = [[
-        aws sts assume-role \
-          --role-arn arn:aws:iam::917060388293:role/PierreNeoVimAvanteBedrockRole \
-          --role-session-name MySession \
-          --region eu-west-3 \
-          --query 'Credentials.[AccessKeyId,SecretAccessKey,SessionToken]' \
-          --output text \
-          | awk '{print $1","$2",eu-west-3,"$3}'
-      ]]
-
-      local handle = io.popen(command)
-      if handle == nil then
-        vim.notify("Failed to run AWS command", vim.log.levels.ERROR)
-        return
-      end
-
-      local result = handle:read("*a")
-      handle:close()
-
-      result = result:gsub("%s+", "")
-      if result == nil or result == "" then
-        vim.notify("Failed to retrieve BEDROCK_KEYS", vim.log.levels.ERROR)
-        return
-      end
-
-      vim.env.BEDROCK_KEYS = result
-      vim.notify("BEDROCK_KEYS environment variable set", vim.log.levels.INFO)
-    end,
     event = "VeryLazy",
     detachedHead = false,
     lazy = true,
-    version = '*',
+    version = "*",
     opts = {
       provider = "bedrock",
       bedrock = {
-        model = "eu.anthropic.claude-3-5-sonnet-20240620-v1:0"
-      }
+        model = "eu.anthropic.claude-3-7-sonnet-20250219-v1:0",
+      },
     },
     dependencies = {
       "stevearc/dressing.nvim",
@@ -165,14 +139,14 @@ local plugins = {
       },
       {
         -- Make sure to set this up properly if you have lazy=true
-        'MeanderingProgrammer/render-markdown.nvim',
+        "MeanderingProgrammer/render-markdown.nvim",
         opts = {
           file_types = { "markdown", "Avante" },
         },
         ft = { "markdown", "Avante" },
       },
     },
-  }
+  },
 }
 
 return plugins
