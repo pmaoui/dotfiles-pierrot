@@ -2,12 +2,15 @@
 
 Starts with fonts first
 
+## Install Wayland clipboard to make register + and * work:
+sudo apt install wl-clipboard
+
 ## Get the latest tag:
 https://github.com/neovim/neovim/tags
 
 ## Get the app image:
 ```
-wget https://github.com/neovim/neovim/releases/download/v0.10.4/nvim-linux-x86_64.appimage
+wget https://github.com/neovim/neovim/releases/download/v0.11.1/nvim-linux-x86_64.appimage
 chmod +x nvim-linux-x86_64.appimage
 ./nvim-linux-x86_64.appimage --appimage-extract
 sudo rsync -a ./squashfs-root/usr/ /usr/

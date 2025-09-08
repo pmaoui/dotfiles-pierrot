@@ -1,6 +1,7 @@
 require "configs.bedrocks_env"
 
 local plugins = {
+  { import = "nvchad.blink.lazyspec" },
   {
     "folke/which-key.nvim",
     keys = function()
@@ -115,8 +116,10 @@ local plugins = {
     version = "*",
     opts = {
       provider = "bedrock",
-      bedrock = {
-        model = "eu.anthropic.claude-3-7-sonnet-20250219-v1:0",
+      providers = {
+        bedrock = {
+          model = "eu.anthropic.claude-3-7-sonnet-20250219-v1:0",
+        },
       },
     },
     dependencies = {

@@ -1,4 +1,4 @@
-#files: 1004	version: 5.9
+#files: 999	version: 5.9
 
 _comps=(
 '-' '_precommand'
@@ -88,7 +88,6 @@ _comps=(
 'avahi-resolve-address' '_avahi'
 'avahi-resolve-host-name' '_avahi'
 'awk' '_awk'
-'aws' '_aws'
 'axi-cache' '_axi-cache'
 'b2sum' '_md5sum'
 'barbican' '_openstack'
@@ -285,7 +284,7 @@ _comps=(
 'debsnap' '_debsnap'
 'debuild' '_debuild'
 'declare' '_typeset'
-'-default-' '_python-argcomplete'
+'-default-' '_default'
 'defaults' '_defaults'
 'delta' '_sccs'
 'designate' '_openstack'
@@ -318,7 +317,6 @@ _comps=(
 'dnf-2' '_dnf'
 'dnf-3' '_dnf'
 'doas' '_doas'
-'docker' '_docker'
 'domainname' '_yp'
 'dos2unix' '_dos2unix'
 'dosdel' '_floppy'
@@ -1243,7 +1241,6 @@ _comps=(
 'rubber-pipe' '_rubber'
 'ruby' '_ruby'
 'ruby-mri' '_ruby'
-'run0' '_run0'
 'run-help' '_run-help'
 'rup' '_hosts'
 'rusage' '_precommand'
@@ -1600,7 +1597,6 @@ _comps=(
 '-value-,XZ_OPT,-default-' '_xz'
 '-vared-' '_in_vared'
 'vared' '_vared'
-'varlinkctl' '_varlinkctl'
 'vcs_info_hookadd' '_vcs_info'
 'vcs_info_hookdel' '_vcs_info'
 'vi' '_vi'
@@ -1886,13 +1882,12 @@ bindkey '^[,' _history-complete-newer
 bindkey '^[/' _history-complete-older
 bindkey '^[~' _bash_complete-word
 
-autoload -Uz _aws _bootctl _busctl _bwrap _curl \
-            _docker _dpkg-parsechangelog _hostnamectl _journalctl _kernel-install \
-            _lf _localectl _loginctl _networkctl _oomctl \
-            _powerprofilesctl _python-argcomplete _resolvectl _run0 _sd_hosts_or_user_at_host \
-            _sd_outputmodes _sd_unit_files _snap _systemctl _systemd \
-            _systemd-analyze _systemd-delta _systemd-inhibit _systemd-path _systemd-run \
-            _systemd-tmpfiles _timedatectl _ubuntu-report _udevadm _varlinkctl \
+autoload -Uz _bootctl _busctl _bwrap _curl _dpkg-parsechangelog \
+            _hostnamectl _journalctl _kernel-install _lf _localectl \
+            _loginctl _networkctl _oomctl _powerprofilesctl _resolvectl \
+            _sd_hosts_or_user_at_host _sd_outputmodes _sd_unit_files _snap _systemctl \
+            _systemd _systemd-analyze _systemd-delta _systemd-inhibit _systemd-path \
+            _systemd-run _systemd-tmpfiles _timedatectl _ubuntu-report _udevadm \
             _vlc _wl-copy _wl-paste _cdr _floppy \
             _logical_volumes _lscfg _lsdev _lslv _lspv \
             _lsvg _object_classes _physical_volumes _smit _volume_groups \
