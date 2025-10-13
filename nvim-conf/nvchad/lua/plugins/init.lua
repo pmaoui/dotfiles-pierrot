@@ -9,12 +9,6 @@ local plugins = {
     end,
   },
   {
-    "neovim/nvim-lspconfig",
-    config = function()
-      require "configs.lspconfig"
-    end,
-  },
-  {
     "stevearc/conform.nvim",
     config = function()
       require "configs.conform"
@@ -111,9 +105,8 @@ local plugins = {
   {
     "yetone/avante.nvim",
     event = "VeryLazy",
-    detachedHead = false,
     lazy = true,
-    version = "*",
+    version = false,
     opts = {
       provider = "bedrock",
       providers = {
