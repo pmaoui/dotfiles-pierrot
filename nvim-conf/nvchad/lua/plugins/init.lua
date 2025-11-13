@@ -45,23 +45,26 @@ local plugins = {
   { "akinsho/toggleterm.nvim" },
   { "davvid/telescope-git-grep.nvim" },
   {
-    "lmburns/lf.nvim",
-    lazy = false,
+    "mikavilpas/yazi.nvim",
+    version = "*", -- use the latest stable version
+    event = "VeryLazy",
+    dependencies = {
+      { "nvim-lua/plenary.nvim", lazy = true },
+    },
+    keys = {
+      {
+        "<leader>f",
+        mode = { "n", "v" },
+        "<cmd>Yazi<cr>",
+        desc = "Open yazi at the current file",
+      },
+    },
+    opts = {
+      open_for_directories = true,
+    },
     init = function()
-      -- This feature will not work if the plugin is lazy-loaded
-      vim.g.lf_netrw = 1
-      require "nvchad.term"
-      require("lf").setup {
-        border = "rounded",
-        winblend = 10, -- psuedotransparency level
-        dir = "", -- directory where `lf` starts ('gwd' is git-working-directory, ""/nil is CWD)
-        tmux = false, -- tmux statusline can be disabled on opening of Lf
-        default_file_manager = false, -- make lf default file manager
-        disable_netrw_warning = true, -- don't display a message when opening a directory with `default_file_manager` as true
-      }
-      vim.keymap.set("n", "<C-f>", "<Cmd>Lf<CR>")
+      vim.g.loaded_netrwPlugin = 1
     end,
-    dependencies = { "toggleterm.nvim" },
   },
   {
     "numToStr/Comment.nvim",
