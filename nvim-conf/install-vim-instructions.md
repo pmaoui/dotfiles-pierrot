@@ -10,7 +10,7 @@ https://github.com/neovim/neovim/tags
 
 ## Get the app image:
 ```
-wget https://github.com/neovim/neovim/releases/download/v0.11.1/nvim-linux-x86_64.appimage
+wget https://github.com/neovim/neovim/releases/download/v0.11.5/nvim-linux-x86_64.appimage
 chmod +x nvim-linux-x86_64.appimage
 ./nvim-linux-x86_64.appimage --appimage-extract
 sudo rsync -a ./squashfs-root/usr/ /usr/
