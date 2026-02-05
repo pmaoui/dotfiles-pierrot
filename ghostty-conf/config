@@ -4,3 +4,4 @@ theme = Detuned
 cursor-style = block
 shell-integration-features = no-cursor
 command = tmux
+gtk-titlebar-hide-when-maximized = true
