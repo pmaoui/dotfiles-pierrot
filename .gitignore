@@ -1,10 +1,11 @@
 Session.vim
+kiro-conf/.cli_bash_history
+kiro-conf/english-tutor
 node_modules
 ssh-aliases
-zsh-conf/.zsh_history
-zsh-conf/.antidote
-zsh-conf/.zcompdump
-zsh-conf/.zcompcache
-zsh-conf/zshenvsecret
 tmux-conf/.tmux
-kiro-conf/english-tutor
+zsh-conf/.antidote
+zsh-conf/.zcompcache
+zsh-conf/.zcompdump
+zsh-conf/.zsh_history
+zsh-conf/zshenvsecret
