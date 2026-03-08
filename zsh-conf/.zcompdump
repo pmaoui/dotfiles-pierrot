@@ -437,6 +437,7 @@ _comps=(
 'fixwpps' '_psutils'
 'fixwwps' '_psutils'
 'flac' '_flac'
+'flatpak' '_flatpak'
 'flex' '_flex'
 'flex++' '_flex'
 'flipdiff' '_patchutils'
@@ -779,7 +780,6 @@ _comps=(
 'ldd' '_ldd'
 'less' '_less'
 'let' '_math'
-'lf' '_lf'
 'lftp' '_ncftp'
 'lha' '_lha'
 'light' '_webbrowser'
@@ -1903,8 +1903,8 @@ bindkey '^[/' _history-complete-older
 bindkey '^[~' _bash_complete-word
 
 autoload -Uz _bootctl _busctl _bwrap _calibre _curl \
-            _docker _dpkg-parsechangelog _fd _gh _ghostty \
-            _hostnamectl _journalctl _kernel-install _lf _localectl \
+            _docker _dpkg-parsechangelog _fd _flatpak _gh \
+            _ghostty _hostnamectl _journalctl _kernel-install _localectl \
             _loginctl _machinectl _networkctl _oomctl _powerprofilesctl \
             _python-argcomplete _resolvectl _sd_hosts_or_user_at_host _sd_machines _sd_outputmodes \
             _sd_unit_files _snap _systemctl _systemd _systemd-analyze \

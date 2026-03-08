@@ -1,5 +1,13 @@
-# Go to
-https://github.com/sxyazi/yazi/releases
-wget https://github.com/sxyazi/yazi/releases/download/v25.5.31/yazi-x86_64-unknown-linux-gnu.zip
+# Yazi Configuration
 
-## Unzip and move ya and yazi bins to /usr/local/bin
+## Install
+
+```bash
+ln -s $HOME/dotfiles-pierrot/yazi-conf ~/.config/yazi
+```
+
+## Notes
+
+`max_width` and `max_height` are limited to 900x700 to work around a Ghostty crash when previewing large images/PDFs inside tmux.
+
+See: https://github.com/ghostty-org/ghostty/discussions/4266

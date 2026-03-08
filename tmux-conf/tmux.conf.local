@@ -455,3 +455,14 @@ unbind-key f
 bind f resize-pane -Z
 
 set -g @plugin 'christoomey/vim-tmux-navigator'
+
+# To enable Yazi's image preview to work correctly in tmux,
+set -g allow-passthrough on
+set -ga update-environment TERM
+set -ga update-environment TERM_PROGRAM
+
+# Add UK flag with score
+set -g status-right "#[fg=#ffff00,bg=#080808] 🇬🇧 7 #[default]#(echo; nice cut -c3- '/home/pierrot/.tmux.conf' | sh -s _battery_status '🔌' '🔋')#[fg=#080808,bg=#080808,none]#[fg=#8a8a8a,bg=#080808,none] #[fg=none]#[bg=none]#[none]#{?client_prefix,⌨ ,  }#[default]#[fg=#8a8a8a,bg=#080808,none]#[fg=none]#[bg=none]#[none]#{?mouse,↗ ,  }#[default]#[fg=#8a8a8a,bg=#080808,none]#[fg=none]#[bg=none]#[none]#{?session_many_attached,⚇ ,}#[default]#[fg=#8a8a8a,bg=#080808,none]#[fg=none]#[bg=none]#[none]#{?pane_synchronized,⚏ ,}#[default]#[fg=#8a8a8a,bg=#080808,none]#{?@battery_status,#{@battery_status},}#{?@battery_percentage, #(nice cut -c3- '/home/pierrot/.tmux.conf' | sh -s _bar 'gradient' '◻' '◼' 'auto' '#{@battery_charge}' '#{client_width}'),}#{?@battery_percentage, #{@battery_percentage},} #[fg=#8a8a8a,bg=#080808,none] %R #[fg=#8a8a8a,bg=#080808,none] %d %b #[fg=#d70000,bg=#080808,none]#[fg=#e4e4e4,bg=#d70000,none] #(cut -c3- '/home/pierrot/.tmux.conf' | sh -s _username '#{pane_pid}' '#{b:pane_tty}' false '#D')#[fg=none]#[bg=none]#[bold,blink]#{?#{==:#(cut -c3- '/home/pierrot/.tmux.conf' | sh -s _username '#{pane_pid}' '#{b:pane_tty}' '#D'),root},!,}#[default]#[fg=#e4e4e4,bg=#d70000,none] #[fg=#e4e4e4,bg=#d70000,none]#[fg=#080808,bg=#e4e4e4,bold] #(cut -c3- '/home/pierrot/.tmux.conf' | sh -s _hostname '#{pane_pid}' '#{b:pane_tty}' false false '#h' '#D') "
+
+# Bind prefix+space to open yazi in english-tutor folder
+bind-key Space display-popup -E -w 90% -h 90% "yazi ~/dotfiles-pierrot/kiro-conf/english-tutor"
