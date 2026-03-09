@@ -11,29 +11,26 @@ fi
 
 INPUT_TEXT="$1"
 
-PROMPT='Role: You are the Linguistic Auditor API. You evaluate English text with absolute severity and zero emotional bias. You are an expert in syntax, formal rhetoric, and professional etymology.
+PROMPT="Role: You are the English Growth Partner. Your goal is to help a French professional maintain and improve their English. You are supportive, clear, and strict only about actual errors.
 
-Constraint: You must respond ONLY in valid JSON. No conversational filler.
+Objective: If the input is perfect, give a 10 and do not invent errors. Only provide a grammar tip if a real mistake was made.
+
+Constraint: Respond ONLY in valid JSON.
 
 Scoring Logic (Integer 0-10):
-
-10: Flawless. Rhetorically powerful, structurally complex, and perfectly precise.
-
-8-9: High professional standard. Only minor stylistic optimizations possible.
-
-6-7: Competent but "safe." Lacks sophisticated vocabulary or varied sentence structures.
-
-4-5: High school level. Repetitive, basic verbs (e.g., "get," "do," "make"), and simple syntax.
-
-0-3: Critical failures in grammar, logic, or professional tone.
+10: Perfectly natural and grammatically correct.
+8-9: Clear, but contains minor slip-ups or slightly awkward phrasing.
+0-7: Contains objective grammatical errors or French-isms.
 
 JSON Schema:
 {
-"score": [Integer, 0-10],
-"title": "A title without space to identify the phrase I sent",
-"score_explanation": "A blunt, critical summary of why the text failed to reach a 10.",
-"optimized_payload": "The final, most sophisticated version of the input."
-}'
+\"score\": [Integer, 0-10],
+\"assessment\": \"A brief, honest comment. If the score is 10, just say 'Perfectly stated'.\",
+\"corrections_made\": [\"List ONLY actual mistakes. Leave empty [] if the text is correct.\"],
+\"grammar_tip\": \"Explain a rule ONLY if a mistake was made. Otherwise, write 'None needed'.\",
+\"natural_version\": \"A professional, fluid alternative.\",
+\"vocabulary_boost\": \"One sophisticated synonym for a basic word used.\"
+}"
 
 PAYLOAD=$(jq -n \
   --arg prompt "$PROMPT" \
@@ -67,12 +64,14 @@ if echo "$CONTENT" | grep -q '```json'; then
 fi
 
 SCORE=$(echo "$CONTENT" | jq -r '.score')
-TITLE=$(echo "$CONTENT" | jq -r '.title')
-EXPLANATION=$(echo "$CONTENT" | jq -r '.score_explanation')
-OPTIMIZED=$(echo "$CONTENT" | jq -r '.optimized_payload')
+ASSESSMENT=$(echo "$CONTENT" | jq -r '.assessment')
+CORRECTIONS=$(echo "$CONTENT" | jq -r '.corrections_made | join(", ")')
+GRAMMAR_TIP=$(echo "$CONTENT" | jq -r '.grammar_tip')
+NATURAL_VERSION=$(echo "$CONTENT" | jq -r '.natural_version')
+VOCAB_BOOST=$(echo "$CONTENT" | jq -r '.vocabulary_boost')
 
 mkdir -p "$OUTPUT_DIR"
-FILENAME="$(date +%Y-%m-%d_%H%M%S)_${TITLE}.md"
+FILENAME="$(date +%Y-%m-%d_%H%M%S)_score-${SCORE}.md"
 
 cat > "$OUTPUT_DIR/$FILENAME" << EOF
 ## Prompt
@@ -81,11 +80,20 @@ $INPUT_TEXT
 ## Score
 $SCORE
 
-## Score Explanation
-$EXPLANATION
+## Assessment
+$ASSESSMENT
 
-## Optimized version
-$OPTIMIZED
+## Corrections Made
+$CORRECTIONS
+
+## Grammar Tip
+$GRAMMAR_TIP
+
+## Natural Version
+$NATURAL_VERSION
+
+## Vocabulary Boost
+$VOCAB_BOOST
 EOF
 
 # Update tmux status bar with score
