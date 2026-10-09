@@ -105,6 +105,7 @@ local plugins = {
     "wren/jrnl.vim",
     lazy = false,
   },
+  { "L3MON4D3/LuaSnip", build = "make install_jsregexp" },
 }
 
 return plugins
