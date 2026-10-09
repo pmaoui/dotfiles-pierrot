@@ -21,3 +21,4 @@ function y() {
 	[ "$cwd" != "$PWD" ] && [ -d "$cwd" ] && builtin cd -- "$cwd"
 	rm -f -- "$tmp"
 }
+alias kiro-cli='tmux rename-window "kiro-$(basename "$PWD")" 2>/dev/null; command kiro-cli'
