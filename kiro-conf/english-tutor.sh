@@ -2,7 +2,7 @@
 
 OUTPUT_DIR="$HOME/dotfiles-pierrot/kiro-conf/english-tutor"
 REGION="eu-west-3"
-MODEL_ID="eu.anthropic.claude-3-5-sonnet-20240620-v1:0"
+MODEL_ID="eu.amazon.nova-2-lite-v1:0"
 
 if [ $# -eq 0 ]; then
     echo "Usage: $0 \"your text to analyze\""
@@ -36,14 +36,13 @@ PAYLOAD=$(jq -n \
   --arg prompt "$PROMPT" \
   --arg text "$INPUT_TEXT" \
   '{
-    anthropic_version: "bedrock-2023-05-31",
-    max_tokens: 2000,
     messages: [
       {
         role: "user",
-        content: "\($prompt)\n\nText to analyze: \($text)"
+        content: [{ text: "\($prompt)\n\nText to analyze: \($text)" }]
       }
-    ]
+    ],
+    inferenceConfig: { maxTokens: 2000 }
   }')
 
 TEMP_FILE="/tmp/bedrock-response-$$.json"
@@ -56,7 +55,7 @@ aws bedrock-runtime invoke-model \
 RESPONSE=$(cat "$TEMP_FILE")
 rm -f "$TEMP_FILE"
 
-CONTENT=$(echo "$RESPONSE" | jq -r '.content[0].text')
+CONTENT=$(echo "$RESPONSE" | jq -r '.output.message.content[0].text')
 
 # Try to extract JSON from markdown code blocks, otherwise use as-is
 if echo "$CONTENT" | grep -q '```json'; then
