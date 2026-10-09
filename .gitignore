@@ -9,3 +9,11 @@ zsh-conf/.zcompcache
 zsh-conf/.zcompdump
 zsh-conf/.zsh_history
 zsh-conf/zshenvsecret
+kiro-conf/kiro-qwarry/*.sqlite3
+kiro-conf/sessions
+kiro-conf/session-index
+kiro-conf/logs
+kiro-conf/settings/feed_state.json
+kiro-conf/settings/survey_state.json
+kiro-conf/settings/kiro_cli_theme.json
+ghostty-conf/*.deb
