@@ -25,7 +25,7 @@ Request: $request"
 
 tmux display-message "ai: thinking..."
 
-raw=$(timeout 30 command kiro-cli chat --no-interactive --agent light --trust-tools= --wrap never "$prompt" 2>>"$LOG")
+raw=$(timeout 30 kiro-cli chat --no-interactive --agent light --trust-tools= --wrap never "$prompt" 2>>"$LOG")
 rc=$?
 printf '%s RAW(rc=%s): %s\n' "$(date +%T)" "$rc" "$raw" >>"$LOG"
 [[ $rc -eq 0 ]] || fail "kiro-cli failed (rc=$rc)"
