@@ -19,7 +19,8 @@ Use only window, session and pane management commands. Never use run-shell, if-s
 Current windows (format: session | index | name):
 $windows
 Highest index in use: $(tmux list-windows -F '#{window_index}' | sort -n | tail -1).
-Example: tmux move-window -s kiro-supplyLab -t 9
+Window targets use the form <session>:<index> (a colon, never a dot; a dot means a pane). Do not prepend the literal word 'session'.
+Example: tmux move-window -s 0:2 -t 0:9
 
 Request: $request"
 
