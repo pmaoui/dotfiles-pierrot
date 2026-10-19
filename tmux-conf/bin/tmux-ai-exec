@@ -30,10 +30,13 @@ rc=$?
 printf '%s RAW(rc=%s): %s\n' "$(date +%T)" "$rc" "$raw" >>"$LOG"
 [[ $rc -eq 0 ]] || fail "kiro-cli failed (rc=$rc)"
 
-cmd=$(printf '%s' "$raw" | sed 's/\x1b\[[0-9;]*m//g' | grep -m1 '^tmux ')
+cmd=$(printf '%s' "$raw" | sed 's/\x1b\[[0-9;]*m//g' | grep -m1 '^tmux ' || true)
 [[ -n $cmd ]] || fail "no command returned"
 
-[[ $cmd =~ [\;\&\|\`\$\<\>] || $cmd =~ (^|[[:space:]])(run-shell|run|if-shell|if|pipe-pane|pipep|send-keys|send)([[:space:]]|$) ]] \
-  && fail "rejected: $cmd"
+if [[ $cmd =~ [\;\&\|\`\$\<\>] || $cmd =~ (^|[[:space:]])(run-shell|run|if-shell|if|pipe-pane|pipep|send-keys|send)([[:space:]]|$) ]]; then
+  fail "rejected: $cmd"
+fi
 
+printf '%s OK: %s\n' "$(date +%T)" "$cmd" >>"$LOG"
 tmux command-prompt -p "ai (Enter/Esc):" -I "${cmd#tmux }"
+exit 0
