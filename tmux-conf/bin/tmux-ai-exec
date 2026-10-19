@@ -39,5 +39,6 @@ if [[ $cmd =~ [\;\&\|\`\$\<\>] || $cmd =~ (^|[[:space:]])(run-shell|run|if-shell
 fi
 
 printf '%s OK: %s\n' "$(date +%T)" "$cmd" >>"$LOG"
-tmux command-prompt -p "ai (Enter/Esc):" -I "${cmd#tmux }"
+cur=$(tmux display-message -p '#{window_id}')
+tmux command-prompt -p "ai (Enter/Esc):" -I "${cmd#tmux } ; select-window -t $cur"
 exit 0
