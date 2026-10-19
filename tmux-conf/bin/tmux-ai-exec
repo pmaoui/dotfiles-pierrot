@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+set -uo pipefail
+
+LOG=/tmp/tmux-ai-exec.log
+fail() {
+  printf '%s FAIL: %s\n' "$(date +%T)" "$*" >>"$LOG"
+  tmux display-message "ai: $* (see $LOG)"
+  exit 1
+}
+
+request=$(tmux show -gv @ai_prompt 2>/dev/null)
+[[ -n $request ]] || fail 'empty request, usage: :ai "<instruction>"'
+
+windows=$(tmux list-windows -F "session:#{session_name} | index:#{window_index} | name:#{window_name}")
+
+prompt="You translate a natural language request into ONE tmux shell command.
+Output only the raw command on a single line, starting with 'tmux '. No markdown, no backticks, no prose.
+Use only window, session and pane management commands. Never use run-shell, if-shell, pipe-pane or send-keys.
+Current windows (format: session | index | name):
+$windows
+Highest index in use: $(tmux list-windows -F '#{window_index}' | sort -n | tail -1).
+Example: tmux move-window -s kiro-supplyLab -t 9
+
+Request: $request"
+
+tmux display-message "ai: thinking..."
+
+raw=$(timeout 30 command kiro-cli chat --no-interactive --agent light --trust-tools= --wrap never "$prompt" 2>>"$LOG")
+rc=$?
+printf '%s RAW(rc=%s): %s\n' "$(date +%T)" "$rc" "$raw" >>"$LOG"
+[[ $rc -eq 0 ]] || fail "kiro-cli failed (rc=$rc)"
+
+cmd=$(printf '%s' "$raw" | sed 's/\x1b\[[0-9;]*m//g' | grep -m1 '^tmux ')
+[[ -n $cmd ]] || fail "no command returned"
+
+[[ $cmd =~ [\;\&\|\`\$\<\>] || $cmd =~ (^|[[:space:]])(run-shell|run|if-shell|if|pipe-pane|pipep|send-keys|send)([[:space:]]|$) ]] \
+  && fail "rejected: $cmd"
+
+tmux command-prompt -p "ai (Enter/Esc):" -I "${cmd#tmux }"
