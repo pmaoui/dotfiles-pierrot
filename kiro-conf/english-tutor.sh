@@ -108,7 +108,8 @@ if [ -n "$TMUX" ]; then
         COLOR="#00ff00"  # Green
     fi
     
-    BASE_STATUS='#(/home/pierrot/dotfiles-pierrot/tmux-conf/bin/tmux-sleep-timer) #{prefix}#{mouse}#{pairing}#{synchronized} , %R , %d %b '
+    CURRENT=$(tmux show-options -gv status-right 2>/dev/null)
+    BASE_STATUS=$(printf '%s' "$CURRENT" | sed 's/^.*#\[default\]//')
     tmux set-option -g status-right "#[fg=#000000,bg=${COLOR},bold] 🇬🇧 $SCORE #[default]$BASE_STATUS"
 fi
 

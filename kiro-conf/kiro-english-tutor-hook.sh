@@ -15,7 +15,8 @@ if echo "$PROMPT" | grep -q '```'; then
 fi
 
 if [ -n "$TMUX" ]; then
-    BASE_STATUS='#(/home/pierrot/dotfiles-pierrot/tmux-conf/bin/tmux-sleep-timer) #{prefix}#{mouse}#{pairing}#{synchronized} , %R , %d %b '
+    CURRENT=$(tmux show-options -gv status-right 2>/dev/null)
+    BASE_STATUS=$(printf '%s' "$CURRENT" | sed 's/^.*#\[default\]//')
     tmux set-option -g status-right "#[fg=#8a8a8a,bg=#080808] 🇬🇧 ⏳ #[default]$BASE_STATUS"
 fi
 
