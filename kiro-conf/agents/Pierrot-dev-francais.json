@@ -15,22 +15,69 @@
   "toolsSettings": {
     "execute_bash": {
       "autoAllowReadonly": true,
-      "allowedCommands": ["curl .*", "grep .*"]
+      "allowedCommands": [
+        "curl .*",
+        "grep .*"
+      ]
     }
   },
   "resources": [],
-  "hooks": {
-    "userPromptSubmit": [
-      {
+  "hooks": [
+    {
+      "name": "stop-0",
+      "trigger": "stop",
+      "action": {
+        "type": "command",
+        "command": "/home/pierrot/dotfiles-pierrot/kiro-conf/kiro-notify-if-long.sh"
+      },
+      "timeout": 10
+    },
+    {
+      "name": "userPromptSubmit-0",
+      "trigger": "userPromptSubmit",
+      "action": {
+        "type": "command",
         "command": "/home/pierrot/dotfiles-pierrot/kiro-conf/kiro-start-timer.sh"
+      },
+      "timeout": 10
+    }
+  ],
+  "useLegacyMcpJson": true,
+  "model": null,
+  "permissions": {
+    "rules": [
+      {
+        "capability": "shell",
+        "match": [
+          "curl *",
+          "grep *"
+        ],
+        "effect": "allow"
+      },
+      {
+        "capability": "fs_read",
+        "effect": "allow"
+      },
+      {
+        "capability": "shell",
+        "effect": "allow"
+      },
+      {
+        "capability": "subagent",
+        "effect": "allow"
+      },
+      {
+        "capability": "skill",
+        "effect": "allow"
       }
     ],
-    "stop": [
-      {
-        "command": "/home/pierrot/dotfiles-pierrot/kiro-conf/kiro-notify-if-long.sh"
-      }
+    "policies": [
+      "read-only-shell"
     ]
   },
-  "useLegacyMcpJson": true,
-  "model": null
+  "kiroUpgrade": {
+    "revision": 2,
+    "fingerprint": "sha256:5c2c263e07d1957559ce1d75b0dadabcaf43bb3fdf0f6819880e4e0fe4181fcc",
+    "source": "sha256:410501a2922171f59a56830030e7e17e8918047b61aca76ce5d30bd232fa7b4c"
+  }
 }

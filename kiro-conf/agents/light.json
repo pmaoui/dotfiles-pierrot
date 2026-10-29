@@ -1,18 +1,71 @@
 {
   "name": "light",
   "description": "Lightweight agent - no hooks, no restrictions",
-  "tools": ["@builtin"],
-  "allowedTools": ["fs_read", "fs_write", "execute_bash", "use_aws", "code", "web_search", "web_fetch", "grep", "glob"],
-  "hooks": {
-    "userPromptSubmit": [
-      {
-        "command": "/home/pierrot/dotfiles-pierrot/kiro-conf/kiro-start-timer.sh"
-      }
-    ],
-    "stop": [
-      {
+  "tools": [
+    "@builtin"
+  ],
+  "allowedTools": [
+    "fs_read",
+    "fs_write",
+    "execute_bash",
+    "use_aws",
+    "code",
+    "web_search",
+    "web_fetch",
+    "grep",
+    "glob"
+  ],
+  "hooks": [
+    {
+      "name": "stop-0",
+      "trigger": "stop",
+      "action": {
+        "type": "command",
         "command": "/home/pierrot/dotfiles-pierrot/kiro-conf/kiro-notify-if-long.sh"
+      },
+      "timeout": 10
+    },
+    {
+      "name": "userPromptSubmit-0",
+      "trigger": "userPromptSubmit",
+      "action": {
+        "type": "command",
+        "command": "/home/pierrot/dotfiles-pierrot/kiro-conf/kiro-start-timer.sh"
+      },
+      "timeout": 10
+    }
+  ],
+  "permissions": {
+    "rules": [
+      {
+        "capability": "fs_read",
+        "effect": "allow"
+      },
+      {
+        "capability": "fs_write",
+        "effect": "allow"
+      },
+      {
+        "capability": "shell",
+        "effect": "allow"
+      },
+      {
+        "capability": "web_fetch",
+        "effect": "allow"
+      },
+      {
+        "capability": "web_search",
+        "effect": "allow"
+      },
+      {
+        "capability": "skill",
+        "effect": "allow"
       }
     ]
+  },
+  "kiroUpgrade": {
+    "revision": 2,
+    "fingerprint": "sha256:1b7e2d9fb70d51858738e039709d77c491cdc34ab011f8f5f51d9e21418cbba7",
+    "source": "sha256:3075a2ff5c3277193de6613921a4cb00e3b18e7aa8c877af5abc1f3029747818"
   }
 }
