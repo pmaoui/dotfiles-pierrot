@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+f=$(tmux show-environment -g TMUX_SLEEP_FILE 2>/dev/null | cut -d= -f2)
+[ -n "$f" ] && [ -f "$f" ] || exit 0
+now=$(date +%s); end=$(cat "$f" 2>/dev/null) || exit 0
+left=$((end - now))
+[ "$left" -gt 0 ] && printf '⏳ %ds' "$left"
+exit 0
