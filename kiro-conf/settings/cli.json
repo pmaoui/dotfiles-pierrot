@@ -6,7 +6,8 @@
   "chat.enableTodoList": true,
   "chat.enableAutoAgentUpgrade": true,
   "chat.modelPicker.lastUsed": {
-    "claude-opus-5.5": 1793108959451,
-    "gpt-5.6-sol": 1793110758043
+    "claude-opus-5.5": 1793716601128,
+    "gpt-5.6-sol": 1793801652424,
+    "glm-5": 1793738878388
   }
 }
