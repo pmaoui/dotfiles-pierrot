@@ -1,7 +1,10 @@
 #!/usr/bin/env bash
-f=$(tmux show-environment -g TMUX_SLEEP_FILE 2>/dev/null | cut -d= -f2)
-[ -n "$f" ] && [ -f "$f" ] || exit 0
-now=$(date +%s); end=$(cat "$f" 2>/dev/null) || exit 0
-left=$((end - now))
-[ "$left" -gt 0 ] && printf '⏳ %ds' "$left"
+now=$(date +%s); max=0
+for p in $(tmux list-panes -t "$1" -F '#{pane_id}' 2>/dev/null); do
+  f="/tmp/tmux-sleep-$p"
+  [ -f "$f" ] || continue
+  left=$(( $(cat "$f" 2>/dev/null || echo 0) - now ))
+  [ "$left" -gt "$max" ] && max=$left
+done
+[ "$max" -gt 0 ] && printf '⏳ %ds' "$max"
 exit 0

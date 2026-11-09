@@ -233,7 +233,7 @@ tmux_conf_theme_right_separator_sub='\uE0B3'  #   PowerlineSymbols.otf font, see
 #     - #{username}
 #     - #{username_ssh}
 tmux_conf_theme_status_left=" ❐ #S "
-tmux_conf_theme_status_right="#(/home/pierrot/dotfiles-pierrot/tmux-conf/bin/tmux-sleep-timer) %R - %d %b "
+tmux_conf_theme_status_right="#(/home/pierrot/dotfiles-pierrot/tmux-conf/bin/tmux-sleep-timer #{window_id}) %R - %d %b "
 
 # status left style
 tmux_conf_theme_status_left_fg="$tmux_conf_theme_colour_6,$tmux_conf_theme_colour_7,$tmux_conf_theme_colour_8"
