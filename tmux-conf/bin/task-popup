@@ -4,8 +4,19 @@ pane=${1:?pane id required}
 here=$(dirname "$(readlink -f "$0")")
 
 if ! err=$("$here/task" count 2>&1 >/dev/null); then
-  printf '%s\n\nPress any key to close.' "$err"
-  read -rsn1
+  root=$(git rev-parse --show-toplevel 2>/dev/null)
+  if [ -n "$root" ]; then
+    printf 'No TASKS.md in %s\nCreate an empty one? [y/N] ' "$root"
+    read -rsn1 answer
+    if [ "$answer" = y ]; then
+      : > "$root/TASKS.md"
+      printf '\n\nCreated. Ask the agent to fill it.\n\nPress any key to close.'
+      read -rsn1
+    fi
+  else
+    printf '%s\n\nPress any key to close.' "$err"
+    read -rsn1
+  fi
   exit 0
 fi
 
