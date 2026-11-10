@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+# usage: task-popup <target pane id>
+pane=${1:?pane id required}
+here=$(dirname "$(readlink -f "$0")")
+
+if ! err=$("$here/task" count 2>&1 >/dev/null); then
+  printf '%s\n\nPress any key to close.' "$err"
+  read -rsn1
+  exit 0
+fi
+
+IFS=$'\t' read -r key id < <("$here/task" pick) || exit 0
+
+text=""
+[ -n "$id" ] && text=$("$here/task" prompt "$id")
+
+if [ -n "$text" ]; then
+  if [ "$key" = tab ]; then
+    text+=$'\n'
+  fi
+  printf '%s' "$text" | tmux load-buffer -b task-popup -
+  tmux paste-buffer -p -d -b task-popup -t "$pane"
+  if [ "$key" = enter ]; then
+    sleep 0.3
+    tmux send-keys -t "$pane" Enter
+  fi
+fi

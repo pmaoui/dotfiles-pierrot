@@ -6,5 +6,5 @@ for p in $(tmux list-panes -t "$1" -F '#{pane_id}' 2>/dev/null); do
   left=$(( $(cat "$f" 2>/dev/null || echo 0) - now ))
   [ "$left" -gt "$max" ] && max=$left
 done
-[ "$max" -gt 0 ] && printf '⏳ %ds' "$max"
+[ "$max" -gt 0 ] && printf '⏳ %ds ' "$max"
 exit 0

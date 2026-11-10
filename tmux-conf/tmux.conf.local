@@ -233,7 +233,7 @@ tmux_conf_theme_right_separator_sub='\uE0B3'  #   PowerlineSymbols.otf font, see
 #     - #{username}
 #     - #{username_ssh}
 tmux_conf_theme_status_left=" ❐ #S "
-tmux_conf_theme_status_right="#(/home/pierrot/dotfiles-pierrot/tmux-conf/bin/tmux-sleep-timer #{window_id}) %R - %d %b "
+tmux_conf_theme_status_right=" #(/home/pierrot/dotfiles-pierrot/tmux-conf/bin/tmux-sleep-timer #{window_id})#(/home/pierrot/dotfiles-pierrot/tmux-conf/bin/task-count #{pane_current_path})%R - %d %b "
 
 # status left style
 tmux_conf_theme_status_left_fg="$tmux_conf_theme_colour_6,$tmux_conf_theme_colour_7,$tmux_conf_theme_colour_8"
@@ -477,3 +477,6 @@ set -ga update-environment TERM_PROGRAM
 
 # Bind prefix+space to open yazi in english-tutor folder
 bind-key Space display-popup -E -w 90% -h 90% "yazi ~/dotfiles-pierrot/kiro-conf/english-tutor"
+
+# TASKS.md picker: Enter sends the task, Tab pastes it for editing, Esc cancels
+bind-key T run-shell "tmux display-popup -c '#{client_name}' -E -d '#{pane_current_path}' -h 60% -w 80% '/home/pierrot/dotfiles-pierrot/tmux-conf/bin/task-popup #{pane_id}'"
