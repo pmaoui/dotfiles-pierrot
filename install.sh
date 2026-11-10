@@ -9,6 +9,7 @@ sudo apt-get install -y \
   python3-pip \
   neovim \
   tmux \
+  fzf \
   zsh \
   xfonts-terminus \
   fonts-inconsolata \

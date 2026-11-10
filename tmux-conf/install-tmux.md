@@ -19,3 +19,16 @@ ln -s ~/dotfiles-pierrot/tmux-conf/tmux.conf.local ~/.tmux.conf.local
 # Edit the config
 
 It should go to `tmux.conf.local`
+
+# Scripts in PATH
+
+`qsleep` (countdown in the status bar) and `task` (TASKS.md parser and picker) are called by name.
+The other scripts in `bin/` are called by absolute path. `task` needs `fzf`.
+
+```
+mkdir -p ~/.local/bin
+ln -s ~/dotfiles-pierrot/tmux-conf/bin/qsleep ~/.local/bin/qsleep
+ln -s ~/dotfiles-pierrot/tmux-conf/bin/task ~/.local/bin/task
+```
+
+`prefix + T` opens the TASKS.md picker (Enter sends the task, Tab pastes it to edit).
