@@ -35,7 +35,7 @@ The agent keeps the open tasks of a project in `TASKS.md` at the repo root. tmux
 - Tab: pastes the same text without sending, cursor on a new line, so you can add words and send it yourself.
 - Esc: cancels. Without a `TASKS.md`, in a git repo, the popup offers to create an empty one (y/N). Outside a git repo it shows the error and waits for a key.
 
-The status bar shows `📋 done/total` in a blue badge. Nothing is shown without a `TASKS.md`.
+The status bar shows `📋 done/total (percent)` in a blue badge, for example `📋 13/14 (93%)`. The percent is rounded, and stays at 99% until every task is done. Nothing is shown without a `TASKS.md`.
 
 ## Agent rule (summary)
 

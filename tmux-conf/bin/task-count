@@ -2,5 +2,8 @@
 # usage: task-count <directory>; prints a colored "done/total" badge, nothing without tasks
 cd "${1:-.}" 2>/dev/null || exit 0
 read -r done_n total < <("$(dirname "$(readlink -f "$0")")/task" stats 2>/dev/null) || exit 0
-[ "${total:-0}" -gt 0 ] && printf '#[fg=#080808,bg=#00afff,bold] 📋 %s/%s #[default]  ' "$done_n" "$total"
+[ "${total:-0}" -gt 0 ] || exit 0
+pct=$(( (done_n * 100 + total / 2) / total ))
+[ "$done_n" -lt "$total" ] && [ "$pct" -gt 99 ] && pct=99
+printf '#[fg=#080808,bg=#00afff,bold] 📋 %s/%s (%s%%) #[default]  ' "$done_n" "$total" "$pct"
 exit 0
