@@ -22,5 +22,4 @@ kiro-conf/agents/*.bak.*
 kiro-conf/cloud-cache
 kiro-conf/enterprise-management
 kiro-conf/workspace-roots
-kiro-conf/steering
 ghostty-conf/*.deb
