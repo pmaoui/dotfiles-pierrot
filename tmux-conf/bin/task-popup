@@ -23,7 +23,13 @@ fi
 IFS=$'\t' read -r key id < <("$here/task" pick) || exit 0
 
 text=""
-[ -n "$id" ] && text=$("$here/task" prompt "$id")
+if [ -n "$id" ]; then
+  if [ "$key" = ctrl-e ]; then
+    text=$("$here/task" describe "$id")
+  else
+    text=$("$here/task" prompt "$id")
+  fi
+fi
 
 if [ -n "$text" ]; then
   if [ "$key" = tab ]; then
@@ -31,7 +37,7 @@ if [ -n "$text" ]; then
   fi
   printf '%s' "$text" | tmux load-buffer -b task-popup -
   tmux paste-buffer -p -d -b task-popup -t "$pane"
-  if [ "$key" = enter ]; then
+  if [ "$key" != tab ]; then
     sleep 0.3
     tmux send-keys -t "$pane" Enter
   fi
