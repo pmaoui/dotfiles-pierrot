@@ -1,10 +1,12 @@
 #!/usr/bin/env bash
 now=$(date +%s); max=0
 for p in $(tmux list-panes -t "$1" -F '#{pane_id}' 2>/dev/null); do
-  f="/tmp/tmux-sleep-$p"
-  [ -f "$f" ] || continue
-  left=$(( $(cat "$f" 2>/dev/null || echo 0) - now ))
-  [ "$left" -gt "$max" ] && max=$left
+  for f in /tmp/tmux-sleep-"$p"-*; do
+    [ -f "$f" ] || continue
+    left=$(( $(cat "$f" 2>/dev/null || echo 0) - now ))
+    [ "$left" -lt -60 ] && { rm -f "$f"; continue; }
+    [ "$left" -gt "$max" ] && max=$left
+  done
 done
-[ "$max" -gt 0 ] && printf '⏳ %ds ' "$max"
+[ "$max" -gt 0 ] && printf '#[fg=#080808,bg=#ff00af,bold] ⏳ %ds #[default]  ' "$max"
 exit 0

@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-f="/tmp/tmux-sleep-${TMUX_PANE:-$$}"
+f="/tmp/tmux-sleep-${TMUX_PANE:-none}-$$"
 trap 'rm -f "$f"' EXIT
 trap exit INT TERM
 echo $(( $(date +%s) + $1 )) > "$f"
