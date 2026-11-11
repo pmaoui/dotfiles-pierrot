@@ -44,9 +44,11 @@ parse() {
 }
 
 pick() {
-  local out key sel
+  local out key sel self
+  self=$(readlink -f "$0")
   out=$(parse list | fzf --delimiter=$'\t' --expect=tab --no-multi --reverse \
-    --prompt='task> ' --header='Enter: send   Tab: edit   Esc: cancel' || true)
+    --prompt='task> ' --header='Enter: send   Tab: edit   Esc: cancel' \
+    --preview "$self show {1}" --preview-window=down,40%,wrap || true)
   key=$(printf '%s\n' "$out" | sed -n 1p)
   sel=$(printf '%s\n' "$out" | sed -n 2p | cut -f1)
   [ -n "$key" ] || [ -n "$sel" ] || exit 1

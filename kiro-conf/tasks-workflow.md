@@ -34,6 +34,7 @@ The agent keeps the open tasks of a project in `TASKS.md` at the repo root. tmux
 - Enter: sends `Please do this (task N in TASKS.md): "<task line>"` plus the note, in the same session.
 - Tab: pastes the same text without sending, cursor on a new line, so you can add words and send it yourself.
 - Esc: cancels. Without a `TASKS.md`, in a git repo, the popup offers to create an empty one (y/N). Outside a git repo it shows the error and waits for a key.
+- The pane under the list previews the highlighted task in full, with its note.
 
 The status bar shows `📋 done/total (percent)` in a blue badge, for example `📋 13/14 (93%)`. The percent is rounded, and stays at 99% until every task is done. Nothing is shown without a `TASKS.md`.
 
@@ -47,7 +48,7 @@ Read `TASKS.md` at the start of a task, re-read it before editing. Work on the n
 
 `status-right` is ` <qsleep timer><task badge><time> - <date> `, set by `tmux_conf_theme_status_right` in `tmux.conf.local`.
 
-- `qsleep N` (`tmux-conf/bin/qsleep`) waits N seconds and writes its deadline to `/tmp/tmux-sleep-<pane id>`. `tmux-sleep-timer <window id>` shows the longest remaining one of the window's panes, so each window has its own countdown.
+- `qsleep N` (`tmux-conf/bin/qsleep`) waits N seconds and writes its deadline to `/tmp/tmux-sleep-<pane id>`. `tmux-sleep-timer <window id>` shows the longest remaining one of the window's panes, so each window has its own countdown. The global steering file `kiro-conf/steering/visible-sleep.md` tells every agent to use `qsleep` instead of `sleep` for waits (checked: a fresh session picks `qsleep 5`).
 - The english tutor flag (`kiro-english-tutor-hook.sh`, `english-tutor.sh`) takes the live `status-right`, drops everything up to the last `#[default]`, and prepends its flag. The base is never hardcoded in the scripts.
 
 ## Setup
