@@ -15,7 +15,8 @@
       "allowedCommands": [
         "curl .*",
         "grep .*",
-        "git rev-parse .*"
+        "git rev-parse .*",
+        "qsleep .*"
       ]
     },
     "use_aws": {
@@ -69,7 +70,8 @@
         "capability": "shell",
         "match": [
           "curl *",
-          "grep *"
+          "grep *",
+          "qsleep *"
         ],
         "effect": "allow"
       },
