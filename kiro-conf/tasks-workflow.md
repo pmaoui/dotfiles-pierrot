@@ -25,6 +25,7 @@ The agent keeps the open tasks of a project in `TASKS.md` at the repo root. tmux
 | `task-popup` | `tmux-conf/bin/task-popup` | fzf picker, pastes the chosen task into the pane that opened it. |
 | `task-count` | `tmux-conf/bin/task-count` | `done/total` badge in the status bar, for the active pane's repo. |
 | `prefix + T` | `tmux-conf/tmux.conf.local` | Opens the picker. Prefix is `C-Space`. |
+| `qtimer`, `timer-popup` | `tmux-conf/bin/` | Async timer engine (called through `qsleep --async`, `--list`, `--ack`) and its picker on `prefix + W`. See Async timers. |
 | Agent rule | `kiro-conf/agents/pierrot.json` | Prompt rule, `file://TASKS.md` resource, write allowance for `TASKS.md`. |
 
 ## Use
@@ -49,8 +50,27 @@ Read `TASKS.md` at the start of a task, re-read it before editing. Work on the n
 
 `status-right` is ` <qsleep timer><task badge><time> - <date> `, set by `tmux_conf_theme_status_right` in `tmux.conf.local`.
 
-- `qsleep N` (`tmux-conf/bin/qsleep`) waits N seconds and writes its deadline to `/tmp/tmux-sleep-<pane id>-<pid>`, one file per call so overlapping waits do not clobber each other. `tmux-sleep-timer <window id>` shows the longest remaining one of the window's panes as a magenta badge (`⏳ 12s`), so each window has its own countdown and it is easy to spot why a session looks frozen. Files from killed processes are removed once they are more than a minute old. The global steering file `kiro-conf/steering/visible-sleep.md` tells every agent to use `qsleep` instead of `sleep` for waits (checked: a fresh session picks `qsleep 5`).
+- `qsleep N` (`tmux-conf/bin/qsleep`) is a blocking wait with a countdown. It writes its deadline to `/tmp/tmux-sleep-<pane id>-<pid>`, one file per call so overlapping waits do not clobber each other. `tmux-sleep-timer <window id>` shows the longest remaining one of the window's panes as a magenta badge (`⏳ 02:05`, `⏳ 2h05m` beyond an hour), so each window has its own countdown and it is easy to spot why a session looks frozen. Files from killed processes are removed once they are more than a minute old. The global steering file `kiro-conf/steering/visible-sleep.md` tells every agent to use `qsleep` instead of `sleep` for waits (checked: a fresh session picks `qsleep 5`).
 - The english tutor flag (`kiro-english-tutor-hook.sh`, `english-tutor.sh`) takes the live `status-right`, drops everything up to the last `#[default]`, and prepends its flag. The base is never hardcoded in the scripts.
+
+## Async timers
+
+For a wait of 2 minutes or more the agent must not block: you could not talk to it meanwhile. It starts a timer and the conversation stays open.
+
+```
+qsleep --async 3600 "check the deploy status"   # timer B started, ends 15:53: check the deploy status
+qsleep --list [--all]                           # B  12m left  check the deploy status
+qsleep --ack B                                  # prints the message, removes the timer (also cancels a running one)
+```
+
+- The tool assigns the letter (A to Z, cyclic, a freed letter is not reused right away). The message is required: it is the agent's own reminder.
+- A timer is a file `/tmp/qtimers/<window id>/<letter>` (deadline, pane, bell sent, message). No background process, so nothing dies with the shell, and it survives a Kiro restart. It does not survive a reboot.
+- Scope is the window. Two Kiro panes in one window share the list. The same letter can exist in two windows.
+- Bar: `⏳ B 59:12 +2` (magenta, nearest timer and how many others) while running. When one has expired: white `✔ B +1`, with its age after 10 minutes (`✔ B 2h`), until acknowledged. Removed after 24 hours, or when its window is gone.
+- Bell: rung once per timer, for all windows (the status script only runs for the visible window, so it checks every window). A background window gets the tmux bell flag.
+- The agent is never woken up. You tell it: "B is done" runs `qsleep --ack B`. "A timer is done" runs `qsleep --list` first: one done, it acknowledges it; several, oldest first; none, it says how much time is left.
+- `prefix + W` lists the finished timers of the window. Enter sends "Timer B is done. Its reminder: ... Acknowledge it with `qsleep --ack B`, then continue." to the agent, Tab pastes it so you can edit it first. The popup acknowledges nothing: the agent does, as in the typed flow. With nothing finished it lists the running timers and waits for a key. (`prefix + J` is oh-my-tmux's resize, hence `W` for wait.)
+- `qsleep` is allowed without approval in `pierrot.json`, as a lone command. Chained with `;` or `&&` it asks.
 
 ## Setup
 
