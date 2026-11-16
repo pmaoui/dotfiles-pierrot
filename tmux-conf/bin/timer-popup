@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+# usage: timer-popup <target pane id>
+pane=${1:?pane id required}
+here=$(dirname "$(readlink -f "$0")")
+export TMUX_PANE=$pane
+
+read -r nd nr < <("$here/qtimer" counts)
+if [ "$nd" -eq 0 ]; then
+  "$here/qtimer" list
+  printf '\nNo finished timer. Press any key to close.'
+  read -rsn1
+  exit 0
+fi
+
+out=$("$here/qtimer" done | fzf --delimiter=$'\t' --expect=tab --no-multi --reverse \
+  --prompt='timer> ' --header="Enter: send   Tab: edit   Esc: cancel   ($nr still running)" \
+  --preview 'echo {3}' --preview-window=down,30%,wrap || true)
+key=$(printf '%s\n' "$out" | sed -n 1p)
+line=$(printf '%s\n' "$out" | sed -n 2p)
+[ -n "$line" ] || exit 0
+
+letter=$(cut -f1 <<< "$line")
+msg=$(cut -f3 <<< "$line")
+text="Timer $letter is done. Its reminder: $msg
+Acknowledge it with qsleep --ack $letter, then continue."
+
+[ "$key" = tab ] && text+=$'\n'
+printf '%s' "$text" | tmux load-buffer -b timer-popup -
+tmux paste-buffer -p -d -b timer-popup -t "$pane"
+if [ "$key" != tab ]; then
+  sleep 0.3
+  tmux send-keys -t "$pane" Enter
+fi

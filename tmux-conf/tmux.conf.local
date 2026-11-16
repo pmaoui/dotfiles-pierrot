@@ -480,3 +480,6 @@ bind-key Space display-popup -E -w 90% -h 90% "yazi ~/dotfiles-pierrot/kiro-conf
 
 # TASKS.md picker: Enter sends the task, Tab pastes it for editing, Esc cancels
 bind-key T run-shell "tmux display-popup -c '#{client_name}' -E -d '#{pane_current_path}' -h 60% -w 80% '/home/pierrot/dotfiles-pierrot/tmux-conf/bin/task-popup #{pane_id}'"
+
+# Timers picker: a finished async timer is sent to the agent (Enter) or pasted to edit (Tab)
+bind-key W run-shell "tmux display-popup -c '#{client_name}' -E -d '#{pane_current_path}' -h 40% -w 80% '/home/pierrot/dotfiles-pierrot/tmux-conf/bin/timer-popup #{pane_id}'"
