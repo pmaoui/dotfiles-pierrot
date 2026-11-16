@@ -1,4 +1,11 @@
 #!/usr/bin/env bash
+# usage: qsleep SECS | qsleep --async SECS "message" | qsleep --list [--all] | qsleep --ack LETTER
+here=$(dirname "$(readlink -f "$0")")
+case "${1:-}" in
+  --async) shift; exec "$here/qtimer" start "$@" ;;
+  --list)  shift; exec "$here/qtimer" list "$@" ;;
+  --ack)   shift; exec "$here/qtimer" ack "$@" ;;
+esac
 f="/tmp/tmux-sleep-${TMUX_PANE:-none}-$$"
 trap 'rm -f "$f"' EXIT
 trap exit INT TERM

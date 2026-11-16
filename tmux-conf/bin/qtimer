@@ -1,0 +1,174 @@
+#!/usr/bin/env bash
+# usage: qtimer start SECS "message" | list [--all] | ack LETTER | render WINDOW_ID
+# A timer is a file /tmp/qtimers/<window id>/<LETTER>: deadline, pane id, belled (0/1), message.
+base=/tmp/qtimers
+now=$(date +%s)
+
+die() { echo "qtimer: $1" >&2; exit "${2:-1}"; }
+
+window_of_pane() { tmux display-message -p -t "$TMUX_PANE" '#{window_id}'; }
+
+read_timer() {
+  { read -r deadline; read -r pane; read -r belled; msg=$(cat); } < "$1"
+}
+
+clock() { # seconds -> 59:12 or 2h13m
+  if [ "$1" -ge 3600 ]; then printf '%dh%02dm' $(($1 / 3600)) $(($1 % 3600 / 60))
+  else printf '%02d:%02d' $(($1 / 60)) $(($1 % 60)); fi
+}
+
+human() { # seconds -> 1h05m, 12m, 45s
+  if [ "$1" -ge 3600 ]; then printf '%dh%02dm' $(($1 / 3600)) $(($1 % 3600 / 60))
+  elif [ "$1" -ge 60 ]; then printf '%dm' $(($1 / 60))
+  else printf '%ds' "$1"; fi
+}
+
+age() { # seconds -> 3m, 2h, 1d
+  if [ "$1" -ge 86400 ]; then printf '%dd' $(($1 / 86400))
+  elif [ "$1" -ge 3600 ]; then printf '%dh' $(($1 / 3600))
+  else printf '%dm' $(($1 / 60)); fi
+}
+
+ring() {
+  local tty
+  tty=$(tmux display-message -p -t "$1" '#{pane_tty}' 2>/dev/null)
+  [ -w "$tty" ] && printf '\a' > "$tty"
+}
+
+start() {
+  local secs=$1 msg=$2 win dir last idx letter c i k letters deadline
+  [[ $secs =~ ^[0-9]+$ ]] && [ "$secs" -gt 0 ] || die 'SECS must be a positive integer' 2
+  [ -n "$msg" ] || die 'a message is required' 2
+  [ -n "${TMUX_PANE:-}" ] || die 'needs tmux'
+  win=$(window_of_pane)
+  dir=$base/$win
+  mkdir -p "$dir"
+  exec 9> "$dir/.lock"
+  flock 9
+  last=$(cat "$dir/.last" 2>/dev/null)
+  letters=({A..Z})
+  idx=-1
+  for i in "${!letters[@]}"; do [ "${letters[i]}" = "$last" ] && idx=$i; done
+  letter=
+  for k in $(seq 1 26); do
+    c=${letters[(idx + k) % 26]}
+    [ -e "$dir/$c" ] || { letter=$c; break; }
+  done
+  [ -n "$letter" ] || die 'all 26 letters are in use in this window'
+  deadline=$((now + secs))
+  printf '%s\n%s\n0\n%s\n' "$deadline" "$TMUX_PANE" "$(printf '%s' "$msg" | tr '\n\t' '  ')" > "$dir/$letter"
+  echo "$letter" > "$dir/.last"
+  echo "timer $letter started, ends $(date -d "@$deadline" +%H:%M): $msg"
+}
+
+list() {
+  local dirs=() dir f out win
+  if [ "${1:-}" = --all ]; then
+    dirs=("$base"/*/)
+  else
+    [ -n "${TMUX_PANE:-}" ] || die 'needs tmux'
+    dirs=("$base/$(window_of_pane)/")
+  fi
+  out=$(
+    for dir in "${dirs[@]}"; do
+      [ -d "$dir" ] || continue
+      win=$(basename "$dir")
+      for f in "$dir"[A-Z]; do
+        [ -f "$f" ] || continue
+        read_timer "$f"
+        if [ "$deadline" -le "$now" ]; then state="done $(age $((now - deadline))) ago"
+        else state="$(human $((deadline - now))) left"; fi
+        [ "${1:-}" = --all ] && prefix="$win " || prefix=
+        printf '%s\t%s%s  %s  %s\n' "$deadline" "$prefix" "${f##*/}" "$state" "$msg"
+      done
+    done | sort -n | cut -f2-
+  )
+  [ -n "$out" ] && echo "$out" || echo 'no timers'
+}
+
+timers_of_window() { # prints "deadline<TAB>letter<TAB>message" for the window of $TMUX_PANE
+  local f
+  [ -n "${TMUX_PANE:-}" ] || die 'needs tmux'
+  for f in "$base/$(window_of_pane)"/[A-Z]; do
+    [ -f "$f" ] || continue
+    read_timer "$f"
+    printf '%s\t%s\t%s\n' "$deadline" "${f##*/}" "$msg"
+  done | sort -n
+}
+
+done_timers() { # letter, state, message (tab separated), oldest first
+  local deadline letter msg
+  timers_of_window | while IFS=$'\t' read -r deadline letter msg; do
+    [ "$deadline" -le "$now" ] && printf '%s\tdone %s ago\t%s\n' "$letter" "$(age $((now - deadline)))" "$msg"
+  done
+}
+
+counts() { # "done running"
+  local nd=0 nr=0 deadline rest
+  while IFS=$'\t' read -r deadline rest; do
+    if [ "$deadline" -le "$now" ]; then nd=$((nd + 1)); else nr=$((nr + 1)); fi
+  done < <(timers_of_window)
+  echo "$nd $nr"
+}
+
+ack() {
+  local letter=${1^^} f state
+  [ -n "${TMUX_PANE:-}" ] || die 'needs tmux'
+  f=$base/$(window_of_pane)/$letter
+  [ -f "$f" ] || die "no timer $letter in this window"
+  read_timer "$f"
+  rm -f "$f"
+  if [ "$deadline" -le "$now" ]; then state="was done $(age $((now - deadline))) ago"
+  else state="cancelled with $(human $((deadline - now))) left"; fi
+  echo "timer $letter acknowledged ($state): $msg"
+}
+
+render() {
+  local cur=$1 live dir w f letter nd=0 nr=0 total first badge ago
+  local dones=() runs=()
+  live=$(tmux list-windows -a -F '#{window_id}')
+  for dir in "$base"/*/; do
+    [ -d "$dir" ] || continue
+    w=$(basename "$dir")
+    if ! grep -qx "$w" <<< "$live"; then rm -rf "$dir"; continue; fi
+    for f in "$dir"[A-Z]; do
+      [ -f "$f" ] || continue
+      read_timer "$f"
+      [ "$deadline" -le "$now" ] || continue
+      [ "$belled" = 0 ] && { ring "$pane"; sed -i '3s/.*/1/' "$f"; }
+      [ $((now - deadline)) -gt 86400 ] && rm -f "$f"
+    done
+  done
+  for f in "$base/$cur"/[A-Z]; do
+    [ -f "$f" ] || continue
+    letter=${f##*/}
+    read_timer "$f"
+    if [ "$deadline" -le "$now" ]; then dones+=("$deadline $letter"); else runs+=("$deadline $letter"); fi
+  done
+  nd=${#dones[@]}; nr=${#runs[@]}; total=$((nd + nr))
+  [ "$total" -gt 0 ] || return 0
+  if [ "$nd" -gt 0 ]; then
+    first=$(printf '%s\n' "${dones[@]}" | sort -n | head -1)
+    ago=$((now - ${first% *}))
+    badge="✔ ${first#* }"
+    [ "$ago" -gt 600 ] && badge+=" $(age "$ago")"
+    [ "$total" -gt 1 ] && badge+=" +$((total - 1))"
+    printf '#[fg=#080808,bg=#ffffff,bold] %s #[default]  ' "$badge"
+  else
+    first=$(printf '%s\n' "${runs[@]}" | sort -n | head -1)
+    badge="⏳ ${first#* } $(clock $((${first% *} - now)))"
+    [ "$total" -gt 1 ] && badge+=" +$((total - 1))"
+    printf '#[fg=#080808,bg=#ff00af,bold] %s #[default]  ' "$badge"
+  fi
+}
+
+case "${1:-}" in
+  start)  start "${2:-}" "${3:-}" ;;
+  list)   list "${2:-}" ;;
+  ack)    ack "${2:?letter required}" ;;
+  done)   done_timers ;;
+  counts) counts ;;
+  render) render "${2:?window id required}" ;;
+  clock)  clock "${2:?seconds required}"; echo ;;
+  *)      die 'usage: qtimer start SECS "message" | list [--all] | ack LETTER | render WINDOW_ID' 2 ;;
+esac

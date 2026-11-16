@@ -8,5 +8,7 @@ for p in $(tmux list-panes -t "$1" -F '#{pane_id}' 2>/dev/null); do
     [ "$left" -gt "$max" ] && max=$left
   done
 done
-[ "$max" -gt 0 ] && printf '#[fg=#080808,bg=#ff00af,bold] ⏳ %ds #[default]  ' "$max"
+here=$(dirname "$(readlink -f "$0")")
+[ "$max" -gt 0 ] && printf '#[fg=#080808,bg=#ff00af,bold] ⏳ %s #[default]  ' "$("$here/qtimer" clock "$max")"
+"$here/qtimer" render "$1"
 exit 0
